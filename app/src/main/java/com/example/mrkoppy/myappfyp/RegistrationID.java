@@ -37,7 +37,7 @@ public class RegistrationID extends AppCompatActivity {
     }
 
     /*OnReg function for register button(btn_reg)*/
-    public void OnReg(View view) {
+    public void OnReg(View view) throws InterruptedException {
         /*Check which one radio button press by users and pass str_gender_id into radio_gender variable*/
         /*Toast the content and display which gender selected by users, and show it on a jump frame*/
         /*pass the information in radio_gender into string(from int to string) because db declaration in String type*/
@@ -60,6 +60,8 @@ public class RegistrationID extends AppCompatActivity {
 
         if (!validate()){
             Toast.makeText(this,"Register has failed",Toast.LENGTH_SHORT).show();
+            new Thread();
+            Thread.sleep(5000);
             finish();
             startActivity(getIntent());
         }
@@ -72,10 +74,6 @@ public class RegistrationID extends AppCompatActivity {
 
 
 //        /*Log.d("aaa", "43434"); can check which part wrong */
-    }
-
-    public void register(){
-
     }
 
     public boolean validate(){
