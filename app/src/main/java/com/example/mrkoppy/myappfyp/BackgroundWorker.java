@@ -2,6 +2,8 @@ package com.example.mrkoppy.myappfyp;
 
 import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 
 import java.io.BufferedReader;
@@ -37,8 +39,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "http://192.168.43.41/login.php";
-        String register_url = "http://192.168.43.41/register.php";
+        String login_url = "http://192.168.0.103/login.php";
+        String register_url = "http://192.168.0.103/register.php";
         if(type.equals("login")){
             try {
                 String user_name = params[1];
@@ -134,7 +136,31 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     @Override
     protected void onPostExecute(String result) {
         alertDialog.setMessage(result);
+
+        if(result.equals("login success!!!!!!")) {
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context,RolePage.class);
+                    context.startActivity(intent);
+                }
+            });
+        }
+
+        else if(result.equals("Insert Successfully")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context,MainActivity.class);
+                    context.startActivity(intent);
+                }
+            });
+
+        }
+
         alertDialog.show();
+
+
     }
 
     @Override

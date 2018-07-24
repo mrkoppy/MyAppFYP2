@@ -55,8 +55,18 @@ public class RegistrationID extends AppCompatActivity {
         str_role = radio_role.getText().toString();
         type = "register";
 
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, str_gender, str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_role);
+        if (!validate()){
+            Toast.makeText(this,"Register has failed",Toast.LENGTH_SHORT).show();
+            finish();
+            startActivity(getIntent());
+        }
+
+        else {
+            BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+            backgroundWorker.execute(type, str_gender, str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_role);
+        }
+
+
 
 //        /*Log.d("aaa", "43434"); can check which part wrong */
     }
@@ -65,12 +75,37 @@ public class RegistrationID extends AppCompatActivity {
 
     }
 
-    public void initialize(){
-
-    }
-
-    public void storedatatobgworker(){
-
+    public boolean validate(){
+        boolean valid = true;
+        if(str_name.isEmpty()||str_name.length()>32){
+            name.setError("Please Enter valid name");
+            valid = false;
+        }
+        else if(str_email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(str_email).matches()){
+            email.setError("Please Enter valid Email Address");
+            valid = false;
+        }
+        else if(str_mobile.isEmpty()){
+            mobile.setError("Please Enter valid mobile number");
+            valid = false;
+        }
+        else if(str_postcode.isEmpty()){
+            postcode.setError("Please Enter valid postcode number");
+            valid = false;
+        }
+        else if(str_studentid.isEmpty()){
+            studentid.setError("Please Enter valid Student ID");
+            valid = false;
+        }
+        else if(str_password.isEmpty()){
+            password.setError("Please Enter valid postcode number");
+            valid = false;
+        }
+        else if(str_confirmpassword.isEmpty()){
+            confirmpassword.setError("Please Enter valid postcode number");
+            valid = false;
+        }
+        return valid;
     }
 
 }
