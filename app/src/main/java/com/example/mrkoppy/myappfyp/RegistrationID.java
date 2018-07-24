@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 public class RegistrationID extends AppCompatActivity {
     /*Created radiogroup,radiobutton,edittext variables*/
     RadioGroup gender,role;
@@ -49,6 +51,7 @@ public class RegistrationID extends AppCompatActivity {
         str_postcode = postcode.getText().toString();
         str_studentid = studentid.getText().toString();
         str_password = password.getText().toString();
+        str_confirmpassword = confirmpassword.getText().toString();
         int str_role_id = role.getCheckedRadioButtonId();
         radio_role = findViewById(str_role_id);
         Toast.makeText(this,"Your Selected Role: " + radio_role.getText(),Toast.LENGTH_LONG).show();
@@ -77,31 +80,31 @@ public class RegistrationID extends AppCompatActivity {
 
     public boolean validate(){
         boolean valid = true;
-        if(str_name.isEmpty()||str_name.length()>32){
+        if(str_name.isEmpty()||str_name.length()>10||str_name.length()<3){
             name.setError("Please Enter valid name");
             valid = false;
         }
-        else if(str_email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(str_email).matches()){
+        if(str_email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(str_email).matches()){
             email.setError("Please Enter valid Email Address");
             valid = false;
         }
-        else if(str_mobile.isEmpty()){
+        if(str_mobile.isEmpty()||str_mobile.length()<10||str_mobile.length()>12 ){
             mobile.setError("Please Enter valid mobile number");
             valid = false;
         }
-        else if(str_postcode.isEmpty()){
+        if(str_postcode.isEmpty()||str_postcode.length()<4||str_postcode.length()>6){
             postcode.setError("Please Enter valid postcode number");
             valid = false;
         }
-        else if(str_studentid.isEmpty()){
+        if(str_studentid.isEmpty()||str_studentid.length()>10||str_studentid.length()<10){
             studentid.setError("Please Enter valid Student ID");
             valid = false;
         }
-        else if(str_password.isEmpty()){
+        if(str_password.isEmpty()){
             password.setError("Please Enter valid postcode number");
             valid = false;
         }
-        else if(str_confirmpassword.isEmpty()){
+        if(str_confirmpassword.isEmpty()|| !str_confirmpassword.equals(str_password)){
             confirmpassword.setError("Please Enter valid postcode number");
             valid = false;
         }
