@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background"
+    tools:context=".RegistrationID">
+
+    <TextView
+        android:id="@+id/topTitle1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="11dp"
+        android:text="@string/fill_in_your_information"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_reg"
+        android:layout_width="150dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="23dp"
+        android:background="#2196F3"
+        android:text="@string/register"
+        android:textColor="#FFF"
+        android:textSize="18sp"
+        android:onClick="OnReg"/>
+
+    <RadioGroup
+        android:id="@+id/radioGrp"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="48dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rd_Male"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/male"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rd_Female"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:checked="false"
+            android:text="@string/female"
+            android:textColor="#000"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/et_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="85dp"
+        android:background="#FEF3F1"
+        android:hint="@string/name"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="125dp"
+        android:background="#FEF3F1"
+        android:hint="@string/email"
+        android:inputType="textPersonName|textWebEmailAddress" />
+
+    <EditText
+        android:id="@+id/et_mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="165dp"
+        android:background="#FEF3F1"
+        android:hint="@string/mobile"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_postcode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="205dp"
+        android:background="#FEF3F1"
+        android:ems="10"
+        android:hint="@string/postcode"
+        android:inputType="number" />
+
+    <EditText
+        android:id="@+id/et_studentid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="245dp"
+        android:background="#FEF3F1"
+        android:ems="10"
+        android:hint="@string/student_id"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/et_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="285dp"
+        android:background="#FEF3F1"
+        android:hint="@string/password"
+        android:inputType="textPassword" />
+
+    <EditText
+        android:id="@+id/et_confirmpassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="325dp"
+        android:background="#FEF3F1"
+        android:hint="@string/confirm_password"
+        android:inputType="textPassword" />
+
+    <RadioGroup
+        android:id="@+id/radioGrp1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="365dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rd_Driver"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_weight="1"
+            android:checked="true"
+            android:text="@string/driver_register"
+            android:textColor="#000"
+            android:textSize="14sp" />
+
+        <RadioButton
+            android:id="@+id/rd_Rider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end"
+            android:layout_weight="1"
+            android:checked="false"
+            android:text="@string/rider_register"
+            android:textColor="#000"
+            android:textSize="14sp" />
+    </RadioGroup>
+
+
+</RelativeLayout>

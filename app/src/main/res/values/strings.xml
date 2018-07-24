@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <resources>
+        <string name="app_name">MyAppFYP</string>
+        <string name="huuride">HUURIDE</string>
+        <string name="user_id">User ID</string>
+        <string name="password_main">Password</string>
+        <string name="login">Login</string>
+        <string name="sign_up">Sign Up</string>
+        <string name="forget_password">Forget Password</string>
+        <string name="fill_in_your_information">Fill in your information</string>
+        <string name="register">Register</string>
+        <string name="male">Male</string>
+        <string name="female">Female</string>
+        <string name="name">Name</string>
+        <string name="email">Email</string>
+        <string name="mobile">Mobile</string>
+        <string name="postcode">Postcode</string>
+        <string name="student_id">Student ID</string>
+        <string name="password">Password</string>
+        <string name="confirm_password">Confirm Password</string>
+        <string name="driver_register">Driver</string>
+        <string name="rider_register">Rider</string>
+        <string name="pick_your_role">Pick Your Role</string>
+        <string name="driver_role">Driver</string>
+        <string name="rider">Rider</string>
+        <string name="driverlogorolepage">DriverLogoRolePage</string>
+    </resources>
