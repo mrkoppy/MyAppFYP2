@@ -130,7 +130,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         alertDialog.setTitle("Status");
     }
 
-    /*Coz first of all start with String so display result display as String type(String result)*/
+    /*Coz first of all start with String so display result display as String type(String result) */
     @Override
     protected void onPostExecute(String result) {
         alertDialog.setMessage(result);
