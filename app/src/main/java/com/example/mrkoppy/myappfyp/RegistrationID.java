@@ -10,6 +10,8 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import java.util.regex.Pattern;
+
 public class RegistrationID extends AppCompatActivity {
     /*Created radiogroup,radiobutton,edittext variables*/
     RadioGroup gender,role;
@@ -35,7 +37,7 @@ public class RegistrationID extends AppCompatActivity {
     }
 
     /*OnReg function for register button(btn_reg)*/
-    public void OnReg(View view) {
+    public void OnReg(View view) throws InterruptedException {
         /*Check which one radio button press by users and pass str_gender_id into radio_gender variable*/
         /*Toast the content and display which gender selected by users, and show it on a jump frame*/
         /*pass the information in radio_gender into string(from int to string) because db declaration in String type*/
@@ -49,28 +51,62 @@ public class RegistrationID extends AppCompatActivity {
         str_postcode = postcode.getText().toString();
         str_studentid = studentid.getText().toString();
         str_password = password.getText().toString();
+        str_confirmpassword = confirmpassword.getText().toString();
         int str_role_id = role.getCheckedRadioButtonId();
         radio_role = findViewById(str_role_id);
         Toast.makeText(this,"Your Selected Role: " + radio_role.getText(),Toast.LENGTH_LONG).show();
         str_role = radio_role.getText().toString();
         type = "register";
 
-        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, str_gender, str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_role);
+        if (!validate()){
+            Toast.makeText(this,"Register has failed",Toast.LENGTH_SHORT).show();
+            new Thread();
+            Thread.sleep(5000);
+            finish();
+            startActivity(getIntent());
+        }
+
+        else {
+            BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+            backgroundWorker.execute(type, str_gender, str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_role);
+        }
+
+
 
 //        /*Log.d("aaa", "43434"); can check which part wrong */
     }
 
-    public void register(){
-
-    }
-
-    public void initialize(){
-
-    }
-
-    public void storedatatobgworker(){
-
+    public boolean validate(){
+        boolean valid = true;
+        if(str_name.isEmpty()||str_name.length()>10||str_name.length()<3){
+            name.setError("Please Enter valid name");
+            valid = false;
+        }
+        if(str_email.isEmpty()||!Patterns.EMAIL_ADDRESS.matcher(str_email).matches()){
+            email.setError("Please Enter valid Email Address");
+            valid = false;
+        }
+        if(str_mobile.isEmpty()||str_mobile.length()<10||str_mobile.length()>12 ){
+            mobile.setError("Please Enter valid mobile number");
+            valid = false;
+        }
+        if(str_postcode.isEmpty()||str_postcode.length()<4||str_postcode.length()>6){
+            postcode.setError("Please Enter valid postcode number");
+            valid = false;
+        }
+        if(str_studentid.isEmpty()||str_studentid.length()>10||str_studentid.length()<10){
+            studentid.setError("Please Enter valid Student ID");
+            valid = false;
+        }
+        if(str_password.isEmpty()){
+            password.setError("Please Enter valid postcode number");
+            valid = false;
+        }
+        if(str_confirmpassword.isEmpty()|| !str_confirmpassword.equals(str_password)){
+            confirmpassword.setError("Please Enter valid postcode number");
+            valid = false;
+        }
+        return valid;
     }
 
 }
