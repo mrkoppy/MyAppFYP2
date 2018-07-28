@@ -29,7 +29,8 @@
         android:background="#2196F3"
         android:text="@string/driver_role"
         android:textColor="#FFF"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:onClick="openDriverPage"/>
 
     <Button
         android:id="@+id/bt_Rider"
@@ -41,7 +42,8 @@
         android:background="#2196F3"
         android:text="@string/rider"
         android:textColor="#FFF"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:onClick="openRiderPage"/>
 
     <ImageView
         android:id="@+id/imageView4"
@@ -51,7 +53,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="141dp"
         app:srcCompat="@drawable/driverlogo"
-        android:contentDescription="@string/driverlogorolepage" />
+        android:contentDescription="driverlogorolepage" />
 
     <ImageView
         android:id="@+id/imageView2"
