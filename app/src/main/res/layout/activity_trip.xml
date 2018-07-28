@@ -4,6 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="@layout/navigation_header"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -25,6 +26,25 @@
         app:headerLayout="@layout/navigation_header"
         app:menu="@menu/navigation_menu"
         >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/btnChangerole"
+                android:layout_width="150dp"
+                android:layout_height="50dp"
+                android:text="@string/switch_role_navigation_bar"
+                android:textColor="#FFF"
+                android:onClick="onSwitchRole"
+                android:background="#2196F3"
+                 />
+        </LinearLayout>
 
     </android.support.design.widget.NavigationView>
 

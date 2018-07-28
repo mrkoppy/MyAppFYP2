@@ -3,28 +3,28 @@
 
     <item
         android:id="@+id/myprofile"
-        android:title="My Profile"
+        android:title="@string/my_profile"
         android:icon="@drawable/ic_person_black_24dp"
         >
     </item>
 
     <item
         android:id="@+id/triprecord"
-        android:title="Browse trip record"
+        android:title="@string/browse_trip_record"
         android:icon="@drawable/ic_open_in_browser_black_24dp"
         >
     </item>
 
     <item
         android:id="@+id/chatroom"
-        android:title="Group Chatroom"
+        android:title="@string/group_chatroom"
         android:icon="@drawable/ic_chat_black_24dp"
         >
     </item>
 
     <item
         android:id="@+id/alert"
-        android:title="Alert"
+        android:title="@string/alert"
         android:icon="@drawable/ic_add_alert_black_24dp"
         >
     </item>

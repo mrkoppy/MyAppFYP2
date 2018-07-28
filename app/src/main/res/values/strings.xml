@@ -25,4 +25,10 @@
     <string name="rider">Rider</string>
     <string name="Open">NavBar</string>
     <string name="Close">NavBar</string>
+
+    <string name="my_profile">My Profile</string>
+    <string name="browse_trip_record">Browse trip record</string>
+    <string name="group_chatroom">Group Chatroom</string>
+    <string name="alert">Alert</string>
+    <string name="switch_role_navigation_bar">Switch Role</string>
 </resources>

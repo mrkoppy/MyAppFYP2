@@ -1,5 +1,6 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
@@ -7,13 +8,19 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Toast;
 
 public class trip extends AppCompatActivity {
 
+    //side navigation menu for trip page
     private DrawerLayout drawerlayout;
     private ActionBarDrawerToggle abdt;
 
+    /*drawerlistener for ActionBarDrawerToggle so that can click it
+    setdrawerIndicatorEnabled top-left there change to original button and proceed can click
+    * sync it so animation will start to move it
+    * set home button can change back to original state*/
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -57,5 +64,10 @@ public class trip extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    public void onSwitchRole(View view){
+        Intent intent = new Intent(this, RolePage.class);
+        startActivity(intent);
     }
 }

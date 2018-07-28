@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     private EditText UsernameEt, PasswordEt;
     private String username,password,type;
     private Button mplogin;
+    /*Login counter havent set !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
     private int counter = 5;
     AlertDialog alertDialog1;
 
