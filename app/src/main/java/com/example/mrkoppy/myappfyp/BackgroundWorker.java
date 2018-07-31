@@ -123,7 +123,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        } else if (type.equals("update")){
+        } else if (type.equals("renew")){
             try {
                 String name = params[1];
                 String password = params[2];

@@ -4,26 +4,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".myprofile"
+    tools:context=".myvehicle"
     android:background="@drawable/background">
 
     <Button
-        android:id="@+id/btn_profiledetails"
+        android:id="@+id/btn_profiledetails2"
         android:layout_width="150sp"
         android:layout_height="50sp"
         android:layout_alignParentStart="true"
-        android:layout_alignTop="@+id/btn_vehicledetails"
+        android:layout_alignTop="@+id/btn_vehicledetails2"
         android:layout_marginStart="29dp"
         android:background="#2196F3"
-        android:text="@string/profile_details"
+        android:text="@string/profile_details2"
         android:textColor="#FFF"
         android:textSize="15sp"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="29dp"
-        android:onClick="btn_redirecttoprofiledetails"/>
+        android:onClick="btn_redirecttoprofiledetails2"/>
 
     <Button
-        android:id="@+id/btn_vehicledetails"
+        android:id="@+id/btn_vehicledetails2"
         android:layout_width="150sp"
         android:layout_height="50sp"
         android:layout_alignParentEnd="true"
@@ -31,69 +31,77 @@
         android:layout_marginEnd="19dp"
         android:layout_marginTop="22dp"
         android:background="#2196F3"
-        android:text="@string/vehicle_details"
+        android:text="@string/vehicle_details2"
         android:textColor="#FFF"
         android:textSize="15sp"
         android:layout_alignParentRight="true"
         android:layout_marginRight="19dp"
-        android:onClick="btn_redirecttovehicledetails"/>
+        android:onClick="btn_redirecttovehicledetails2"/>
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="107dp"
-        android:layout_height="100dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="123dp"
-        app:srcCompat="@drawable/ic_action_ppl" />
 
     <EditText
-        android:id="@+id/et_updateusername"
+        android:id="@+id/et_carplate"
         android:layout_width="350dp"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="227dp"
+        android:layout_marginTop="125dp"
         android:background="#11000000"
-        android:drawableLeft="@drawable/ic_action_user"
-        android:drawableStart="@drawable/ic_action_user"
+        android:drawableLeft="@drawable/ic_card_membership_black_24dp"
+        android:drawableStart="@drawable/ic_card_membership_black_24dp"
         android:ems="10"
-        android:hint="@string/user_name"
+        android:hint="@string/car_plate"
         android:inputType="textPersonName"
         android:textColorHint="#ff0000"
         android:textSize="20sp" />
 
     <EditText
-        android:id="@+id/et_updatepassword"
+        android:id="@+id/et_carmodel"
         android:layout_width="350dp"
         android:layout_height="40dp"
-        android:layout_alignParentBottom="true"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="170dp"
+        android:layout_marginTop="210dp"
         android:background="#11000000"
-        android:drawableLeft="@drawable/ic_action_password"
-        android:drawableStart="@drawable/ic_action_password"
+        android:drawableLeft="@drawable/ic_directions_car_black_24dp"
+        android:drawableStart="@drawable/ic_directions_car_black_24dp"
         android:ems="10"
-        android:hint="@string/user_password"
+        android:hint="@string/car_model"
+        android:inputType="textPassword"
+        android:textColorHint="#ff0000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_carseats"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="295dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_airline_seat_recline_normal_black_24dp"
+        android:drawableStart="@drawable/ic_airline_seat_recline_normal_black_24dp"
+        android:ems="10"
+        android:hint="@string/car_seats"
         android:inputType="textPassword"
         android:textColorHint="#ff0000"
         android:textSize="20sp" />
 
     <Button
-        android:id="@+id/btn_renew"
+        android:id="@+id/btn_update2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp"
         android:background="#2196F3"
-        android:text="@string/renew"
+        android:text="@string/update"
         android:textColor="#FFF"
         android:textSize="15sp"
-        android:onClick="OnRenew"/>
+        android:onClick="OnUpdate2"/>
 
     <Button
-        android:id="@+id/btnReturnMainMenu"
+        android:id="@+id/btnReturnMainMenu2"
         android:layout_width="200dp"
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
@@ -101,6 +109,6 @@
         android:background="#C2B1B1"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp"
-        android:onClick="btn_redirectmainmenu1"/>
+        android:onClick="btn_redirectmainmenu2"/>
 
 </RelativeLayout>

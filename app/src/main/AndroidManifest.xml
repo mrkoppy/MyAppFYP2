@@ -19,7 +19,8 @@
         <activity android:name=".RolePage" />
         <activity android:name=".RegistrationID" />
         <activity android:name=".trip" />
-        <activity android:name=".myprofile"></activity>
+        <activity android:name=".myprofile" />
+        <activity android:name=".myvehicle"></activity>
     </application>
 
 </manifest>
