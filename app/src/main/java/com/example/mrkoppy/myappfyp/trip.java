@@ -9,6 +9,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class trip extends AppCompatActivity {
@@ -16,6 +18,9 @@ public class trip extends AppCompatActivity {
     //side navigation menu for trip page
     private DrawerLayout drawerlayout;
     private ActionBarDrawerToggle abdt;
+    private EditText headernameEt, headeremailEt;
+    private TextView headernameTv,headeremailTv;
+    private String nameTv,emailTv;
 
     /*drawerlistener for ActionBarDrawerToggle so that can click it
     setdrawerIndicatorEnabled top-left there change to original button and proceed can click
@@ -43,18 +48,20 @@ public class trip extends AppCompatActivity {
 
                 if(id == R.id.myprofile){
                     Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this, myprofile.class);
+                    startActivity(intent);
                 }
 
                 else if(id == R.id.triprecord){
-                    Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(trip.this,"Browse Trip Record",Toast.LENGTH_SHORT).show();
                 }
 
                 else if(id == R.id.chatroom){
-                    Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT).show();
+                    Toast.makeText(trip.this,"Group Chatroom",Toast.LENGTH_SHORT).show();
                 }
 
                 else if(id == R.id.alert){
-                    Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT);
+                    Toast.makeText(trip.this,"Alert",Toast.LENGTH_SHORT);
                 }
                 return true;
             }

@@ -29,6 +29,7 @@
         android:textSize="30sp"
         android:textStyle="bold" />
 
+    <!--change it to user email to prevent redundant-->
     <EditText
         android:id="@+id/etUserName"
         android:layout_width="350dp"

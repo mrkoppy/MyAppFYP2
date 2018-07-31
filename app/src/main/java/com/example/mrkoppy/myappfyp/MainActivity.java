@@ -27,12 +27,6 @@ public class MainActivity extends AppCompatActivity {
         PasswordEt = (EditText) findViewById(R.id.etPassword);
         mplogin = (Button)findViewById(R.id.btnLogin);
 
-        /*mplogin.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                validation(UsernameEt.getText().toString(),PasswordEt.getText().toString());
-            }
-        });*/
     }
 
         /*OnLogin function for Login button(btnLogin)*/

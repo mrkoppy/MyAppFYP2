@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".myprofile"
+    android:background="@drawable/background">
+
+    <Button
+        android:id="@+id/btn_profiledetails"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/btn_vehicledetails"
+        android:layout_marginStart="29dp"
+        android:background="#2196F3"
+        android:text="Profile Details"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="29dp" />
+
+    <Button
+        android:id="@+id/btn_vehicledetails"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginTop="22dp"
+        android:background="#2196F3"
+        android:text="Vehicle Details"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp" />
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="107dp"
+        android:layout_height="100dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="123dp"
+        app:srcCompat="@drawable/ic_action_ppl" />
+
+    <EditText
+        android:id="@+id/et_updateusername"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="227dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_user"
+        android:drawableStart="@drawable/ic_action_user"
+        android:ems="10"
+        android:hint="User Name"
+        android:inputType="textPersonName"
+        android:textColorHint="#ff0000"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/et_updatepassword"
+        android:layout_width="350dp"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="170dp"
+        android:background="#11000000"
+        android:drawableLeft="@drawable/ic_action_password"
+        android:drawableStart="@drawable/ic_action_password"
+        android:ems="10"
+        android:hint="User Password"
+        android:inputType="textPassword"
+        android:textColorHint="#ff0000"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btn_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="51dp"
+        android:background="#2196F3"
+        android:text="Update"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:onClick="OnUpdate"/>
+
+    <Button
+        android:id="@+id/btnReturnMainMenu"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#C2B1B1"
+        android:text="Return to main menu"
+        android:textSize="15sp" />
+
+</RelativeLayout>

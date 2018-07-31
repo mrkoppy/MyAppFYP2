@@ -18,7 +18,8 @@
         </activity>
         <activity android:name=".RolePage" />
         <activity android:name=".RegistrationID" />
-        <activity android:name=".trip"></activity>
+        <activity android:name=".trip" />
+        <activity android:name=".myprofile"></activity>
     </application>
 
 </manifest>
