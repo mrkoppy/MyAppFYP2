@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ public class trip extends AppCompatActivity {
     private DrawerLayout drawerlayout;
     private ActionBarDrawerToggle abdt;
     private EditText headernameEt, headeremailEt;
-    private TextView headernameTv,headeremailTv;
+    private TextView headernameTv,headeremailTv,userName,userEmail;
     private String nameTv,emailTv;
 
     /*drawerlistener for ActionBarDrawerToggle so that can click it
@@ -30,6 +31,9 @@ public class trip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip);
+        Intent intent = getIntent();
+        nameTv = getIntent().getStringExtra("user_name");
+        emailTv = getIntent().getStringExtra("Email");
         drawerlayout = (DrawerLayout)findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this,drawerlayout,R.string.Open,R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
@@ -40,6 +44,14 @@ public class trip extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         NavigationView nav_view = (NavigationView)findViewById(R.id.nav_view);
+
+        View headerView = nav_view.getHeaderView(0);
+        /*headImg = (ImageView)headerView.findViewById(R.id.header_image);*/
+        userName = (TextView) headerView.findViewById(R.id.tv_headername);
+        userName.setText(nameTv);
+        userEmail = (TextView) headerView.findViewById(R.id.tv_headeremail);
+        userEmail.setText(emailTv);
+
 
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override

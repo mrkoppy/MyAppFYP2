@@ -15,20 +15,21 @@
         android:layout_height="65dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/ic_android_black_24dp" />
+        android:background="@drawable/ic_android_black_24dp"
+        android:id="@+id/header_image"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
-        android:text="Name"
+
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:id="@+id/tv_headername"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="jiale0430@gmail.com"
+
         android:id="@+id/tv_headeremail"/>
 
 
