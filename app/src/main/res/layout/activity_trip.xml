@@ -4,7 +4,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:showIn="@layout/navigation_header"
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
@@ -17,6 +17,15 @@
         android:layout_height="match_parent"
         android:background="@drawable/background"
         tools:context=".trip">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="93dp"
+            android:text="Hello Testing" />
     </RelativeLayout>
     <android.support.design.widget.NavigationView
         android:layout_width="match_parent"
@@ -24,7 +33,7 @@
         android:id="@+id/nav_view"
         android:layout_gravity="start"
         app:menu="@menu/navigation_menu"
-        app:headerLayout="@layout/navigation_header"
+
         >
 
         <LinearLayout

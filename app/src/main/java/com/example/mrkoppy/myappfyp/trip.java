@@ -3,6 +3,7 @@ package com.example.mrkoppy.myappfyp;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
@@ -31,9 +32,13 @@ public class trip extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_trip);
+
+        /**/
         Intent intent = getIntent();
-        nameTv = getIntent().getStringExtra("user_name");
-        emailTv = getIntent().getStringExtra("Email");
+        nameTv = getIntent().getStringExtra("username");
+        emailTv = getIntent().getStringExtra("email");
+        /**/
+
         drawerlayout = (DrawerLayout)findViewById(R.id.dl);
         abdt = new ActionBarDrawerToggle(this,drawerlayout,R.string.Open,R.string.Close);
         abdt.setDrawerIndicatorEnabled(true);
@@ -45,7 +50,9 @@ public class trip extends AppCompatActivity {
 
         NavigationView nav_view = (NavigationView)findViewById(R.id.nav_view);
 
-        View headerView = nav_view.getHeaderView(0);
+        /*need to be fixed header get username and email*/
+        View headerView =  nav_view.inflateHeaderView(R.layout.navigation_header);
+        nav_view.getHeaderView(0);
         /*headImg = (ImageView)headerView.findViewById(R.id.header_image);*/
         userName = (TextView) headerView.findViewById(R.id.tv_headername);
         userName.setText(nameTv);
@@ -57,6 +64,8 @@ public class trip extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 int id = item.getItemId();
+                Fragment fragment = null;
+
 
                 if(id == R.id.myprofile){
                     Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT).show();
