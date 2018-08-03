@@ -30,7 +30,6 @@
     <string name="browse_trip_record">Browse trip record</string>
     <string name="group_chatroom">Group Chatroom</string>
     <string name="alert">Alert</string>
-    <string name="switch_role_navigation_bar">Switch Role</string>
 
     <!--my profile xml-->
     <string name="profile_details">Profile Details</string>
@@ -43,6 +42,5 @@
     <string name="renew">Renew</string>
     <string name="return_to_main_menu">Return to main menu</string>
     <string name="car_plate">Car Plate</string>
-    <string name="car_model">Car Model</string>
     <string name="car_seats">Car Seats</string>
 </resources>

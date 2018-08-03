@@ -45,7 +45,7 @@
         android:layout_height="40dp"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="125dp"
+        android:layout_marginTop="195dp"
         android:background="#11000000"
         android:drawableLeft="@drawable/ic_card_membership_black_24dp"
         android:drawableStart="@drawable/ic_card_membership_black_24dp"
@@ -55,21 +55,6 @@
         android:textColorHint="#ff0000"
         android:textSize="20sp" />
 
-    <EditText
-        android:id="@+id/et_carmodel"
-        android:layout_width="350dp"
-        android:layout_height="40dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="210dp"
-        android:background="#11000000"
-        android:drawableLeft="@drawable/ic_directions_car_black_24dp"
-        android:drawableStart="@drawable/ic_directions_car_black_24dp"
-        android:ems="10"
-        android:hint="@string/car_model"
-        android:inputType="textPassword"
-        android:textColorHint="#ff0000"
-        android:textSize="20sp" />
 
     <EditText
         android:id="@+id/et_carseats"

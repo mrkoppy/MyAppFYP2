@@ -83,14 +83,13 @@
         android:id="@+id/btn_renew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@+id/btnReturnMainMenu"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="51dp"
         android:background="#2196F3"
+        android:onClick="OnRenew"
         android:text="@string/renew"
         android:textColor="#FFF"
-        android:textSize="15sp"
-        android:onClick="OnRenew"/>
+        android:textSize="15sp" />
 
     <Button
         android:id="@+id/btnReturnMainMenu"

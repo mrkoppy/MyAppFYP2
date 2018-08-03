@@ -14,10 +14,10 @@ import java.util.regex.Pattern;
 
 public class RegistrationID extends AppCompatActivity {
     /*Created radiogroup,radiobutton,edittext variables*/
-    RadioGroup gender,role;
+    RadioGroup gender;
     RadioButton radio_gender,radio_role;
     private EditText name,email,mobile,postcode,studentid,confirmpassword,password;
-    private String str_gender,str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_confirmpassword,str_role,type;
+    private String str_gender,str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_confirmpassword,type;
 
     /*Put radiogroup,radiobutton,edittext infromation into their own variables*/
     @Override
@@ -32,8 +32,6 @@ public class RegistrationID extends AppCompatActivity {
         studentid = (EditText)findViewById(R.id.et_studentid);
         password = (EditText) findViewById(R.id.et_password);
         confirmpassword = (EditText)findViewById(R.id.et_confirmpassword);
-        role = (RadioGroup)findViewById(R.id.radioGrp1);
-
     }
 
     /*OnReg function for register button(btn_reg)*/
@@ -52,10 +50,6 @@ public class RegistrationID extends AppCompatActivity {
         str_studentid = studentid.getText().toString();
         str_password = password.getText().toString();
         str_confirmpassword = confirmpassword.getText().toString();
-        int str_role_id = role.getCheckedRadioButtonId();
-        radio_role = findViewById(str_role_id);
-        Toast.makeText(this,"Your Selected Role: " + radio_role.getText(),Toast.LENGTH_LONG).show();
-        str_role = radio_role.getText().toString();
         type = "register";
 
         if (!validate()){
@@ -68,7 +62,7 @@ public class RegistrationID extends AppCompatActivity {
 
         else {
             BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-            backgroundWorker.execute(type, str_gender, str_name,str_email,str_mobile,str_postcode,str_studentid,str_password,str_role);
+            backgroundWorker.execute(type, str_gender, str_name,str_email,str_mobile,str_postcode,str_studentid,str_password);
         }
 
 

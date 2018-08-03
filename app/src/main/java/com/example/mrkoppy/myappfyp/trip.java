@@ -1,6 +1,7 @@
 package com.example.mrkoppy.myappfyp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
@@ -11,7 +12,6 @@ import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,9 +34,9 @@ public class trip extends AppCompatActivity {
         setContentView(R.layout.activity_trip);
 
         /**/
-        Intent intent = getIntent();
-        nameTv = getIntent().getStringExtra("username");
-        emailTv = getIntent().getStringExtra("email");
+        SharedPreferences sharedpre = getSharedPreferences("UserData", MODE_PRIVATE);
+        nameTv = sharedpre.getString("user_name","");
+        emailTv = sharedpre.getString("user_email","");
         /**/
 
         drawerlayout = (DrawerLayout)findViewById(R.id.dl);
@@ -66,8 +66,20 @@ public class trip extends AppCompatActivity {
                 int id = item.getItemId();
                 Fragment fragment = null;
 
+                if(id == R.id.mydriver){
+                    Toast.makeText(trip.this,"Driver",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this, mydriver.class);
+                    startActivity(intent);
+                }
 
-                if(id == R.id.myprofile){
+                else if(id == R.id.myrider){
+                    Toast.makeText(trip.this,"Rider",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this, myrider.class);
+                    startActivity(intent);
+                }
+
+
+                else if(id == R.id.myprofile){
                     Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(trip.this, myprofile.class);
                     startActivity(intent);

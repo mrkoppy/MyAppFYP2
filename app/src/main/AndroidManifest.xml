@@ -20,7 +20,9 @@
         <activity android:name=".RegistrationID" />
         <activity android:name=".trip" />
         <activity android:name=".myprofile" />
-        <activity android:name=".myvehicle"></activity>
+        <activity android:name=".myvehicle" />
+        <activity android:name=".mydriver" />
+        <activity android:name=".myrider"></activity>
     </application>
 
 </manifest>

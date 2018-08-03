@@ -2,6 +2,21 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/mydriver"
+        android:title="Driver"
+        android:icon="@drawable/driverlogo"
+        >
+    </item>
+
+    <item
+        android:id="@+id/myrider"
+        android:title="Rider"
+        android:icon="@drawable/userlogo"
+        >
+    </item>
+
+
+    <item
         android:id="@+id/myprofile"
         android:title="@string/my_profile"
         android:icon="@drawable/ic_person_black_24dp"

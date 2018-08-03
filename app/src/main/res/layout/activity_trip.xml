@@ -44,15 +44,7 @@
             android:clickable="true"
             android:focusable="true"
             android:orientation="vertical">
-            <Button
-                android:id="@+id/btnChangerole"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:text="@string/switch_role_navigation_bar"
-                android:textColor="#FFF"
-                android:onClick="onSwitchRole"
-                android:background="#2196F3"
-                 />
+
         </LinearLayout>
 
     </android.support.design.widget.NavigationView>
