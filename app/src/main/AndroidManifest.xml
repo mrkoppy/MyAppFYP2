@@ -22,7 +22,7 @@
         <activity android:name=".myprofile" />
         <activity android:name=".myvehicle" />
         <activity android:name=".mydriver" />
-        <activity android:name=".myrider"></activity>
+        <activity android:name=".myrider" />
     </application>
 
 </manifest>

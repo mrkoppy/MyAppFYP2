@@ -43,4 +43,10 @@
     <string name="return_to_main_menu">Return to main menu</string>
     <string name="car_plate">Car Plate</string>
     <string name="car_seats">Car Seats</string>
+
+    <!--mydriver xml-->
+    <string name="welcome_to_driver_page">Welcome to driver page</string>
+    <string name="return_to_main_menu_mydriver">Return to main menu</string>
+    <string name="Mydriver_offer">Put Your Offer Here</string>
+    <string name="offer_trip">Offer Trip</string>
 </resources>

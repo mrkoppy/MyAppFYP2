@@ -5,17 +5,55 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".mydriver"
-    android:background="@drawable/background">
+    android:background="@drawable/background"
+    tools:context=".mydriver">
 
 
     <TextView
         android:id="@+id/mydriverheader"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="@string/welcome_to_driver_page"
+        android:textSize="20sp" />
+
+    <Button
+        android:id="@+id/btnmydriverback"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:background="#C2B1B1"
+        android:onClick="mydriverbtmenu"
+        android:text="@string/return_to_main_menu_mydriver"
+        android:textColor="#000"
+        android:textSize="16sp" />
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:actionBarWidgetTheme="@android:style/Theme.Holo"
+        android:background="#fff"
+        android:gravity="fill_vertical"
+        android:orientation="vertical"
+        android:textColorHint="#FF0000"
+        android:queryHint="@string/Mydriver_offer"
+        android:layout_alignParentLeft="true" />
+
+    <Button
+        android:id="@+id/btn_offertrip"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="30dp"
-        android:text="Welcome to driver page"
-        android:textSize="20sp" />
+        android:layout_marginTop="55dp"
+        android:background="#2196F3"
+        android:onClick="onOffer"
+        android:text="@string/offer_trip"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
 </RelativeLayout>
