@@ -94,7 +94,9 @@ public class trip extends AppCompatActivity {
                 }
 
                 else if(id == R.id.alert){
-                    Toast.makeText(trip.this,"Alert",Toast.LENGTH_SHORT);
+                    Toast.makeText(trip.this,"Alert",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this, myalert.class);
+                    startActivity(intent);
                 }
                 return true;
             }
@@ -106,8 +108,4 @@ public class trip extends AppCompatActivity {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
     }
 
-    public void onSwitchRole(View view){
-        Intent intent = new Intent(this, RolePage.class);
-        startActivity(intent);
-    }
 }

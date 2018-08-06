@@ -11,6 +11,9 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+
 public class mydriver extends AppCompatActivity {
     private SearchView mSearchView;
     private ListView mListView;
@@ -50,8 +53,17 @@ public class mydriver extends AppCompatActivity {
     }
 
     public void onOffer(View view){
-        Intent intent = new Intent(this, mydriver.class);
+        Intent intent = new Intent(this, mydriver_map.class);
         startActivity(intent);
+    }
+
+    // This method adds map fragment to the container.
+    private void addMapFragment() {
+        SupportMapFragment mMapFragment = SupportMapFragment.newInstance();
+        mMapFragment.getMapAsync((OnMapReadyCallback) mydriver.this);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.map_container, mMapFragment)
+                .commit();
     }
 
 }

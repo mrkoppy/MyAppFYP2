@@ -47,6 +47,19 @@
     <!--mydriver xml-->
     <string name="welcome_to_driver_page">Welcome to driver page</string>
     <string name="return_to_main_menu_mydriver">Return to main menu</string>
-    <string name="Mydriver_offer">Put Your Offer Here</string>
+    <string name="Mydriver_offer">Search offer</string>
     <string name="offer_trip">Offer Trip</string>
+    <string name="title_activity_mydriver_map">Map</string>
+    <string name="reminder_alert">Reminder</string>
+
+    <!--Alert xml-->
+    <string name="set_your_reminder">Set Your Reminder</string>
+    <string name="start_mydriver">Start</string>
+    <string name="to">To</string>
+    <string name="destination">Destination</string>
+    <string name="go">Go</string>
+
+    <!--Rider-->
+    <string name="welcome_to_rider_page">Welcome to rider page</string>
+    <string name="Myrider_booking">Booking</string>
 </resources>

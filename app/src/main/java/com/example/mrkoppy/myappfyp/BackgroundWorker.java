@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
+import android.util.Log;
 import android.widget.EditText;
 
 import java.io.BufferedReader;
@@ -44,10 +45,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "http://192.168.0.103/login.php";
-        String register_url = "http://192.168.0.103/register.php";
-        String renew_url = "http://192.168.0.103/update.php";
-        String update_url = "http://192.168.0.103/updatevehicle.php";
+        String login_url = "http://192.168.0.103:80/login.php";
+        String register_url = "http://192.168.0.103:80/register.php";
+        String renew_url = "http://192.168.0.103:80/update.php";
+        String update_url = "http://192.168.0.103:80/updatevehicle.php";
         SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
             if(type.equals("login")){
             try {
@@ -225,7 +226,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     /*Coz first of all start with String so display result display as String type(String result) */
     @Override
     protected void onPostExecute(String result) {
+        Log.d("result", result);
         alertDialog.setMessage(result);
+
 
         if(result.equals("login success!!!!!!")) {
             alertDialog.setButton("ok", new DialogInterface.OnClickListener() {

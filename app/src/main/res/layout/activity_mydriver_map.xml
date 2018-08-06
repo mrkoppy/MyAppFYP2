@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/background">
+
+    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="350dp"
+        android:layout_height="350dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_marginTop="65dp"
+        tools:context=".mydriver_map" />
+
+    <EditText
+        android:id="@+id/etStartMyDriver"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/map"
+        android:layout_marginTop="18dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/start_mydriver"
+        android:background="#fff"
+        android:layout_alignLeft="@+id/map"
+        android:textSize="20sp"/>
+
+    <TextView
+        android:id="@+id/tvTo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/etStartMyDriver"
+        android:layout_centerHorizontal="true"
+        android:text="@string/to"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/etDestinationMyDriver"
+        android:layout_width="120dp"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/map"
+        android:layout_alignTop="@+id/etStartMyDriver"
+        android:background="#fff"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:hint="@string/destination"
+        android:textSize="20sp"
+        android:layout_alignRight="@+id/map" />
+
+    <Button
+        android:id="@+id/btn_mydrivergo"
+        android:layout_width="wrap_content"
+        android:layout_height="33dp"
+        android:layout_above="@+id/btnRedMMMydriverMap"
+        android:layout_centerHorizontal="true"
+        android:background="#2196F3"
+        android:text="@string/go"
+        android:textColor="#fff" />
+
+    <Button
+        android:id="@+id/btnRedMMMydriverMap"
+        android:layout_width="200dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="#C2B1B1"
+        android:onClick="btn_redirect_main_menu_mydrivermap"
+        android:text="@string/return_to_main_menu"
+        android:textSize="15sp" />
+
+</RelativeLayout>
