@@ -45,10 +45,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     @Override
     protected String doInBackground(String... params) {
         String type = params[0];
-        String login_url = "http://192.168.0.103:80/login.php";
-        String register_url = "http://192.168.0.103:80/register.php";
-        String renew_url = "http://192.168.0.103:80/update.php";
-        String update_url = "http://192.168.0.103:80/updatevehicle.php";
+        String login_url = "http://192.168.0.103/login.php";
+        String register_url = "http://192.168.0.103/register.php";
+        String renew_url = "http://192.168.0.103/update.php";
+        String update_url = "http://192.168.0.103/updatevehicle.php";
         SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
             if(type.equals("login")){
             try {
@@ -230,7 +230,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         alertDialog.setMessage(result);
 
 
-        if(result.equals("login success!!!!!!")) {
+        if(result.equals("Login Success")) {
             alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
@@ -240,7 +240,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             });
         }
 
-        else if(result.equals("Insert Successfully")){
+        else if(result.equals("Registered Successfully")){
             alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
