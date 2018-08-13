@@ -52,18 +52,16 @@ public class mydriver extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onOffer(View view){
+    public void onEstTime(View view){
         Intent intent = new Intent(this, mydriver_map.class);
         startActivity(intent);
     }
 
-    // This method adds map fragment to the container.
-    private void addMapFragment() {
-        SupportMapFragment mMapFragment = SupportMapFragment.newInstance();
-        mMapFragment.getMapAsync((OnMapReadyCallback) mydriver.this);
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.map_container, mMapFragment)
-                .commit();
+    public void createRoute(View view){
+        Intent intent = new Intent(this, Driver_CrRoute.class);
+        startActivity(intent);
     }
+
+    // This method adds map fragment to the container.
 
 }

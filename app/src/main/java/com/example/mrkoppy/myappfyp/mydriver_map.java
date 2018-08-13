@@ -1,6 +1,7 @@
 package com.example.mrkoppy.myappfyp;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -335,6 +336,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
         mGoogleApiClient.connect();
     }
 
+    @SuppressLint("RestrictedApi")
     @Override
     public void onConnected(Bundle bundle) {
 

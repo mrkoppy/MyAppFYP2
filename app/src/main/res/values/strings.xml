@@ -48,9 +48,11 @@
     <string name="welcome_to_driver_page">Welcome to driver page</string>
     <string name="return_to_main_menu_mydriver">Return to main menu</string>
     <string name="Mydriver_offer">Search offer</string>
-    <string name="offer_trip">Offer Trip</string>
     <string name="title_activity_mydriver_map">Map</string>
+    <string name="create_route">Create Route</string>
     <string name="reminder_alert">Reminder</string>
+    <string name="estimate_time">Estimate Time</string>
+
 
     <!--Alert xml-->
     <string name="set_your_reminder">Set Your Reminder</string>
@@ -62,4 +64,8 @@
     <!--Rider-->
     <string name="welcome_to_rider_page">Welcome to rider page</string>
     <string name="Myrider_booking">Booking</string>
+
+    <!--driver_cr_route.xml-->
+    <string name="create_your_route_here">Create Your Route Here</string>
+
 </resources>

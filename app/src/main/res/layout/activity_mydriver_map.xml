@@ -12,59 +12,32 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
         android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_width="350dp"
-        android:layout_height="350dp"
+        android:layout_width="match_parent"
+        android:layout_height="388dp"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
         android:layout_gravity="center"
-        android:layout_marginTop="65dp"
-        tools:context=".mydriver_map" />
-
-    <EditText
-        android:id="@+id/etStartMyDriver"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/map"
-        android:layout_marginTop="18dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/start_mydriver"
-        android:background="#fff"
-        android:layout_alignLeft="@+id/map"
-        android:textSize="20sp"/>
+        android:layout_marginTop="48dp"
+        tools:context=".mydriver_map"
+        android:layout_alignParentLeft="true" />
 
     <TextView
-        android:id="@+id/tvTo1"
+        android:id="@+id/show_distance_time"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/etStartMyDriver"
-        android:layout_centerHorizontal="true"
-        android:text="@string/to"
-        android:textSize="20sp" />
-
-    <EditText
-        android:id="@+id/etDestinationMyDriver"
-        android:layout_width="120dp"
-        android:layout_height="wrap_content"
-        android:layout_alignEnd="@+id/map"
-        android:layout_alignTop="@+id/etStartMyDriver"
-        android:background="#fff"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="@string/destination"
-        android:textSize="20sp"
-        android:layout_alignRight="@+id/map" />
+        android:textColor="#ff0000"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:textSize="30sp" />
 
     <Button
-        android:id="@+id/btn_mydrivergo"
+        android:id="@+id/btnDriving"
         android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_above="@+id/btnRedMMMydriverMap"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:background="#2196F3"
-        android:text="@string/go"
-        android:textColor="#fff" />
+        android:layout_marginTop="78dp"
+        android:text="Driving Mode" />
+
 
     <Button
         android:id="@+id/btnRedMMMydriverMap"
