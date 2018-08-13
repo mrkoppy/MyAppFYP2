@@ -20,7 +20,8 @@
         android:ems="10"
         android:hint="@string/start_mydriver"
         android:inputType="textPersonName"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:onClick="findPlace1"/>
 
     <TextView
         android:id="@+id/tvTo1"
@@ -43,7 +44,8 @@
         android:ems="10"
         android:hint="@string/destination"
         android:inputType="textPersonName"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:onClick="findPlace2"/>
 
     <TextView
         android:id="@+id/cr8route"

@@ -12,7 +12,7 @@ public interface RetrofitMaps {
      * Retrofit get annotation with our URL
      * And our method that will return us details of student.
      */
-    @GET("api/directions/json?key=AIzaSyBcjoU47vOErQ36RcqO8Jhk2hegtl3QPig")
+    @GET("api/directions/json?key=AIzaSyBMuIbK1sBQborxUOgzGcmO2De2_Ms-xLQ")
     Call<Example> getDistanceDuration(@Query("units") String units, @Query("origin") String origin, @Query("destination") String destination, @Query("mode") String mode);
 
 }

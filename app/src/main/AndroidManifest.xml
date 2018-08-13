@@ -51,7 +51,7 @@
             android:label="@string/title_activity_mydriver_map" />
         <activity android:name=".myalert" />
         <activity android:name=".myrider_map" />
-        <activity android:name=".Driver_CrRoute"></activity>
+        <activity android:name=".Driver_CrRoute" />
     </application>
 
 </manifest>
