@@ -109,7 +109,9 @@
         android:layout_above="@+id/etStartMyDriver"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="-136dp"
-        android:text="Start" />
+        android:text="@string/confirm_location1"
+        android:background="#2196F3"
+        android:textColor="#000"/>
 
     <Button
         android:id="@+id/buttonEndGetCoordinate"
@@ -117,7 +119,9 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/etDestinationMyDriver"
         android:layout_centerHorizontal="true"
-        android:text="Destination" />
+        android:text="@string/confirm_location2"
+        android:background="#2196F3"
+        android:textColor="#000"/>
 
 
 </RelativeLayout>

@@ -87,7 +87,9 @@ public class Driver_CrRoute extends AppCompatActivity {
                         String lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
                                 .getJSONObject("location").get("lng").toString();
 
-                        txtCoord1.setText(String.format("Coordinates1 : %s / %s ",lat,lng));
+                        txtCoord1.setText(String.format("Lat for coordinate1 : %s \n" +
+                                "Lng for coordinate1 : %s ",lat,lng));
+
 
                         if(dialog.isShowing())
                             dialog.dismiss();
@@ -145,7 +147,8 @@ public class Driver_CrRoute extends AppCompatActivity {
                         String lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
                                 .getJSONObject("location").get("lng").toString();
 
-                        txtCoord2.setText(String.format("Coordinates2 : %s / %s ",lat,lng));
+                        txtCoord2.setText(String.format("Lat for coordinate2 : %s \n" +
+                                "Lng for coordinate1 : %s ",lat,lng));
 
                         if(dialog.isShowing())
                             dialog.dismiss();

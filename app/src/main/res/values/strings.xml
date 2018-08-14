@@ -67,5 +67,7 @@
 
     <!--driver_cr_route.xml-->
     <string name="create_your_route_here">Create Your Route Here</string>
+    <string name="confirm_location1">Confirm location</string>
+    <string name="confirm_location2">Confirm location</string>
 
 </resources>
