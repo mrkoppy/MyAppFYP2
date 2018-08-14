@@ -66,7 +66,8 @@
         android:layout_centerHorizontal="true"
         android:background="#2196F3"
         android:text="@string/go"
-        android:textColor="#fff" />
+        android:textColor="#fff"
+        android:onClick="btn_registerroute"/>
 
     <Button
         android:id="@+id/btnRedMMMydriver_cr_route"
@@ -80,26 +81,44 @@
         android:textSize="15sp" />
 
     <TextView
-        android:id="@+id/textCordinate1"
+        android:id="@+id/textCordinate1_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="42dp"
-        android:layout_marginTop="193dp"
-        android:text="Your Start Cordinate: "
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="42dp" />
+        android:layout_alignStart="@+id/cr8route"
+        android:layout_marginTop="173dp"
+        android:text="Your Start Cordinate Lat: "
+        android:layout_alignLeft="@+id/cr8route" />
+
+    <TextView
+        android:id="@+id/textCordinate1_lng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/cr8route"
+        android:layout_marginTop="204dp"
+        android:text="Your Start Cordinate Lng: "
+        android:layout_alignLeft="@+id/cr8route" />
 
 
     <TextView
-        android:id="@+id/textCordinate2"
+        android:id="@+id/textCordinate2_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignStart="@+id/cr8route"
-        android:layout_marginBottom="124dp"
-        android:text="Your End Cordinate: "
+        android:layout_marginBottom="162dp"
+        android:text="Your End Cordinate Lat: "
+        android:layout_alignLeft="@+id/cr8route" />
+
+    <TextView
+        android:id="@+id/textCordinate2_lng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/cr8route"
+        android:layout_marginBottom="131dp"
+        android:text="Your End Cordinate Lng: "
         android:layout_alignLeft="@+id/cr8route" />
 
     <Button

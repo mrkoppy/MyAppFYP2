@@ -49,6 +49,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String register_url = "http://192.168.0.103/register.php";
         String renew_url = "http://192.168.0.103/update.php";
         String update_url = "http://192.168.0.103/updatevehicle.php";
+        String register_route_url = "http://192.168.0.103/driver_route.php";
         SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
             if(type.equals("login")){
             try {
@@ -212,7 +213,55 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             } catch (IOException e) {
                 e.printStackTrace();
             }
-        }
+        } else if (type.equals("register_route")){
+                try {
+                    String start_name = params[1];
+                    String end_name = params[2];
+                    String latstartlocation = params[3];
+                    String lngstartlocation = params[4];
+                    String latnendlocation = params[5];
+                    String lngendlocation = params[6];
+                    /*String username = sharedpre.getString("user_name", "");*/
+                    URL url = new URL(register_route_url);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("Start_name","UTF-8")+"="+URLEncoder.encode(start_name,"UTF-8")+"&"
+                            +URLEncoder.encode("End_name","UTF-8")+"="+URLEncoder.encode(end_name,"UTF-8") +"&"
+                            +URLEncoder.encode("Latstart_location","UTF-8")+"="+URLEncoder.encode(latstartlocation,"UTF-8") +"&"
+                            +URLEncoder.encode("Lngstart_location","UTF-8")+"="+URLEncoder.encode(lngstartlocation,"UTF-8") +"&"
+                            +URLEncoder.encode("Latend_location","UTF-8")+"="+URLEncoder.encode(latnendlocation,"UTF-8") +"&"
+                            +URLEncoder.encode("Lngend_location","UTF-8")+"="+URLEncoder.encode(lngendlocation,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
+            }
+
+
+
+
         return null;
     }
 
@@ -272,6 +321,16 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 }
             });
 
+        }
+
+        else if(result.equals("Route Registered Successfully")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context,trip.class);
+                    context.startActivity(intent);
+                }
+            });
         }
 
         alertDialog.show();

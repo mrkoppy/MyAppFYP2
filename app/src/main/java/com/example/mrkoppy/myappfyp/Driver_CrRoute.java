@@ -27,7 +27,8 @@ import org.json.JSONObject;
 public class Driver_CrRoute extends AppCompatActivity {
     Button btnShowCoord1,btnShowCoord2;
     EditText edtAddress1,edtAddress2;
-    TextView txtCoord1,txtCoord2;
+    TextView txtCoord1_lat,txtCoord1_lng,txtCoord2_lat,txtCoord2_lng,txtCoord2;
+    private String str_startname,str_endname,str_latstartlocation ,str_lngstartlocation,str_latnendlocation,str_lngendlocation,type;
 
 
     @Override
@@ -39,8 +40,10 @@ public class Driver_CrRoute extends AppCompatActivity {
         btnShowCoord2 = (Button)findViewById(R.id.buttonEndGetCoordinate);
         edtAddress1 = (EditText)findViewById(R.id.etStartMyDriver);
         edtAddress2 = (EditText)findViewById(R.id.etDestinationMyDriver);
-        txtCoord1 = (TextView)findViewById(R.id.textCordinate1);
-        txtCoord2 = (TextView)findViewById(R.id.textCordinate2);
+        txtCoord1_lat = (TextView)findViewById(R.id.textCordinate1_lat);
+        txtCoord1_lng = (TextView)findViewById(R.id.textCordinate1_lng);
+        txtCoord2_lat = (TextView) findViewById(R.id.textCordinate2_lat);
+        txtCoord2_lng = (TextView)findViewById(R.id.textCordinate2_lng);
 
 
         btnShowCoord1.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +58,7 @@ public class Driver_CrRoute extends AppCompatActivity {
                 @Override
                 protected void onPreExecute() {
                     super.onPreExecute();
-                    dialog.setMessage("Please wait....");
+                    dialog.setMessage("Please wait..");
                     dialog.setCanceledOnTouchOutside(false);
                     dialog.show();
                 }
@@ -87,8 +90,8 @@ public class Driver_CrRoute extends AppCompatActivity {
                         String lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
                                 .getJSONObject("location").get("lng").toString();
 
-                        txtCoord1.setText(String.format("Lat for coordinate1 : %s \n" +
-                                "Lng for coordinate1 : %s ",lat,lng));
+                        txtCoord1_lat.setText(String.format("%s",lat));
+                        txtCoord1_lng.setText(String.format("%s",lng));
 
 
                         if(dialog.isShowing())
@@ -147,8 +150,11 @@ public class Driver_CrRoute extends AppCompatActivity {
                         String lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
                                 .getJSONObject("location").get("lng").toString();
 
-                        txtCoord2.setText(String.format("Lat for coordinate2 : %s \n" +
-                                "Lng for coordinate1 : %s ",lat,lng));
+                        txtCoord2_lat.setText(String.format("%s",lat));
+                        txtCoord2_lng.setText(String.format("%s",lng));
+
+                        /*txtCoord2.setText(String.format("Lat for coordinate2 : %s \n" +
+                                "Lng for coordinate1 : %s ",lat,lng));*/
 
                         if(dialog.isShowing())
                             dialog.dismiss();
@@ -250,6 +256,19 @@ public class Driver_CrRoute extends AppCompatActivity {
                 // The user canceled the operation.
             }
         }
+    }
+
+    public void btn_registerroute(View view){
+        str_startname = edtAddress1.getText().toString();
+        str_endname = edtAddress2.getText().toString();
+        str_latstartlocation = txtCoord1_lat.getText().toString() ;
+        str_lngstartlocation = txtCoord1_lng.getText().toString() ;
+        str_latnendlocation = txtCoord2_lat.getText().toString();
+        str_lngendlocation = txtCoord2_lng.getText().toString();
+        type = "register_route";
+
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, str_startname, str_endname,str_latstartlocation,str_lngstartlocation,str_latnendlocation,str_lngendlocation);
     }
 
 
