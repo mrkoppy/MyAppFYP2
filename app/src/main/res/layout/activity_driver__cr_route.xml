@@ -22,16 +22,17 @@
         android:inputType="textPersonName"
         android:textSize="20sp"
         android:onClick="findPlace1"/>
-
+<!--
     <TextView
         android:id="@+id/tvTo1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="208dp"
+        android:gravity="center"
         android:text="@string/to"
-        android:textSize="20sp" />
+        android:textSize="20sp"
+        android:layout_alignParentLeft="true" />-->
 
     <EditText
         android:id="@+id/etDestinationMyDriver"
@@ -77,6 +78,46 @@
         android:onClick="btn_redirect_main_menu_driver_cr_route"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/textCordinate1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="42dp"
+        android:layout_marginTop="193dp"
+        android:text="Your Start Cordinate: "
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="42dp" />
+
+
+    <TextView
+        android:id="@+id/textCordinate2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignStart="@+id/cr8route"
+        android:layout_marginBottom="124dp"
+        android:text="Your End Cordinate: "
+        android:layout_alignLeft="@+id/cr8route" />
+
+    <Button
+        android:id="@+id/buttonStartGetCoordinate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etStartMyDriver"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="-136dp"
+        android:text="Start" />
+
+    <Button
+        android:id="@+id/buttonEndGetCoordinate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/etDestinationMyDriver"
+        android:layout_centerHorizontal="true"
+        android:text="Destination" />
 
 
 </RelativeLayout>

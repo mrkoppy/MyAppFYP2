@@ -1,12 +1,17 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
+
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -14,21 +19,159 @@ import com.google.android.gms.common.api.Status;
 import com.google.android.gms.location.places.Place;
 import com.google.android.gms.location.places.ui.PlaceAutocomplete;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+
 public class Driver_CrRoute extends AppCompatActivity {
+    Button btnShowCoord1,btnShowCoord2;
+    EditText edtAddress1,edtAddress2;
+    TextView txtCoord1,txtCoord2;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_driver__cr_route);
+
+        btnShowCoord1 = (Button)findViewById(R.id.buttonStartGetCoordinate);
+        btnShowCoord2 = (Button)findViewById(R.id.buttonEndGetCoordinate);
+        edtAddress1 = (EditText)findViewById(R.id.etStartMyDriver);
+        edtAddress2 = (EditText)findViewById(R.id.etDestinationMyDriver);
+        txtCoord1 = (TextView)findViewById(R.id.textCordinate1);
+        txtCoord2 = (TextView)findViewById(R.id.textCordinate2);
+
+
+        btnShowCoord1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new GetCoordinates1().execute(edtAddress1.getText().toString().replace(" ","+"));
+            }
+
+            class GetCoordinates1 extends AsyncTask<String,Void,String> {
+                ProgressDialog dialog = new ProgressDialog(Driver_CrRoute.this);
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    dialog.setMessage("Please wait....");
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.show();
+                }
+
+                @Override
+                protected String doInBackground(String... strings) {
+                    String response;
+                    try{
+                        String address = strings[0];
+                        HttpDataHandler http = new HttpDataHandler();
+                        String url = String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s",address);
+                        response = http.getHTTPData(url);
+                        return response;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    try{
+                        JSONObject jsonObject = new JSONObject(s);
+
+                        String lat = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
+                                .getJSONObject("location").get("lat").toString();
+                        String lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
+                                .getJSONObject("location").get("lng").toString();
+
+                        txtCoord1.setText(String.format("Coordinates1 : %s / %s ",lat,lng));
+
+                        if(dialog.isShowing())
+                            dialog.dismiss();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        });
+
+        btnShowCoord2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new GetCoordinates2().execute(edtAddress2.getText().toString().replace(" ","+"));
+            }
+
+
+            class GetCoordinates2 extends AsyncTask<String,Void,String> {
+                ProgressDialog dialog = new ProgressDialog(Driver_CrRoute.this);
+
+                @Override
+                protected void onPreExecute() {
+                    super.onPreExecute();
+                    dialog.setMessage("Please wait....");
+                    dialog.setCanceledOnTouchOutside(false);
+                    dialog.show();
+                }
+
+                @Override
+                protected String doInBackground(String... strings) {
+                    String response;
+                    try{
+                        String address = strings[0];
+                        HttpDataHandler http = new HttpDataHandler();
+                        String url = String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s",address);
+                        response = http.getHTTPData(url);
+                        return response;
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+                    return null;
+                }
+
+                @Override
+                protected void onPostExecute(String s) {
+                    try{
+                        JSONObject jsonObject = new JSONObject(s);
+
+                        String lat = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
+                                .getJSONObject("location").get("lat").toString();
+                        String lng = ((JSONArray)jsonObject.get("results")).getJSONObject(0).getJSONObject("geometry")
+                                .getJSONObject("location").get("lng").toString();
+
+                        txtCoord2.setText(String.format("Coordinates2 : %s / %s ",lat,lng));
+
+                        if(dialog.isShowing())
+                            dialog.dismiss();
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+
+        });
     }
 
+
+
     /*
-     * In this method, Start PlaceAutocomplete activity
-     * PlaceAutocomplete activity provides--
-     * a search box to search Google places
+     * PlaceAutoComplete Activity
      */
     public void findPlace1(View view) {
         try {
+            /*maybe can set *LatLngBounds* */
+
+                /*AutocompleteFilter autocompleteFilter = new AutocompleteFilter().Builder()
+                    .setTypeFilter(Place.TYPE_COUNTRY)
+                    .setCountry("MY")
+                    .build();*/
             Intent intent1 =
                     new PlaceAutocomplete
                             .IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
@@ -43,6 +186,10 @@ public class Driver_CrRoute extends AppCompatActivity {
 
     public void findPlace2(View view) {
         try {
+                /*AutocompleteFilter autocompleteFilter = new AutocompleteFilter().Builder()
+                    .setTypeFilter(Place.TYPE_COUNTRY)
+                    .setCountry("MY")
+                    .build();*/
             Intent intent2 =
                     new PlaceAutocomplete
                             .IntentBuilder(PlaceAutocomplete.MODE_FULLSCREEN)
@@ -65,9 +212,10 @@ public class Driver_CrRoute extends AppCompatActivity {
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 Log.e("Tag", "Place: " + place.getAddress() + place.getPhoneNumber());
 
+                Toast.makeText(getApplicationContext(),"Got Location", Toast.LENGTH_LONG).show();
+
                 ((EditText) findViewById(R.id.etStartMyDriver))
-                        .setText(place.getName()+",\n"+
-                                place.getAddress() +"\n" + place.getPhoneNumber());
+                        .setText(String.format("%s,\n%s\n%s", place.getName(), place.getAddress(), place.getPhoneNumber()));
 
 
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
@@ -85,10 +233,10 @@ public class Driver_CrRoute extends AppCompatActivity {
                 Place place = PlaceAutocomplete.getPlace(this, data);
                 Log.e("Tag", "Place: " + place.getAddress() + place.getPhoneNumber());
 
+                Toast.makeText(getApplicationContext(),"Got Location", Toast.LENGTH_LONG).show();
 
                 ((EditText) findViewById(R.id.etDestinationMyDriver))
-                        .setText(place.getName()+",\n"+
-                                place.getAddress() +"\n" + place.getPhoneNumber());
+                        .setText(String.format("%s,\n%s\n%s", place.getName(), place.getAddress(), place.getPhoneNumber()));
 
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
@@ -107,4 +255,6 @@ public class Driver_CrRoute extends AppCompatActivity {
         Intent intent = new Intent(this, trip.class);
         startActivity(intent);
     }
+
+
 }
