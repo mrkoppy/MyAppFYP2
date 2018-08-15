@@ -12,19 +12,19 @@ import java.util.ArrayList;
 
 public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_adapter.ViewHolder> {
 
-    private Context mContext;
-    private ArrayList<Post_availabletrip> mData;
+    private Context myContext;
+    private ArrayList<Post_availabletrip> myData;
 
     public Availabletrip_adapter(Context context, ArrayList<Post_availabletrip> data) {
-        this.mContext = context;
-        this.mData = data;
+        this.myContext = context;
+        this.myData = data;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent,
                                          int viewType) {
         View view = LayoutInflater
-                .from(mContext)
+                .from(myContext)
                 .inflate(R.layout.my_rider_booking, parent, false);
         ViewHolder holder = new ViewHolder(view);
         holder.tv_availableRideFrom = (TextView) view.findViewById(R.id.tv_availableRideFrom);
@@ -37,7 +37,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Post_availabletrip post = mData.get(position);
+        Post_availabletrip post = myData.get(position);
         holder.tv_availableRideFrom.setText(post.From);
         holder.tv_availableRideTo.setText(post.To);
         holder.tv_availableRideDate.setText(post.Date);
@@ -46,7 +46,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
 
     @Override
     public int getItemCount() {
-        return mData.size();
+        return myData.size();
     }
 
     class ViewHolder extends RecyclerView.ViewHolder {

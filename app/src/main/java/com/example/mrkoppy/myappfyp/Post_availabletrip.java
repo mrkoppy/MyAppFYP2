@@ -7,7 +7,7 @@ public class Post_availabletrip {
     public String Date;
     public String Est;
 
-
+    /*Constructor for data to be passed from database*/
     public Post_availabletrip(String From,
                 String To, String Date, String Est) {
         this.From = From;
