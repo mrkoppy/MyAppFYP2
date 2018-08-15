@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".myvehicle"
-    android:background="@drawable/background">
+    android:background="@drawable/bg2">
 
     <Button
         android:id="@+id/btn_profiledetails2"
@@ -91,7 +91,7 @@
         android:layout_height="50dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="#C2B1B1"
+        android:background="#D4D8DB"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp"
         android:onClick="btn_redirectmainmenu2"/>
