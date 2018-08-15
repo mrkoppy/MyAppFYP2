@@ -70,4 +70,7 @@
     <string name="confirm_location1">Confirm location</string>
     <string name="confirm_location2">Confirm location</string>
 
+    <!--activity_trip.xml-->
+    <string name="driver">Driver</string>
+
 </resources>

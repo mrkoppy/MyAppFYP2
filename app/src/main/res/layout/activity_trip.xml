@@ -15,26 +15,38 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background"
+        android:background="@drawable/bg2"
         tools:context=".trip">
 
-        <TextView
-            android:id="@+id/textView"
-            android:layout_width="wrap_content"
+        <Button
+            android:id="@+id/btn_mainmenudriver"
+            android:layout_width="188dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="93dp"
-            android:text="Hello Testing" />
+            android:layout_marginTop="119dp"
+            android:background="#9999FF"
+            android:text="@string/driver"
+            android:onClick="btn_mainmenu_Rdriver"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="183dp"
+            android:background="#9999FF"
+            android:text="@string/rider"
+            android:onClick="btn_mainmenu_Rrider"/>
+
     </RelativeLayout>
     <android.support.design.widget.NavigationView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/nav_view"
         android:layout_gravity="start"
-        app:menu="@menu/navigation_menu"
-
-        >
+        app:menu="@menu/navigation_menu">
 
         <LinearLayout
             android:layout_width="match_parent"

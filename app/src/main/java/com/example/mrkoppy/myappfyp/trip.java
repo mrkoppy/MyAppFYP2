@@ -103,6 +103,17 @@ public class trip extends AppCompatActivity {
         });
     }
 
+    public void btn_mainmenu_Rdriver (View view){
+        Intent intent = new Intent(this, mydriver.class);
+        startActivity(intent);
+    }
+
+    public void btn_mainmenu_Rrider (View view){
+        Intent intent = new Intent(this, myrider.class);
+        startActivity(intent);
+
+    }
+
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
