@@ -16,8 +16,12 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
     private ArrayList<Post_availabletrip> myData;
 
     public Availabletrip_adapter(Context context, ArrayList<Post_availabletrip> data) {
-        this.myContext = context;
+        /*this.myContext = context;*/
         this.myData = data;
+    }
+
+    public Availabletrip_adapter(ArrayList<Post_availabletrip> arrayList) {
+        this.myData = arrayList;
     }
 
     /*used to store other class view*/
@@ -25,8 +29,11 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
     public ViewHolder onCreateViewHolder(ViewGroup parent,
                                          int viewType) {
         View view = LayoutInflater
-                .from(myContext)
+                .from(parent.getContext())
                 .inflate(R.layout.my_rider_booking, parent, false);
+        /*View view = LayoutInflater
+                .from(myContext)
+                .inflate(R.layout.my_rider_booking, parent, false);*/
         ViewHolder holder = new ViewHolder(view);
         holder.tv_availableRideFrom = (TextView) view.findViewById(R.id.tv_availableRideFrom);
         holder.tv_availableRideTo = (TextView) view.findViewById(R.id.tv_availableRideTo);

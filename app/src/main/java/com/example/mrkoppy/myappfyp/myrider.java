@@ -14,9 +14,12 @@ public class myrider extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myrider);
 
+        BgWorker_availableride bgWorker_availableride = new BgWorker_availableride(myrider.this);
+        bgWorker_availableride.execute();
+
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.id_availableride);
 
-        ArrayList<Post_availabletrip> data = new ArrayList<>();
+        /*ArrayList<Post_availabletrip> data = new ArrayList<>();
         data.add(new Post_availabletrip("Persiaran Multimedia, 63100 Cyberjaya, Selangor", "Persiaran Multimedia, 63100 Cyberjaya, Selangor", "18.10.18", "17:30"));
         data.add(new Post_availabletrip("Persiaran Multimedia, 63100 Cyberjaya, Selangor", "Persiaran Multimedia, 63100 Cyberjaya, Selangor", "18.10.18","17:30"));
         data.add(new Post_availabletrip("Persiaran Multimedia, 63100 Cyberjaya, Selangor", "Persiaran Multimedia, 63100 Cyberjaya, Selangor", "18.10.18","17:30"));
@@ -26,7 +29,7 @@ public class myrider extends AppCompatActivity {
         Availabletrip_adapter adapter = new Availabletrip_adapter(this, data);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(adapter);
+        recyclerView.setAdapter(adapter);*/
     }
 
 
