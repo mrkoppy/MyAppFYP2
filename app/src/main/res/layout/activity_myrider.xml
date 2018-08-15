@@ -1,23 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".myrider"
-    android:background="@drawable/bg2"
-
-    >
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="207dp"
-        android:text="@string/welcome_to_rider_page"
-        android:textSize="20sp" />
+    android:background="@drawable/bg2">
 
     <SearchView
         android:layout_width="match_parent"
@@ -31,6 +20,28 @@
         android:textColorHint="#FF0000"
         android:queryHint="@string/Myrider_booking"
         android:layout_alignParentLeft="true" />
+
+
+    <TextView
+        android:id="@+id/tv_availableRideHere"
+        android:layout_width="match_parent"
+        android:layout_height="33dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="47dp"
+        android:gravity="center"
+        android:text="@string/available_rider_here"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:layout_alignParentLeft="true" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/id_availableride"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/tv_availableRideHere">
+
+    </android.support.v7.widget.RecyclerView>
 
     <Button
         android:id="@+id/btnRedMMRider"

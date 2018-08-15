@@ -73,4 +73,10 @@
     <!--activity_trip.xml-->
     <string name="driver">Driver</string>
 
+    <!--myrider_xml-->
+    <string name="available_rider_here">Available Rider Here</string>
+    <string name="from">From :</string>
+    <string name="date">Date :</string>
+    <string name="est">EST :</string>
+
 </resources>
