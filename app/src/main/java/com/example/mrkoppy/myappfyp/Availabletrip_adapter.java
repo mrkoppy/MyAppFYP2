@@ -20,6 +20,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         this.myData = data;
     }
 
+    /*used to store other class view*/
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent,
                                          int viewType) {
@@ -35,6 +36,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         return holder;
     }
 
+    /*holder that hold information of those view*/
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
         Post_availabletrip post = myData.get(position);

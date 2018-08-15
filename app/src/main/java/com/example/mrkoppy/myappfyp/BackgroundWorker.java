@@ -293,7 +293,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
-                    Intent intent = new Intent(context,MainActivity.class);
+                    Intent intent = new Intent(context,Login.class);
                     context.startActivity(intent);
 
                 }
@@ -305,7 +305,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
-                    Intent intent = new Intent(context,MainActivity.class);
+                    Intent intent = new Intent(context,Login.class);
                     context.startActivity(intent);
                 }
             });
@@ -332,6 +332,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 }
             });
         }
+
 
         alertDialog.show();
 

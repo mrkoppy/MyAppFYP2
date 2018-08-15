@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
-public class MainActivity extends AppCompatActivity {
+public class Login extends AppCompatActivity {
 
     /*Create edittext variable for username and password*/
     private EditText UsernameEt, PasswordEt;
