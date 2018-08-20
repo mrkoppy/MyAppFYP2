@@ -1,5 +1,7 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.util.Log;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -33,10 +35,8 @@ public class DirectionsJSONParser {
             for(int i=0;i<jRoutes.length();i++){
                 jLegs = ( (JSONObject)jRoutes.get(i)).getJSONArray("legs");
 
+                /*List that store distance and duration*/
                 List<HashMap<String, String>> path = new ArrayList<HashMap<String, String>>();
-
-
-                /*List path = new ArrayList<>();*/
 
                 /** Traversing all legs */
                 for(int j=0;j<jLegs.length();j++){
@@ -51,17 +51,27 @@ public class DirectionsJSONParser {
                     HashMap<String, String> hmDuration = new HashMap<String, String>();
                     hmDuration.put("duration", jDuration.getString("text"));
 
-                    /*Add Get start location*//*
-                    jStartLocation = ((JSONObject) jLegs.get(j)).getJSONObject("end_address");
+                    /*Add Get start location*/
+                    jStartLocation = ((JSONObject) jLegs.get(j));
+                    String Start_location = jStartLocation.getString("start_address");
+                    Log.d("Start Address", Start_location);
                     HashMap<String, String> hmStartLocation = new HashMap<String, String>();
-                    hmStartLocation.put("duration", jStartLocation.getString("text"));*/
+                    hmStartLocation.put("start_address",Start_location);
 
                     /*Add Get end location*/
+                    jEndLocation = ((JSONObject) jLegs.get(j));
+                    String End_location = jEndLocation.getString("end_address");
+                    Log.i("End Location", End_location);
+                    HashMap<String, String> hmEndLocation = new HashMap<String, String>();
+                    hmEndLocation.put("end_address",End_location);
 
 
-                    /*Add . Adding distance and duration object to the path */
+                    /* Adding distance ,duration, startlocation,endlocation object to the path */
                     path.add(hmDistance);
                     path.add(hmDuration);
+                    path.add(hmStartLocation);
+                    path.add(hmEndLocation);
+
 
                     jSteps = ( (JSONObject)jLegs.get(j)).getJSONArray("steps");
 
@@ -77,6 +87,7 @@ public class DirectionsJSONParser {
                             hm.put("lat", Double.toString((list.get(l)).latitude) );
                             hm.put("lng", Double.toString((list.get(l)).longitude) );
                             path.add(hm);
+                            Log.i("Path", path.toString());
                         }
                     }
                     routes.add(path);

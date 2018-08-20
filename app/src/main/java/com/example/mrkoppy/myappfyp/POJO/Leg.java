@@ -14,6 +14,7 @@ public class Leg {
     @SerializedName("duration")
     @Expose
     private Duration duration;
+    private String fromlocation,tolocation;
 
     /**
      *

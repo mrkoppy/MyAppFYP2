@@ -72,7 +72,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
-    TextView ShowDistanceDuration;
+    TextView ShowDistanceDuration,origin_and_dest;
     MarkerOptions options;
 
     /* - Build.VERSION_CODES,M means that above api 23 - 6.0
@@ -85,6 +85,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
         setContentView(R.layout.activity_mydriver_map);
 
         ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
+        origin_and_dest = (TextView) findViewById(R.id.tv_origin_destination);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -205,161 +206,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
             }
         });
 
-    /*    Button btnDriving = (Button)findViewById(R.id.btnDriving);
-        btnDriving.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                build_retrofit_and_get_response("driving");
-            }
-        });
-
-        Button btnWalk = (Button) findViewById(R.id.btnWalk);
-        btnWalk.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                build_retrofit_and_get_response("walking");
-            }
-        });*/
-
     }
-
-    /*private void build_retrofit_and_get_response(String type) {
-
-        String url = "https://maps.googleapis.com/maps/";
-        *//*String url = "https://maps.googleapis.com/maps/api/directions/";*//*
-
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url)
-                .addConverterFactory(GsonConverterFactory.create())
-                .build();
-
-        RetrofitMaps service = retrofit.create(RetrofitMaps.class);
-
-        *//*Log.i("Origin:" , service.getDistanceDuration("metric", origin.latitude + "," + origin.longitude,dest.latitude + "," + dest.longitude, type).toString());*//*
-        Call<Example> call = service.getDistanceDuration("metric", origin.latitude + "," + origin.longitude,dest.latitude + "," + dest.longitude, type);
-
-        call.enqueue(new Callback<Example>() {
-            @Override
-            public void onResponse(Response<Example> response, Retrofit retrofit) {
-
-                try {
-                    //Remove previous line from map
-                    if (line != null) {
-                        line.remove();
-                    }
-                    // This loop will go through all the results and add marker on each location.
-                    for (int i = 0; i < response.body().getRoutes().size(); i++) {
-                        String distance = response.body().getRoutes().get(i).getLegs().get(i).getDistance().getText();
-                        String time = response.body().getRoutes().get(i).getLegs().get(i).getDuration().getText();
-                        Log.i("SSSSS",distance );
-                        Log.i("SSSSSSSSSSS", time);
-                        ShowDistanceDuration.setText("Distance:" + distance + ", Duration:" + time);
-                        String encodedString = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
-                        List<LatLng> list = decodePoly(encodedString);
-                        line = mMap.addPolyline(new PolylineOptions()
-                                .addAll(list)
-                                .width(20)
-                                .color(Color.RED)
-                                .geodesic(true)
-                        );
-                    }
-                } catch (Exception e) {
-                    Log.d("onResponse", "There is an error");
-                    e.printStackTrace();
-                }
-            }
-
-            @Override
-            public void onFailure(Throwable t) {
-                Log.d("onFailure", t.toString());
-            }
-        });
-
-    }
-
-    private List<LatLng> decodePoly(String encoded) {
-        List<LatLng> poly = new ArrayList<LatLng>();
-        int index = 0, len = encoded.length();
-        int lat = 0, lng = 0;
-
-        while (index < len) {
-            int b, shift = 0, result = 0;
-            do {
-                b = encoded.charAt(index++) - 63;
-                result |= (b & 0x1f) << shift;
-                shift += 5;
-            } while (b >= 0x20);
-            int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
-            lat += dlat;
-
-            shift = 0;
-            result = 0;
-            do {
-                b = encoded.charAt(index++) - 63;
-                result |= (b & 0x1f) << shift;
-                shift += 5;
-            } while (b >= 0x20);
-            int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
-            lng += dlng;
-
-            LatLng p = new LatLng( (((double) lat / 1E5)),
-                    (((double) lng / 1E5) ));
-            poly.add(p);
-        }
-
-        return poly;
-    }*/
-
-   /* private class ReverseGeocodingTask extends AsyncTask<LatLng, Void, String>{
-        Context mContext;
-
-        public ReverseGeocodingTask(Context context){
-            super();
-            mContext = context;
-        }
-
-        // Finding address using reverse geocoding
-        @Override
-        protected String doInBackground(LatLng... params) {
-            Geocoder geocoder = new Geocoder(mContext);
-            double latitude = params[0].latitude;
-            double longitude = params[0].longitude;
-
-            List<Address> addresses = null;
-            String addressText="";
-
-            try {
-                addresses = geocoder.getFromLocation(latitude, longitude,1);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            if(addresses != null && addresses.size() > 0 ){
-                Address address = addresses.get(0);
-
-                addressText = String.format("%s, %s, %s",
-                        address.getMaxAddressLineIndex() > 0 ? address.getAddressLine(0) : "",
-                        address.getLocality(),
-                        address.getCountryName());
-            }
-
-            return addressText;
-        }
-
-        @Override
-        protected void onPostExecute(String addressText) {
-            // Setting the title for the marker.
-            // This will be displayed on taping the marker
-            options.title(addressText);
-
-            // Placing a marker on the touched position
-            mMap.addMarker(options);
-
-
-
-        }
-    }*/
-
 
     private String getUrl(LatLng origin, LatLng dest) {
 
@@ -480,7 +327,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
 
             try {
                 jObject = new JSONObject(jsonData[0]);
-                Log.d("ParserTask",jsonData[0].toString());
+                Log.d("ParserTask", jsonData[0]);
                 DirectionsJSONParser parser = new DirectionsJSONParser();
                 Log.d("ParserTask", parser.toString());
 
@@ -501,11 +348,14 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
         @Override
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
             ArrayList<LatLng> points = null;
+            ArrayList<LatLng> points1 = null;
             PolylineOptions lineOptions = null;
-            /*OPtions*/
+            /*Options*/
             MarkerOptions markerOptions = new MarkerOptions();
             String distance = "";
             String duration = "";
+            String StartLocation = "";
+            String EndLocation = "";
 
             if(result.size()<1){
                 Toast.makeText(getBaseContext(), "No Points", Toast.LENGTH_SHORT).show();
@@ -515,6 +365,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
             // Traversing through all the routes
             for (int i = 0; i < result.size(); i++) {
                 points = new ArrayList<LatLng>();
+
                 lineOptions = new PolylineOptions();
 
                 // Fetching i-th route
@@ -523,12 +374,19 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
                 // Fetching all the points in i-th route
                 for (int j = 0; j < path.size(); j++) {
                     HashMap<String, String> point = path.get(j);
+                  /*  HashMap<String, String> point1 = path1.get(j);*/
 
                     if(j==0){    // Get distance from the list
                         distance = (String)point.get("distance");
                         continue;
                     }else if(j==1){ // Get duration from the list
                         duration = (String)point.get("duration");
+                        continue;
+                    }else if(j==2){ // Get Start address from the list
+                        StartLocation = (String)point.get("start_address");
+                        continue;
+                    }else if(j==3){  // Get End address from the list
+                        EndLocation = (String)point.get("end_address");
                         continue;
                     }
 
@@ -539,21 +397,13 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
                     points.add(position);
                 }
 
-                // Adding all the points in the route to LineOptions
-                lineOptions.addAll(points);
-                lineOptions.width(10);
-                lineOptions.color(Color.RED);
-
-                Log.d("onPostExecute","onPostExecute lineoptions decoded");
-
             }
-
-            /*ShowDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);*/
 
             // Drawing polyline in the Google Map for the i-th route
             if(lineOptions != null) {
                 mMap.addPolyline(lineOptions);
                 ShowDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);
+                origin_and_dest.setText("StartLocation:"+StartLocation + ", EndLocation:"+EndLocation);
                 Toast.makeText(mydriver_map.this,"Distance:"+distance + ", Duration:"+duration ,Toast.LENGTH_SHORT).show();
             }
             else {
