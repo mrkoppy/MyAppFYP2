@@ -7,7 +7,8 @@
     android:layout_height="match_parent"
     android:background="@drawable/bg2">
 
-    <fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    <fragment
+        xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:map="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:id="@+id/map"
@@ -15,20 +16,21 @@
         android:layout_width="match_parent"
         android:layout_height="388dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
+        android:layout_marginTop="65dp"
         android:layout_gravity="center"
-        android:layout_marginTop="48dp"
-        tools:context=".mydriver_map"
-        android:layout_alignParentLeft="true" />
+        tools:context=".mydriver_map" />
 
     <TextView
         android:id="@+id/show_distance_time"
-        android:layout_width="wrap_content"
+        android:layout_width="160dp"
         android:layout_height="wrap_content"
-        android:textColor="#ff0000"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:textColor="#000"
         android:textColorHighlight="@android:color/primary_text_dark"
-        android:textSize="30sp" />
+        android:textSize="10sp" />
 
+<!--
     <Button
         android:id="@+id/btnDriving"
         android:layout_width="wrap_content"
@@ -37,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="78dp"
         android:text="Driving Mode" />
-
+-->
 
     <Button
         android:id="@+id/btnRedMMMydriverMap"
@@ -49,5 +51,33 @@
         android:onClick="btn_redirect_main_menu_mydrivermap"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tv_origin"
+        android:layout_width="113dp"
+        android:layout_height="130dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="66dp"
+        android:layout_marginEnd="-46dp"
+        android:layout_toStartOf="@+id/btnRedMMMydriverMap"
+        android:text="Origin" />
+
+    <TextView
+        android:id="@+id/tv_destination"
+        android:layout_width="119dp"
+        android:layout_height="127dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignTop="@+id/tv_origin"
+        android:layout_marginEnd="38dp"
+        android:text="Destination" />
+
+    <TextView
+        android:id="@+id/tv_origin_destination"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="28dp" />
+
 
 </RelativeLayout>

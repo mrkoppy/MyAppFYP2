@@ -16,9 +16,14 @@ public class DirectionsJSONParser {
     public List<List<HashMap<String,String>>> parse(JSONObject jObject){
 
         List<List<HashMap<String, String>>> routes = new ArrayList<>() ;
-        JSONArray jRoutes;
-        JSONArray jLegs;
-        JSONArray jSteps;
+        JSONArray jRoutes = null;
+        JSONArray jLegs = null;
+        JSONArray jSteps = null;
+        JSONObject jDistance = null;
+        JSONObject jDuration = null;
+        JSONObject jStartLocation = null;
+        JSONObject jEndLocation = null;
+
 
         try {
 
@@ -27,10 +32,37 @@ public class DirectionsJSONParser {
             /** Traversing all routes */
             for(int i=0;i<jRoutes.length();i++){
                 jLegs = ( (JSONObject)jRoutes.get(i)).getJSONArray("legs");
-                List path = new ArrayList<>();
+
+                List<HashMap<String, String>> path = new ArrayList<HashMap<String, String>>();
+
+
+                /*List path = new ArrayList<>();*/
 
                 /** Traversing all legs */
                 for(int j=0;j<jLegs.length();j++){
+
+                    /*ADD Get distance*/
+                    jDistance = ((JSONObject) jLegs.get(j)).getJSONObject("distance");
+                    HashMap<String, String> hmDistance = new HashMap<String, String>();
+                    hmDistance.put("distance", jDistance.getString("text"));
+
+                    /*Add Get duration*/
+                    jDuration = ((JSONObject) jLegs.get(j)).getJSONObject("duration");
+                    HashMap<String, String> hmDuration = new HashMap<String, String>();
+                    hmDuration.put("duration", jDuration.getString("text"));
+
+                    /*Add Get start location*//*
+                    jStartLocation = ((JSONObject) jLegs.get(j)).getJSONObject("end_address");
+                    HashMap<String, String> hmStartLocation = new HashMap<String, String>();
+                    hmStartLocation.put("duration", jStartLocation.getString("text"));*/
+
+                    /*Add Get end location*/
+
+
+                    /*Add . Adding distance and duration object to the path */
+                    path.add(hmDistance);
+                    path.add(hmDuration);
+
                     jSteps = ( (JSONObject)jLegs.get(j)).getJSONArray("steps");
 
                     /** Traversing all steps */

@@ -19,6 +19,7 @@ public class myrider extends AppCompatActivity {
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.id_availableride);
 
+        /*Static testing data*/
         /*ArrayList<Post_availabletrip> data = new ArrayList<>();
         data.add(new Post_availabletrip("Persiaran Multimedia, 63100 Cyberjaya, Selangor", "Persiaran Multimedia, 63100 Cyberjaya, Selangor", "18.10.18", "17:30"));
         data.add(new Post_availabletrip("Persiaran Multimedia, 63100 Cyberjaya, Selangor", "Persiaran Multimedia, 63100 Cyberjaya, Selangor", "18.10.18","17:30"));

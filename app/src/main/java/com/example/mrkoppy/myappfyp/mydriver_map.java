@@ -2,9 +2,12 @@ package com.example.mrkoppy.myappfyp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
+import android.location.Address;
+import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Build;
@@ -14,8 +17,12 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.mrkoppy.myappfyp.POJO.Example;
+import com.example.mrkoppy.myappfyp.trip;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationListener;
@@ -29,8 +36,10 @@ import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.android.gms.maps.model.Polyline;
 import com.google.android.gms.maps.model.PolylineOptions;
 
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.BufferedReader;
@@ -43,26 +52,44 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
+import retrofit.Call;
+import retrofit.Callback;
+import retrofit.GsonConverterFactory;
+import retrofit.Response;
+import retrofit.Retrofit;
+
 public class mydriver_map extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
         LocationListener {
 
     private GoogleMap mMap;
+    LatLng origin;
+    LatLng dest;
+    Polyline line;
     ArrayList<LatLng> MarkerPoints;
     GoogleApiClient mGoogleApiClient;
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
+    TextView ShowDistanceDuration;
+    MarkerOptions options;
 
+    /* - Build.VERSION_CODES,M means that above api 23 - 6.0
+     *  - above api 23 need to get permission from users
+     *  - Testing version api level 16 - Jelly Bean	4.1.x version
+     * */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mydriver_map);
 
+        ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
+
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
         }
+
         // Initializing
         MarkerPoints = new ArrayList<>();
 
@@ -70,6 +97,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
+
     }
 
     /**
@@ -81,6 +109,8 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
      * it inside the SupportMapFragment. This method will only be triggered once the user has
      * installed Google Play services and returned to the app.
      */
+
+    /*Override google map and set dynamic map*/
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
@@ -109,6 +139,9 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
                 if (MarkerPoints.size() > 1) {
                     MarkerPoints.clear();
                     mMap.clear();
+                    /*    MarkerPoints = new ArrayList<>();*/
+                    ShowDistanceDuration.setText("");
+                /*    new ReverseGeocodingTask(getBaseContext()).execute(point);*/
                 }
 
                 // Adding new item to the ArrayList
@@ -120,28 +153,45 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
                 // Setting the position of the marker
                 options.position(point);
 
-                /**
+                /*
                  * For the start location, the color of marker is GREEN and
                  * for the end location, the color of marker is RED.
                  */
                 if (MarkerPoints.size() == 1) {
                     options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                   /* new ReverseGeocodingTask(getBaseContext()).execute(point);*/
+                    /*options.draggable(true);*/
+
                 } else if (MarkerPoints.size() == 2) {
                     options.icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
+                    /*new ReverseGeocodingTask(getBaseContext()).execute(point);*/
+                    /*options.draggable(true);*/
                 }
 
 
                 // Add new marker to the Google Map Android API V2
                 mMap.addMarker(options);
 
+                // Adding Marker on the touched location with address
+                /*new ReverseGeocodingTask(getBaseContext()).execute(point);*/
+
                 // Checks, whether start and end locations are captured
                 if (MarkerPoints.size() >= 2) {
-                    LatLng origin = MarkerPoints.get(0);
-                    LatLng dest = MarkerPoints.get(1);
+                    /**
+                     *  if global declaration then dont have bug, but inside here got bug
+                     *  This line cannot use
+                     *  LatLng origin = MarkerPoints.get(0);
+                     *   LatLng dest = MarkerPoints.get(1);*/
+               /*     LatLng origin = MarkerPoints.get(0);
+                    LatLng dest = MarkerPoints.get(1);*/
+            /*        new ReverseGeocodingTask(getBaseContext()).execute(point);*/
+                    origin = MarkerPoints.get(0);
+                    dest = MarkerPoints.get(1);
 
                     // Getting URL to the Google Directions API
                     String url = getUrl(origin, dest);
                     Log.d("onMapClick", url.toString());
+
                     FetchUrl FetchUrl = new FetchUrl();
 
                     // Start downloading json data from Google Directions API
@@ -149,29 +199,190 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
                     //move map camera
                     mMap.moveCamera(CameraUpdateFactory.newLatLng(origin));
                     mMap.animateCamera(CameraUpdateFactory.zoomTo(11));
+
                 }
 
             }
         });
 
+    /*    Button btnDriving = (Button)findViewById(R.id.btnDriving);
+        btnDriving.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                build_retrofit_and_get_response("driving");
+            }
+        });
+
+        Button btnWalk = (Button) findViewById(R.id.btnWalk);
+        btnWalk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                build_retrofit_and_get_response("walking");
+            }
+        });*/
+
     }
+
+    /*private void build_retrofit_and_get_response(String type) {
+
+        String url = "https://maps.googleapis.com/maps/";
+        *//*String url = "https://maps.googleapis.com/maps/api/directions/";*//*
+
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(url)
+                .addConverterFactory(GsonConverterFactory.create())
+                .build();
+
+        RetrofitMaps service = retrofit.create(RetrofitMaps.class);
+
+        *//*Log.i("Origin:" , service.getDistanceDuration("metric", origin.latitude + "," + origin.longitude,dest.latitude + "," + dest.longitude, type).toString());*//*
+        Call<Example> call = service.getDistanceDuration("metric", origin.latitude + "," + origin.longitude,dest.latitude + "," + dest.longitude, type);
+
+        call.enqueue(new Callback<Example>() {
+            @Override
+            public void onResponse(Response<Example> response, Retrofit retrofit) {
+
+                try {
+                    //Remove previous line from map
+                    if (line != null) {
+                        line.remove();
+                    }
+                    // This loop will go through all the results and add marker on each location.
+                    for (int i = 0; i < response.body().getRoutes().size(); i++) {
+                        String distance = response.body().getRoutes().get(i).getLegs().get(i).getDistance().getText();
+                        String time = response.body().getRoutes().get(i).getLegs().get(i).getDuration().getText();
+                        Log.i("SSSSS",distance );
+                        Log.i("SSSSSSSSSSS", time);
+                        ShowDistanceDuration.setText("Distance:" + distance + ", Duration:" + time);
+                        String encodedString = response.body().getRoutes().get(0).getOverviewPolyline().getPoints();
+                        List<LatLng> list = decodePoly(encodedString);
+                        line = mMap.addPolyline(new PolylineOptions()
+                                .addAll(list)
+                                .width(20)
+                                .color(Color.RED)
+                                .geodesic(true)
+                        );
+                    }
+                } catch (Exception e) {
+                    Log.d("onResponse", "There is an error");
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Throwable t) {
+                Log.d("onFailure", t.toString());
+            }
+        });
+
+    }
+
+    private List<LatLng> decodePoly(String encoded) {
+        List<LatLng> poly = new ArrayList<LatLng>();
+        int index = 0, len = encoded.length();
+        int lat = 0, lng = 0;
+
+        while (index < len) {
+            int b, shift = 0, result = 0;
+            do {
+                b = encoded.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
+            } while (b >= 0x20);
+            int dlat = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lat += dlat;
+
+            shift = 0;
+            result = 0;
+            do {
+                b = encoded.charAt(index++) - 63;
+                result |= (b & 0x1f) << shift;
+                shift += 5;
+            } while (b >= 0x20);
+            int dlng = ((result & 1) != 0 ? ~(result >> 1) : (result >> 1));
+            lng += dlng;
+
+            LatLng p = new LatLng( (((double) lat / 1E5)),
+                    (((double) lng / 1E5) ));
+            poly.add(p);
+        }
+
+        return poly;
+    }*/
+
+   /* private class ReverseGeocodingTask extends AsyncTask<LatLng, Void, String>{
+        Context mContext;
+
+        public ReverseGeocodingTask(Context context){
+            super();
+            mContext = context;
+        }
+
+        // Finding address using reverse geocoding
+        @Override
+        protected String doInBackground(LatLng... params) {
+            Geocoder geocoder = new Geocoder(mContext);
+            double latitude = params[0].latitude;
+            double longitude = params[0].longitude;
+
+            List<Address> addresses = null;
+            String addressText="";
+
+            try {
+                addresses = geocoder.getFromLocation(latitude, longitude,1);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            if(addresses != null && addresses.size() > 0 ){
+                Address address = addresses.get(0);
+
+                addressText = String.format("%s, %s, %s",
+                        address.getMaxAddressLineIndex() > 0 ? address.getAddressLine(0) : "",
+                        address.getLocality(),
+                        address.getCountryName());
+            }
+
+            return addressText;
+        }
+
+        @Override
+        protected void onPostExecute(String addressText) {
+            // Setting the title for the marker.
+            // This will be displayed on taping the marker
+            options.title(addressText);
+
+            // Placing a marker on the touched position
+            mMap.addMarker(options);
+
+
+
+        }
+    }*/
+
 
     private String getUrl(LatLng origin, LatLng dest) {
 
         // Origin of route
         String str_origin = "origin=" + origin.latitude + "," + origin.longitude;
+        Log.i("Origin",str_origin);
 
         // Destination of route
         String str_dest = "destination=" + dest.latitude + "," + dest.longitude;
+        Log.i("Origin",str_dest);
 
-
-        // Sensor enabled
+        // Sensor enabled, not need to set users location set it to false
         String sensor = "sensor=false";
+        Log.i("Sensor",sensor);
+
+        /*Set it to driveing mode*/
+        String mode = "mode = driving";
 
         // Building the parameters to the web service
         String parameters = str_origin + "&" + str_dest + "&" + sensor;
+        Log.i("Parameters",parameters);
 
-        // Output format
+        // Output to json format
         String output = "json";
 
         // Building the url to the web service
@@ -211,6 +422,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
 
             data = sb.toString();
             Log.d("downloadUrl", data.toString());
+
             br.close();
 
         } catch (Exception e) {
@@ -254,6 +466,7 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
     }
 
     /**
+     * Parse the Json data returned by DownloadURL
      * A class to parse the Google Places in JSON format
      */
     private class ParserTask extends AsyncTask<String, Integer, List<List<HashMap<String, String>>>> {
@@ -284,14 +497,24 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
         }
 
         // Executes in UI thread, after the parsing process
+        // Draw line onto the map from origin to destination
         @Override
         protected void onPostExecute(List<List<HashMap<String, String>>> result) {
-            ArrayList<LatLng> points;
+            ArrayList<LatLng> points = null;
             PolylineOptions lineOptions = null;
+            /*OPtions*/
+            MarkerOptions markerOptions = new MarkerOptions();
+            String distance = "";
+            String duration = "";
+
+            if(result.size()<1){
+                Toast.makeText(getBaseContext(), "No Points", Toast.LENGTH_SHORT).show();
+                return;
+            }
 
             // Traversing through all the routes
             for (int i = 0; i < result.size(); i++) {
-                points = new ArrayList<>();
+                points = new ArrayList<LatLng>();
                 lineOptions = new PolylineOptions();
 
                 // Fetching i-th route
@@ -300,6 +523,14 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
                 // Fetching all the points in i-th route
                 for (int j = 0; j < path.size(); j++) {
                     HashMap<String, String> point = path.get(j);
+
+                    if(j==0){    // Get distance from the list
+                        distance = (String)point.get("distance");
+                        continue;
+                    }else if(j==1){ // Get duration from the list
+                        duration = (String)point.get("duration");
+                        continue;
+                    }
 
                     double lat = Double.parseDouble(point.get("lat"));
                     double lng = Double.parseDouble(point.get("lng"));
@@ -317,9 +548,13 @@ public class mydriver_map extends FragmentActivity implements OnMapReadyCallback
 
             }
 
+            /*ShowDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);*/
+
             // Drawing polyline in the Google Map for the i-th route
             if(lineOptions != null) {
                 mMap.addPolyline(lineOptions);
+                ShowDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);
+                Toast.makeText(mydriver_map.this,"Distance:"+distance + ", Duration:"+duration ,Toast.LENGTH_SHORT).show();
             }
             else {
                 Log.d("onPostExecute","without Polylines drawn");
