@@ -67,8 +67,8 @@
 
     <!--driver_cr_route.xml-->
     <string name="create_your_route_here">Create Your Route Here</string>
-    <string name="confirm_location1">Confirm location</string>
-    <string name="confirm_location2">Confirm location</string>
+    <string name="confirm_location1">Y</string>
+    <string name="confirm_location2">Y</string>
 
     <!--activity_trip.xml-->
     <string name="driver">Driver</string>

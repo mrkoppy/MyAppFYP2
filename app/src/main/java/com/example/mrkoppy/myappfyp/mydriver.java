@@ -52,11 +52,6 @@ public class mydriver extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void onEstTime(View view){
-        Intent intent = new Intent(this, mydriver_map.class);
-        startActivity(intent);
-    }
-
     public void createRoute(View view){
         Intent intent = new Intent(this, Driver_CrRoute.class);
         startActivity(intent);

@@ -9,54 +9,164 @@
     android:background="@drawable/bg2"
     >
 
-    <EditText
-        android:id="@+id/etStartMyDriver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="137dp"
-        android:background="#fff"
-        android:ems="10"
-        android:hint="@string/start_mydriver"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:onClick="findPlace1"/>
-<!--
-    <TextView
-        android:id="@+id/tvTo1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:gravity="center"
-        android:text="@string/to"
-        android:textSize="20sp"
-        android:layout_alignParentLeft="true" />-->
-
-    <EditText
-        android:id="@+id/etDestinationMyDriver"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="195dp"
-        android:background="#fff"
-        android:ems="10"
-        android:hint="@string/destination"
-        android:inputType="textPersonName"
-        android:textSize="20sp"
-        android:onClick="findPlace2"/>
-
     <TextView
         android:id="@+id/cr8route"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="31dp"
         android:text="@string/create_your_route_here"
-        android:textSize="30sp" />
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:id="@+id/startndes"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:layout_below="@+id/cr8route">
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+
+            <EditText
+                android:id="@+id/etStartMyDriver"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="#fff"
+                android:ems="10"
+                android:hint="@string/start_mydriver"
+                android:inputType="textPersonName"
+                android:onClick="findPlace1"
+                android:textSize="20sp" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="32dp"
+            android:layout_height="match_parent">
+
+            <Button
+                android:id="@+id/buttonStartGetCoordinate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:background="#2196F3"
+                android:text="@string/confirm_location1"
+                android:textColor="#000" />
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="150dp"
+            android:layout_height="150dp">
+
+            <EditText
+                android:id="@+id/etDestinationMyDriver"
+                android:layout_width="match_parent"
+                android:layout_height="39dp"
+                android:background="#fff"
+                android:hint="@string/destination"
+                android:inputType="textPersonName"
+                android:textSize="20sp"
+                android:onClick="findPlace2"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="32dp"
+            android:layout_height="match_parent">
+
+
+            <Button
+                android:id="@+id/buttonEndGetCoordinate"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#2196F3"
+                android:text="@string/confirm_location2"
+                android:textColor="#000" />
+
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#fff"
+        android:layout_below="@+id/startndes"
+        android:orientation="horizontal">
+
+        <fragment
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:map="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:id="@+id/map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="388dp"
+            android:layout_marginTop="65dp"
+            android:layout_gravity="center"
+            tools:context=".mydriver_map" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/show_distance_time"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="230dp"
+        android:textColor="#000"
+        android:textColorHighlight="@android:color/primary_text_dark"
+        android:textSize="12sp" />
+
+    <TextView
+        android:id="@+id/tv_origin_destination"
+        android:layout_width="match_parent"
+        android:layout_height="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="177dp" />
+
+    <TextView
+        android:id="@+id/textCordinate1_lat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:text="S1a: "
+        android:textColor="@android:color/transparent" />
+
+    <TextView
+        android:id="@+id/textCordinate1_lng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="52dp"
+        android:text="S1b: "
+        android:textColor="@android:color/transparent" />
+
+
+    <TextView
+        android:id="@+id/textCordinate2_lat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_toEndOf="@+id/btnRedMMMydriver_cr_route"
+        android:text="S2a: "
+        android:textColor="@android:color/transparent"/>
+
+    <TextView
+        android:id="@+id/textCordinate2_lng"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="14dp"
+        android:text="S2b: "
+        android:textColor="@android:color/transparent"/>
 
     <Button
         android:id="@+id/btn_mydrivergo"
@@ -79,68 +189,5 @@
         android:onClick="btn_redirect_main_menu_driver_cr_route"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp" />
-
-    <TextView
-        android:id="@+id/textCordinate1_lat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/cr8route"
-        android:layout_marginTop="173dp"
-        android:text="Your Start Cordinate Lat: "
-        android:layout_alignLeft="@+id/cr8route" />
-
-    <TextView
-        android:id="@+id/textCordinate1_lng"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_alignStart="@+id/cr8route"
-        android:layout_marginTop="204dp"
-        android:text="Your Start Cordinate Lng: "
-        android:layout_alignLeft="@+id/cr8route" />
-
-
-    <TextView
-        android:id="@+id/textCordinate2_lat"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/cr8route"
-        android:layout_marginBottom="162dp"
-        android:text="Your End Cordinate Lat: "
-        android:layout_alignLeft="@+id/cr8route" />
-
-    <TextView
-        android:id="@+id/textCordinate2_lng"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignStart="@+id/cr8route"
-        android:layout_marginBottom="131dp"
-        android:text="Your End Cordinate Lng: "
-        android:layout_alignLeft="@+id/cr8route" />
-
-    <Button
-        android:id="@+id/buttonStartGetCoordinate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/etStartMyDriver"
-        android:layout_centerHorizontal="true"
-        android:layout_marginBottom="-136dp"
-        android:text="@string/confirm_location1"
-        android:background="#2196F3"
-        android:textColor="#000"/>
-
-    <Button
-        android:id="@+id/buttonEndGetCoordinate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/etDestinationMyDriver"
-        android:layout_centerHorizontal="true"
-        android:text="@string/confirm_location2"
-        android:background="#2196F3"
-        android:textColor="#000"/>
-
 
 </RelativeLayout>
