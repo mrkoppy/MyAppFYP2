@@ -1,6 +1,8 @@
 package com.example.mrkoppy.myappfyp;
 
-public class Post_availabletrip {
+import java.io.Serializable;
+
+public class Post_availabletrip implements Serializable{
 
     public String From;
     public String To;

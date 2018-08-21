@@ -52,6 +52,7 @@
         <activity android:name=".myalert" />
         <activity android:name=".myrider_map" />
         <activity android:name=".Driver_CrRoute" />
+        <activity android:name=".my_available_trip_insidedata" />
     </application>
 
 </manifest>

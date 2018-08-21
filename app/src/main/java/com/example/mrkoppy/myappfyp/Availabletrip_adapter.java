@@ -14,14 +14,17 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
 
     private Context myContext;
     private ArrayList<Post_availabletrip> myData;
+    private my_rider_booking_interface my_rider_booking_interface;
 
     public Availabletrip_adapter(Context context, ArrayList<Post_availabletrip> data) {
         /*this.myContext = context;*/
         this.myData = data;
     }
 
-    public Availabletrip_adapter(ArrayList<Post_availabletrip> arrayList) {
+    public Availabletrip_adapter(ArrayList<Post_availabletrip> arrayList, my_rider_booking_interface my_rider_booking_interface) {
         this.myData = arrayList;
+        this.my_rider_booking_interface = my_rider_booking_interface;
+
     }
 
     /*used to store other class view*/
@@ -46,11 +49,19 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
     /*holder that hold information of those view*/
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        Post_availabletrip post = myData.get(position);
+        final Post_availabletrip post = myData.get(position);
         holder.tv_availableRideFrom.setText(post.From);
         holder.tv_availableRideTo.setText(post.To);
         holder.tv_availableRideDate.setText(post.Date);
         holder.tv_availableRideEST.setText(post.Est);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               my_rider_booking_interface.onClick(post);
+            }
+            }
+        );
     }
 
     @Override

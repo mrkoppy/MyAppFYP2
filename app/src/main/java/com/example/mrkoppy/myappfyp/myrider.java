@@ -1,23 +1,23 @@
 package com.example.mrkoppy.myappfyp;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 
-import java.util.ArrayList;
-
-public class myrider extends AppCompatActivity {
+public class myrider extends AppCompatActivity implements my_rider_booking_interface {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_myrider);
 
-        BgWorker_availableride bgWorker_availableride = new BgWorker_availableride(myrider.this);
+        BgWorker_availableride bgWorker_availableride = new BgWorker_availableride(myrider.this, this);
         bgWorker_availableride.execute();
 
         RecyclerView recyclerView = (RecyclerView) findViewById(R.id.id_availableride);
+
 
         /*Static testing data*/
         /*ArrayList<Post_availabletrip> data = new ArrayList<>();
@@ -31,6 +31,15 @@ public class myrider extends AppCompatActivity {
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);*/
+    }
+
+    @Override
+    public void onClick(Post_availabletrip post) {
+        Log.i("Start Location : ", post.From);
+        Intent intent = new Intent(this, my_available_trip_insidedata.class);
+        intent.putExtra("post", post);
+        startActivity(intent);
+
     }
 
 

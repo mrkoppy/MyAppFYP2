@@ -27,10 +27,12 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
     RecyclerView.Adapter adapter;
     RecyclerView.LayoutManager layoutManager;
     ArrayList<Post_availabletrip> arrayList = new ArrayList<>();
+    my_rider_booking_interface my_rider_booking_interface;
 
 
-    public BgWorker_availableride(Context ctx){
+    public BgWorker_availableride(Context ctx, my_rider_booking_interface my_rider_booking_interface){
         this.ctx = ctx;
+        this.my_rider_booking_interface = my_rider_booking_interface;
         activty = (Activity)ctx;
     }
 
@@ -89,7 +91,7 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
         layoutManager = new LinearLayoutManager(ctx);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setHasFixedSize(true);
-        adapter = new Availabletrip_adapter(arrayList);
+        adapter = new Availabletrip_adapter(arrayList, my_rider_booking_interface);
         recyclerView.setAdapter(adapter);
 
     }

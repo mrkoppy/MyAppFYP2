@@ -2,23 +2,17 @@ package com.example.mrkoppy.myappfyp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
-import android.content.Context;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
-import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.os.AsyncTask;
-
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +20,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.mrkoppy.myappfyp.POJO.Example;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
 import com.google.android.gms.common.GooglePlayServicesRepairableException;
@@ -83,7 +76,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
-    TextView ShowDistanceDuration,origin_and_dest;
+    TextView ShowDistanceDuration,horigin,hdestination;
     MarkerOptions options;
 
 
@@ -104,6 +97,10 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         txtCoord1_lng = (TextView)findViewById(R.id.textCordinate1_lng);
         txtCoord2_lat = (TextView) findViewById(R.id.textCordinate2_lat);
         txtCoord2_lng = (TextView)findViewById(R.id.textCordinate2_lng);
+        ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
+        /*origin_and_dest = (TextView) findViewById(R.id.tv_origin_destination);*/
+        horigin = (TextView)findViewById(R.id.tvorg);
+        hdestination = (TextView)findViewById(R.id.tvdtn);
 
 
         btnShowCoord1.setOnClickListener(new View.OnClickListener() {
@@ -130,6 +127,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
                         String address = strings[0];
                         HttpDataHandler http = new HttpDataHandler();
                         String url = String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s",address);
+                        /*Log.e("SSSSS", String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s",address));*/
                         response = http.getHTTPData(url);
                         return response;
                     }
@@ -190,6 +188,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
                         String address = strings[0];
                         HttpDataHandler http = new HttpDataHandler();
                         String url = String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s",address);
+                        /*Log.e("SSSSS2", String.format("https://maps.googleapis.com/maps/api/geocode/json?address=%s",address));*/
                         response = http.getHTTPData(url);
                         return response;
                     }
@@ -227,8 +226,6 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
         });
 
-        ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
-        origin_and_dest = (TextView) findViewById(R.id.tv_origin_destination);
 
         if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             checkLocationPermission();
@@ -651,7 +648,11 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
             if(lineOptions != null) {
                 mMap.addPolyline(lineOptions);
                 ShowDistanceDuration.setText("Distance:"+distance + ", Duration:"+duration);
-                origin_and_dest.setText("StartLocation:"+StartLocation + ", EndLocation:"+EndLocation);
+                edtAddress1.setText(StartLocation, TextView.BufferType.EDITABLE);
+                edtAddress2.setText(EndLocation, TextView.BufferType.EDITABLE);
+                /*origin_and_dest.setText("StartLocation:"+StartLocation + ", EndLocation:"+EndLocation);*/
+                /*horigin.setText("StartLocation : " + StartLocation);
+                hdestination.setText("EndLocation : " + EndLocation);*/
                 Toast.makeText(Driver_CrRoute.this,"Distance:"+distance + ", Duration:"+duration ,Toast.LENGTH_SHORT).show();
             }
             else {
