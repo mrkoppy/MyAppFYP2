@@ -2,7 +2,9 @@ package com.example.mrkoppy.myappfyp;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
+import android.app.DatePickerDialog;
 import android.app.ProgressDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
@@ -13,11 +15,17 @@ import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
+import android.text.format.DateFormat;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
@@ -51,7 +59,10 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -59,14 +70,15 @@ import java.util.List;
 public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallback,
         GoogleApiClient.ConnectionCallbacks,
         GoogleApiClient.OnConnectionFailedListener,
-        LocationListener {
+        LocationListener,DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
 
 
     Button btnShowCoord1,btnShowCoord2;
-    EditText edtAddress1,edtAddress2;
-    TextView txtCoord1_lat,txtCoord1_lng,txtCoord2_lat,txtCoord2_lng,txtCoord2;
-    private String str_startname,str_endname,str_latstartlocation ,str_lngstartlocation,str_latnendlocation,str_lngendlocation,type;
+    EditText edtAddress1,edtAddress2,edtDateAndTime,edt_Price,edt_Seatsleft,edt_DatenTime;
+    TextView txtCoord1_lat,txtCoord1_lng,txtCoord2_lat,txtCoord2_lng,txtCoord2,tvStatus,tv_Status,tv_DateTime;
+    private String str_startname,str_endname,str_latstartlocation ,str_lngstartlocation,str_latnendlocation,
+            str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status,type;
     private GoogleMap mMap;
     LatLng origin;
     LatLng dest;
@@ -78,6 +90,12 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     LocationRequest mLocationRequest;
     TextView ShowDistanceDuration;/*,horigin,hdestination*/
     MarkerOptions options;
+    Spinner spinner;
+    private int day,month,year,hour,minute;
+    private int finalDay,finalMth,finalYear,finalHour,finalMinute;
+    public static final String DATE_SERVER_PATTERN = "yyyy-MM-dd";
+    RadioGroup goornot;
+    RadioButton goono;
 
 
     /* - Build.VERSION_CODES,M means that above api 23 - 6.0
@@ -97,7 +115,66 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         txtCoord1_lng = (TextView)findViewById(R.id.textCordinate1_lng);
         txtCoord2_lat = (TextView) findViewById(R.id.textCordinate2_lat);
         txtCoord2_lng = (TextView)findViewById(R.id.textCordinate2_lng);
+        edt_Price = (EditText)findViewById(R.id.etTripPrice);
+        edt_Seatsleft = (EditText)findViewById(R.id.et_Seatsleft);
+        tv_DateTime = (TextView)findViewById(R.id.tv_dateTime);
+        goornot = (RadioGroup)findViewById(R.id.radioGrp_gon);
+
+        /*edt_DatenTime = (EditText)findViewById(R.id.et_DatenTime);*/
+        /*tv_Status = (TextView)findViewById(R.id.tv_forStatus);*/
         ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
+
+        /*spinner = findViewById(R.id.spinnerStatus);*/
+        /*String[] spinnerItems = new String[]{"OnGoing", "Cancel"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerItems);
+        spinner.setAdapter(adapter);*/
+
+        /*? Means can be any type
+        * Parent is where the click happened
+        * view within the AdapterView that was clicked(view provided by adapter)
+        * position is position of view in adapter
+        * id is row id of item that was clicked*/
+        /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                String selectedItemText = (String) parent.getItemAtPosition(position);
+
+                *//*if (position == 1){
+                    tvStatus.setText("OnGoing");
+                } else if (position == 2){
+                    tv_Status.setText("Cancel");
+                }*//*
+                Log.e("Your Choice : ", selectedItemText);
+                Toast.makeText
+                        (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
+                        .show();
+
+        }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });*/
+
+        /*Log.i("Your Status : ",spinner.getSelectedItem().toString());*/
+
+
+        edtDateAndTime = (EditText) findViewById(R.id.et_DatenTime);
+        edtDateAndTime.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Calendar calender = Calendar.getInstance();
+                    year = calender.get(Calendar.YEAR);
+                    month = calender.get(Calendar.MONTH);
+                    day = calender.get(Calendar.DAY_OF_MONTH);
+
+                    DatePickerDialog datePickerDialog = new DatePickerDialog(Driver_CrRoute.this,Driver_CrRoute.this,year,
+                            month,day);
+                    datePickerDialog.show();
+                }
+        });
+
         /*origin_and_dest = (TextView) findViewById(R.id.tv_origin_destination);*/
         /*horigin = (TextView)findViewById(R.id.tvorg);
         hdestination = (TextView)findViewById(R.id.tvdtn);*/
@@ -241,6 +318,64 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
     }
 
+    @Override
+    public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
+        finalYear = i;
+        finalMth = i1 + 1;
+        finalDay = i2;
+
+        Calendar c = Calendar.getInstance();
+        /*c.set(Calendar.YEAR,i);
+        c.set(Calendar.MONTH,i1);
+        c.set(Calendar.DAY_OF_MONTH,i2);*/
+        hour = c.get(Calendar.HOUR_OF_DAY);
+        minute = c.get(Calendar.MINUTE);
+
+        TimePickerDialog timePickerDialog = new TimePickerDialog(Driver_CrRoute.this,Driver_CrRoute.this,hour,minute,
+                DateFormat.is24HourFormat(this));
+        timePickerDialog.show();
+
+    }
+
+    @Override
+    public void onTimeSet(TimePicker timePicker, int i, int i1) {
+        finalHour = i;
+        finalMinute = i1;
+
+        /*Toast.makeText(Driver_CrRoute.this, "The Date You Choose : " + "\n" + "Year : " + finalYear + "\n" +
+                "Month : " + finalMth + "\n" +
+                "Day : " + finalDay + "\n" +
+                "Hour : " + finalHour + "\n" +
+                "Minute : " + finalMinute,Toast.LENGTH_SHORT).show();*/
+        String finalYearValue = Integer.toString(finalYear);
+        String finalMthValue = Integer.toString(finalMth);
+        String finalDayValue = Integer.toString(finalDay);
+        String finalHourValue = Integer.toString(finalHour);
+        String finalMinuteValue = Integer.toString(finalMinute);
+        String finalOutcome = finalYearValue + "-" + finalMthValue + "-" + finalDayValue + " " + finalHourValue + ":" + finalMinuteValue + ":" + "00";
+        edtDateAndTime.setText(finalOutcome,TextView.BufferType.EDITABLE);
+        tv_DateTime.setText(finalOutcome);
+        Toast.makeText(this,convertDate(finalOutcome),Toast.LENGTH_SHORT).show();
+        /*edtAddress2.setText(EndLocation, TextView.BufferType.EDITABLE);*/
+        Log.i("Time information : ", "Year : " + finalYear + "Month : " + finalMth + "Day : " + finalDay +
+                "Hour : " + finalHour + "Minute : " + finalMinute);
+
+    }
+
+    private String convertDate(String finalOutcome) {
+        try {
+            SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            Date d = format.parse(finalOutcome);
+            SimpleDateFormat serverFormat = new SimpleDateFormat("yyyy-MM-dd' 'HH:mm:ss");
+            /*  'T'
+            .SSS'Z'*/
+            return serverFormat.format(d);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "";
+    }
+
     /*
      * PlaceAutoComplete Activity
      */
@@ -336,10 +471,20 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         str_lngstartlocation = txtCoord1_lng.getText().toString() ;
         str_latnendlocation = txtCoord2_lat.getText().toString();
         str_lngendlocation = txtCoord2_lng.getText().toString();
+        str_price = edt_Price.getText().toString();
+        str_seatsleft = edt_Seatsleft.getText().toString() ;
+        str_datentime = tv_DateTime.getText().toString();
+
+        /*spinner.getSelectedItem().toString();*/
+        /*Log.i("Str_datentime", str_datentime);*/
+        int goornot1 = goornot.getCheckedRadioButtonId();
+        goono = findViewById(goornot1);
+        str_status = goono.getText().toString();
         type = "register_route";
 
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, str_startname, str_endname,str_latstartlocation,str_lngstartlocation,str_latnendlocation,str_lngendlocation);
+        backgroundWorker.execute(type, str_startname, str_endname,str_latstartlocation,str_lngstartlocation,str_latnendlocation,
+                str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status);
     }
 
     /**

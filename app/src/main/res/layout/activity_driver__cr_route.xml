@@ -90,6 +90,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/LinearLayoutMap"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="#fff"
@@ -118,7 +119,7 @@
         android:layout_alignParentTop="true"
         android:layout_marginTop="59dp"
         android:text="distance_n_time"
-        android:textColor="#000"
+        android:textColor="#ff0000"
         android:textColorHighlight="@android:color/primary_text_dark"
         android:textSize="12sp"
         android:layout_alignParentLeft="true" />
@@ -151,10 +152,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        android:layout_toEndOf="@+id/btnRedMMMydriver_cr_route"
         android:text="S2a: "
-        android:textColor="@android:color/transparent"
-        android:layout_toRightOf="@+id/btnRedMMMydriver_cr_route" />
+        android:textColor="@android:color/transparent" />
 
     <TextView
         android:id="@+id/textCordinate2_lng"
@@ -168,26 +167,156 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="14dp" />
 
-    <Button
-        android:id="@+id/btn_mydrivergo"
-        android:layout_width="wrap_content"
-        android:layout_height="33dp"
-        android:layout_above="@+id/btnRedMMMydriver_cr_route"
-        android:layout_centerHorizontal="true"
-        android:background="#2196F3"
-        android:text="@string/go"
-        android:textColor="#fff"
-        android:onClick="btn_registerroute"/>
 
-    <Button
-        android:id="@+id/btnRedMMMydriver_cr_route"
-        android:layout_width="200dp"
-        android:layout_height="50dp"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true"
-        android:background="#D4D8DB"
-        android:onClick="btn_redirect_main_menu_driver_cr_route"
-        android:text="@string/return_to_main_menu"
-        android:textSize="15sp" />
+    <RelativeLayout
+        android:id="@+id/RLBookingDetails"
+        android:layout_width="match_parent"
+        android:layout_height="185dp"
+        android:layout_below="@+id/LinearLayoutMap">
+
+        <RelativeLayout
+            android:id="@+id/RLPrice"
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
+
+            <EditText
+                android:id="@+id/etTripPrice"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:hint="Price" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RLTotalSeatsLeft"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/RLPrice">
+
+            <EditText
+                android:id="@+id/et_Seatsleft"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:hint="Total Seats Left"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/RLDateNTime"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@+id/RLTotalSeatsLeft">
+
+
+            <EditText
+                android:id="@+id/et_DatenTime"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_centerHorizontal="true"
+                android:ems="10"
+                android:inputType="date"
+                android:hint="Pick Your Date"/>
+
+            <TextView
+                android:id="@+id/tv_dateTime"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:textColor="@android:color/transparent"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_below="@id/RLDateNTime">
+
+            <RadioGroup
+                android:id="@+id/radioGrp_gon"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentTop="true"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rd_Going"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:layout_weight="1"
+                    android:checked="true"
+                    android:text="Going"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rd_Cancel"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_weight="1"
+                    android:checked="false"
+                    android:text="Cancel"
+                    android:textColor="#000"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <!--<Spinner
+                android:id="@+id/spinnerStatus"
+                android:layout_width="150dp"
+                android:layout_height="45dp"
+                android:background="@android:drawable/btn_dropdown"
+                android:spinnerMode="dropdown"
+                android:layout_centerHorizontal="true"/>-->
+
+            <!--<TextView
+                android:id="@+id/tv_forStatus"
+                android:layout_width="50dp"
+                android:layout_height="45dp"
+                android:textColor="@android:color/transparent"
+                android:text="OnGoing"/>-->
+
+        </RelativeLayout>
+
+    <!--Bottom widget go and back-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLBottomDirect"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/RLBookingDetails">
+
+        <Button
+            android:id="@+id/btn_mydrivergo"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:background="#2196F3"
+            android:onClick="btn_registerroute"
+            android:text="@string/go"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"/>
+
+        <Button
+            android:id="@+id/btnRedMMMydriver_cr_route"
+            android:layout_width="48dp"
+            android:layout_height="26dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="#2196F3"
+            android:onClick="btn_redirect_main_menu_driver_cr_route"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
 
 </RelativeLayout>

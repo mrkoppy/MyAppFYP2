@@ -228,6 +228,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     String lngstartlocation = params[4];
                     String latnendlocation = params[5];
                     String lngendlocation = params[6];
+                    String price = params[7];
+                    String seats_left = params[8];
+                    String datentime = params[9];
+                    String status = params[10];
                     /*String username = sharedpre.getString("user_name", "");*/
                     URL url = new URL(register_route_url);
                     HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
@@ -241,7 +245,11 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                             +URLEncoder.encode("Latstart_location","UTF-8")+"="+URLEncoder.encode(latstartlocation,"UTF-8") +"&"
                             +URLEncoder.encode("Lngstart_location","UTF-8")+"="+URLEncoder.encode(lngstartlocation,"UTF-8") +"&"
                             +URLEncoder.encode("Latend_location","UTF-8")+"="+URLEncoder.encode(latnendlocation,"UTF-8") +"&"
-                            +URLEncoder.encode("Lngend_location","UTF-8")+"="+URLEncoder.encode(lngendlocation,"UTF-8");
+                            +URLEncoder.encode("Lngend_location","UTF-8")+"="+URLEncoder.encode(lngendlocation,"UTF-8") + '&'
+                            +URLEncoder.encode("Price","UTF-8")+"="+URLEncoder.encode(price,"UTF-8") +"&"
+                            +URLEncoder.encode("Seats_left","UTF-8")+"="+URLEncoder.encode(seats_left,"UTF-8") +"&"
+                            +URLEncoder.encode("DateNTime","UTF-8")+"="+URLEncoder.encode(datentime,"UTF-8") +"&"
+                            +URLEncoder.encode("Status","UTF-8")+"="+URLEncoder.encode(status,"UTF-8")  ;
                     bufferedWriter.write(post_data);
                     bufferedWriter.flush();
                     bufferedWriter.close();

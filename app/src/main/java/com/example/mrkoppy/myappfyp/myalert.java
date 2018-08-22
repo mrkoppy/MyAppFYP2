@@ -3,17 +3,16 @@ package com.example.mrkoppy.myappfyp;
 import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.text.format.DateFormat;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
-import android.widget.TextView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
-import java.sql.Time;
-import java.text.DateFormat;
 import java.util.Calendar;
 
 public class myalert extends  AppCompatActivity implements
@@ -58,7 +57,7 @@ public class myalert extends  AppCompatActivity implements
         minute = c.get(Calendar.MINUTE);
 
         TimePickerDialog timePickerDialog = new TimePickerDialog(myalert.this,myalert.this,hour,minute,
-                android.text.format.DateFormat.is24HourFormat(this));
+                DateFormat.is24HourFormat(this));
         timePickerDialog.show();
 
     }
@@ -80,8 +79,10 @@ public class myalert extends  AppCompatActivity implements
         Toast.makeText(myalert.this, "Alert Have Been Set" + "\n" + "Year : " + finalYear + "\n" +
                 "Month : " + finalMth + "\n" +
                 "Day : " + finalDay + "\n" +
-                "Hour : " + finalHour + "\n" ,Toast.LENGTH_SHORT).show();
-
+                "Hour : " + finalHour + "\n" +
+                "Minute : " + finalMinute,Toast.LENGTH_SHORT).show();
+        Log.i("Time information : ", "Year : " + finalYear + "Month : " + finalMth + "Day : " + finalDay +
+        "Hour : " + finalHour + "Minute : " + finalMinute);
 
 
         Intent intent = new Intent(myalert.this, trip.class);
