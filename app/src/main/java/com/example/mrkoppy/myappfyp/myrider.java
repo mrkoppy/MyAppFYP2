@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
 
 public class myrider extends AppCompatActivity implements my_rider_booking_interface {
 
@@ -40,6 +41,11 @@ public class myrider extends AppCompatActivity implements my_rider_booking_inter
         intent.putExtra("post", post);
         startActivity(intent);
 
+    }
+
+    public void btn_redirect_main_menu_myrider(View view){
+        Intent intent = new Intent(this, trip.class);
+        startActivity(intent);
     }
 
 

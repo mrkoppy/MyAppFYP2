@@ -76,7 +76,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
-    TextView ShowDistanceDuration,horigin,hdestination;
+    TextView ShowDistanceDuration;/*,horigin,hdestination*/
     MarkerOptions options;
 
 
@@ -99,8 +99,8 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         txtCoord2_lng = (TextView)findViewById(R.id.textCordinate2_lng);
         ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
         /*origin_and_dest = (TextView) findViewById(R.id.tv_origin_destination);*/
-        horigin = (TextView)findViewById(R.id.tvorg);
-        hdestination = (TextView)findViewById(R.id.tvdtn);
+        /*horigin = (TextView)findViewById(R.id.tvorg);
+        hdestination = (TextView)findViewById(R.id.tvdtn);*/
 
 
         btnShowCoord1.setOnClickListener(new View.OnClickListener() {
