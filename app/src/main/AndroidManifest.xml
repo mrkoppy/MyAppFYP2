@@ -45,10 +45,6 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-
-        <activity
-            android:name=".mydriver_map"
-            android:label="@string/title_activity_mydriver_map" />
         <activity android:name=".myalert" />
         <activity android:name=".myrider_map" />
         <activity android:name=".Driver_CrRoute" />

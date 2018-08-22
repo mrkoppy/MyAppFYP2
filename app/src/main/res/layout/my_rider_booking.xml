@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="150dp"
+    android:layout_height="175dp"
     android:layout_marginTop="15dp"
     android:background="#ffdab3"
     android:clickable="true"
@@ -12,62 +12,178 @@
     android:theme="@style/NoActionBar">
 
     <RelativeLayout
-        android:layout_width="192dp"
-        android:layout_height="148dp">
+        android:layout_width="190dp"
+        android:layout_height="match_parent">
 
+        <RelativeLayout
+            android:id="@+id/tvFrom1"
+            android:layout_width="35dp"
+            android:layout_height="40dp">
 
-        <TextView
-            android:id="@+id/tv_availableRideFrom"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="From : "
+                android:textSize="12sp"
+                android:textColor="#000"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/from1"
+            android:layout_width="155dp"
+            android:layout_height="40dp"
             android:layout_alignParentTop="true"
-            android:layout_marginLeft="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="13dp"
-            android:text="@string/from"
-            android:textColor="#000" />
+            android:layout_toRightOf="@+id/tvFrom1"
+            android:layout_toEndOf="@+id/tvFrom1">
 
-        <TextView
-            android:id="@+id/tv_availableRideTo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_availableRideFrom"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/tv_availableRideFrom"
-            android:layout_marginTop="45dp"
-            android:text="To : "
-            android:textColor="#000"
-            tools:ignore="HardcodedText" />
+            <TextView
+                android:id="@+id/tv_availableRideFrom"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginTop="0dp"
+                android:text="@string/from"
+                android:textColor="#000"
+                android:textSize="12sp" />
 
-        <TextView
-            android:id="@+id/tv_availableRideDate"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_availableRideFrom"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/tv_availableRideFrom"
-            android:layout_marginBottom="52dp"
-            android:text="@string/date"
-            android:textColor="#000" />
+        </RelativeLayout>
 
-        <TextView
-            android:id="@+id/tv_availableRideEST"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignLeft="@+id/tv_availableRideFrom"
-            android:layout_alignParentBottom="true"
-            android:layout_alignStart="@+id/tv_availableRideFrom"
-            android:layout_marginBottom="18dp"
-            android:text="@string/est"
-            android:textColor="#000" />
+        <RelativeLayout
+            android:id="@+id/tvTo1"
+            android:layout_width="35dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/tvFrom1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To : "
+                android:textSize="12sp"
+                android:textColor="#000"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/to1"
+            android:layout_width="155dp"
+            android:layout_height="40dp"
+            android:layout_below="@+id/from1"
+            android:layout_toEndOf="@+id/tvTo1"
+            android:layout_toRightOf="@+id/tvTo1">
+
+            <TextView
+                android:id="@+id/tv_availableRideTo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:text="To : "
+                android:textColor="#000"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tvDate1"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tvTo1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Date : "
+                android:textSize="12sp"
+                android:textColor="#000"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/date1"
+            android:layout_width="155dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/to1"
+            android:layout_toRightOf="@id/tvDate1">
+
+            <TextView
+                android:id="@+id/tv_availableRideDate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/date"
+                android:textColor="#000"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tvEST1"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tvDate1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="EST : "
+                android:textSize="12sp"
+                android:textColor="#000"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/EST1"
+            android:layout_width="155dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/date1"
+            android:layout_toRightOf="@+id/tvEST1">
+
+            <TextView
+                android:id="@+id/tv_availableRideEST"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/est"
+                android:textColor="#000"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/tvPrice1"
+            android:layout_width="35dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/tvEST1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Price : "
+                android:textSize="12sp"
+                android:textColor="#000"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="155dp"
+            android:layout_height="30dp"
+            android:layout_below="@id/EST1"
+            android:layout_toRightOf="@+id/tvPrice1">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp"
+                android:text="Price : "
+                android:textColor="#000"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
 
     </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="192dp"
-        android:layout_height="148dp">
+        android:layout_height="match_parent">
 
 
         <Button
