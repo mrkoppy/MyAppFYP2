@@ -67,8 +67,8 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
                 JSONObject jsonObject1 = jsonArray.getJSONObject(count);
                 count++;
                 Post_availabletrip post_availabletrip = new Post_availabletrip(jsonObject1.getString("Start_name"),
-                        jsonObject1.getString("End_name"),jsonObject1.getString("Latstart_location"),
-                        jsonObject1.getString("Lngstart_location"));
+                        jsonObject1.getString("End_name"),jsonObject1.getString("DateNTime"),
+                        jsonObject1.getString("Seats_left"),jsonObject1.getString("Price"));
                 publishProgress(post_availabletrip);
             }
 

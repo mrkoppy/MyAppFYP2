@@ -42,6 +42,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_availableRideTo = (TextView) view.findViewById(R.id.tv_availableRideTo);
         holder.tv_availableRideDate = (TextView) view.findViewById(R.id.tv_availableRideDate);
         holder.tv_availableRideEST = (TextView) view.findViewById(R.id.tv_availableRideEST);
+        holder.tv_availableRidePrice = (TextView)view.findViewById(R.id.tv_availableRidePrice);
 
         return holder;
     }
@@ -54,6 +55,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_availableRideTo.setText(post.To);
         holder.tv_availableRideDate.setText(post.Date);
         holder.tv_availableRideEST.setText(post.Est);
+        holder.tv_availableRidePrice.setText(post.Price);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -71,7 +73,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv_availableRideFrom,tv_availableRideTo,tv_availableRideDate,tv_availableRideEST;
+        public TextView tv_availableRideFrom,tv_availableRideTo,tv_availableRideDate,tv_availableRideEST,tv_availableRidePrice;
 
         public ViewHolder(View itemView) {
             super(itemView);

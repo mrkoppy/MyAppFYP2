@@ -1,17 +1,106 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@drawable/bg2"
     tools:context=".my_available_trip_insidedata">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:background="#ffdab3">
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignTop="@+id/button8"
+            android:layout_marginStart="72dp"
+            android:text="1" />
+
+        <Button
+            android:id="@+id/button8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginEnd="72dp"
+            android:layout_marginTop="57dp"
+            android:text="2" />
+
+        <Button
+            android:id="@+id/button9"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="55dp"
+            android:layout_marginStart="19dp"
+            android:text="3" />
+
+        <Button
+            android:id="@+id/button11"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/button9"
+            android:layout_centerHorizontal="true"
+            android:text="4" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/button9"
+            android:layout_marginEnd="13dp"
+            android:text="5" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="12dp"
+            android:text="Booking Details"
+            android:textSize="20sp"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/RLBottomDirectBD"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="227dp"
-        android:text="Hello data: " />
+        android:layout_below="@+id/RLBookingDetails">
+
+        <Button
+            android:id="@+id/btn_mydrivergoBD"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:background="#2196F3"
+            android:onClick="btn_book"
+            android:text="Book"
+            android:textColor="#fff"
+            android:layout_centerHorizontal="true"
+            android:textSize="12sp"
+            android:layout_alignParentBottom="true"/>
+
+        <Button
+            android:id="@+id/btnRedMMMydriver_cr_routeBD"
+            android:layout_width="48dp"
+            android:layout_height="26dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:background="#2196F3"
+            android:onClick="btn_back"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
 </RelativeLayout>
