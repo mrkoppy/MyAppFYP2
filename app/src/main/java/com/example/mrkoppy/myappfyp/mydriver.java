@@ -1,18 +1,12 @@
 package com.example.mrkoppy.myappfyp;
 
 import android.content.Intent;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
-
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
 
 public class mydriver extends AppCompatActivity {
     private SearchView mSearchView;
@@ -54,6 +48,11 @@ public class mydriver extends AppCompatActivity {
 
     public void createRoute(View view){
         Intent intent = new Intent(this, Driver_CrRoute.class);
+        startActivity(intent);
+    }
+
+    public void btn_ratings(View view){
+        Intent intent = new Intent(this, ratings_comment.class);
         startActivity(intent);
     }
 

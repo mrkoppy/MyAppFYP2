@@ -46,17 +46,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     protected String doInBackground(String... params) {
         String type = params[0];
         /*Home*/
-        String login_url = "http://192.168.0.103/login.php";
+        /*String login_url = "http://192.168.0.103/login.php";
         String register_url = "http://192.168.0.103/register.php";
         String renew_url = "http://192.168.0.103/update.php";
         String update_url = "http://192.168.0.103/updatevehicle.php";
-        String register_route_url = "http://192.168.0.103/driver_route.php";
+        String register_route_url = "http://192.168.0.103/driver_route.php";*/
         /*Uni*/
-        /*String login_url = "http://192.168.43.41/login.php";
+        String login_url = "http://192.168.43.41/login.php";
         String register_url = "http://192.168.43.41/register.php";
         String renew_url = "http://192.168.43.41/update.php";
         String update_url = "http://192.168.43.41/updatevehicle.php";
-        String register_route_url = "http://192.168.43.41/driver_route.php";*/
+        String register_route_url = "http://192.168.43.41/driver_route.php";
         SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
             if(type.equals("login")){
             try {

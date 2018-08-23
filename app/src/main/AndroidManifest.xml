@@ -45,10 +45,12 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
+
         <activity android:name=".myalert" />
         <activity android:name=".myrider_map" />
         <activity android:name=".Driver_CrRoute" />
         <activity android:name=".my_available_trip_insidedata" />
+        <activity android:name=".ratings_comment"></activity>
     </application>
 
 </manifest>

@@ -37,9 +37,9 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
     }
 
     /*hostel*/
-    String fetching_json_data = "http://192.168.0.103/get_availableride.php";
+    /*String fetching_json_data = "http://192.168.0.103/get_availableride.php";*/
     /*Uni*/
-/*    String fetching_json_data = "http://192.168.43.41/get_availableride.php";*/
+    String fetching_json_data = "http://192.168.43.41/get_availableride.php";
 
     @Override
     protected Void doInBackground(Void... voids) {
