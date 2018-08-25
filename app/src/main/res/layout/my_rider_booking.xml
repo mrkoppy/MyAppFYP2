@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="175dp"
     android:layout_marginTop="15dp"
@@ -17,13 +15,13 @@
 
         <RelativeLayout
             android:id="@+id/tvFrom1"
-            android:layout_width="35dp"
-            android:layout_height="40dp">
+            android:layout_width="45dp"
+            android:layout_height="45dp">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="From : "
+                android:text="Origin : "
                 android:textSize="12sp"
                 android:textColor="#000"/>
 
@@ -32,7 +30,7 @@
         <RelativeLayout
             android:id="@+id/from1"
             android:layout_width="155dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_alignParentTop="true"
             android:layout_toRightOf="@+id/tvFrom1"
             android:layout_toEndOf="@+id/tvFrom1">
@@ -51,8 +49,8 @@
 
         <RelativeLayout
             android:id="@+id/tvTo1"
-            android:layout_width="35dp"
-            android:layout_height="40dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/tvFrom1">
 
             <TextView
@@ -67,7 +65,7 @@
         <RelativeLayout
             android:id="@+id/to1"
             android:layout_width="155dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_below="@+id/from1"
             android:layout_toEndOf="@+id/tvTo1"
             android:layout_toRightOf="@+id/tvTo1">
@@ -85,16 +83,26 @@
 
         <RelativeLayout
             android:id="@+id/tvDate1"
-            android:layout_width="35dp"
+            android:layout_width="45dp"
             android:layout_height="30dp"
             android:layout_below="@+id/tvTo1">
 
             <TextView
+                android:id="@+id/textdate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Date : "
-                android:textSize="12sp"
-                android:textColor="#000"/>
+                android:text="@string/date_rider_booking"
+                android:textColor="#000"
+                android:textSize="12sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentStart="true"
+                android:text="Time : "
+                android:textColor="#000"
+                android:textSize="12sp" />
 
         </RelativeLayout>
 
@@ -111,20 +119,20 @@
                 android:layout_height="wrap_content"
                 android:text="@string/date"
                 android:textColor="#000"
-                android:textSize="12sp" />
+                android:textSize="13sp" />
 
         </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/tvEST1"
-            android:layout_width="35dp"
+            android:layout_width="55dp"
             android:layout_height="30dp"
             android:layout_below="@+id/tvDate1">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="EST : "
+                android:text="Duration :"
                 android:textSize="12sp"
                 android:textColor="#000"/>
 
@@ -149,8 +157,8 @@
 
         <RelativeLayout
             android:id="@+id/tvPrice1"
-            android:layout_width="35dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="25dp"
             android:layout_below="@+id/tvEST1">
 
             <TextView
@@ -164,19 +172,30 @@
 
         <RelativeLayout
             android:layout_width="155dp"
-            android:layout_height="30dp"
+            android:layout_height="25dp"
             android:layout_below="@id/EST1"
             android:layout_toRightOf="@+id/tvPrice1">
+
+            <TextView
+                android:id="@+id/inRM"
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:textSize="12sp"
+                android:text="RM "
+                android:textColor="#000"
+                android:gravity="center"/>
+
 
             <TextView
                 android:id="@+id/tv_availableRidePrice"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_marginBottom="15dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/inRM"
                 android:text="Price : "
                 android:textColor="#000"
-                android:textSize="12sp" />
+                android:textSize="12sp"
+                android:layout_toRightOf="@+id/inRM" />
 
         </RelativeLayout>
 

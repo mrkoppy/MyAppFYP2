@@ -79,4 +79,7 @@
     <string name="date">Date :</string>
     <string name="est">EST :</string>
 
+    <!--my rider_booking xml-->
+    <string name="date_rider_booking"><![CDATA[Date &]]></string>
+
 </resources>

@@ -78,7 +78,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     EditText edtAddress1,edtAddress2,edtDateAndTime,edt_Price,edt_Seatsleft,edt_DatenTime;
     TextView txtCoord1_lat,txtCoord1_lng,txtCoord2_lat,txtCoord2_lng,txtCoord2,tvStatus,tv_Status,tv_DateTime;
     private String str_startname,str_endname,str_latstartlocation ,str_lngstartlocation,str_latnendlocation,
-            str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status,type;
+            str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status,str_duration,type;
     private GoogleMap mMap;
     LatLng origin;
     LatLng dest;
@@ -88,7 +88,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     Location mLastLocation;
     Marker mCurrLocationMarker;
     LocationRequest mLocationRequest;
-    TextView ShowDistanceDuration;/*,horigin,hdestination*/
+    TextView ShowDistanceDuration,tvduration;
     MarkerOptions options;
     Spinner spinner;
     private int day,month,year,hour,minute;
@@ -118,47 +118,12 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         edt_Price = (EditText)findViewById(R.id.etTripPrice);
         edt_Seatsleft = (EditText)findViewById(R.id.et_Seatsleft);
         tv_DateTime = (TextView)findViewById(R.id.tv_dateTime);
+        tvduration = (TextView)findViewById(R.id.tv_duration);
         goornot = (RadioGroup)findViewById(R.id.radioGrp_gon);
 
         /*edt_DatenTime = (EditText)findViewById(R.id.et_DatenTime);*/
         /*tv_Status = (TextView)findViewById(R.id.tv_forStatus);*/
         ShowDistanceDuration = (TextView) findViewById(R.id.show_distance_time);
-
-        /*spinner = findViewById(R.id.spinnerStatus);*/
-        /*String[] spinnerItems = new String[]{"OnGoing", "Cancel"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item, spinnerItems);
-        spinner.setAdapter(adapter);*/
-
-        /*? Means can be any type
-        * Parent is where the click happened
-        * view within the AdapterView that was clicked(view provided by adapter)
-        * position is position of view in adapter
-        * id is row id of item that was clicked*/
-        /*spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                String selectedItemText = (String) parent.getItemAtPosition(position);
-
-                *//*if (position == 1){
-                    tvStatus.setText("OnGoing");
-                } else if (position == 2){
-                    tv_Status.setText("Cancel");
-                }*//*
-                Log.e("Your Choice : ", selectedItemText);
-                Toast.makeText
-                        (getApplicationContext(), "Selected : " + selectedItemText, Toast.LENGTH_SHORT)
-                        .show();
-
-        }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });*/
-
-        /*Log.i("Your Status : ",spinner.getSelectedItem().toString());*/
-
 
         edtDateAndTime = (EditText) findViewById(R.id.et_DatenTime);
         edtDateAndTime.setOnClickListener(new View.OnClickListener() {
@@ -227,7 +192,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                         txtCoord1_lat.setText(String.format("%s",lat));
                         txtCoord1_lng.setText(String.format("%s",lng));
-                        Toast.makeText(Driver_CrRoute.this, "Coord1 : " + lat +',' + lng, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Driver_CrRoute.this, "Confirmed start location", Toast.LENGTH_SHORT).show();
 
                         if(dialog.isShowing())
                             dialog.dismiss();
@@ -288,7 +253,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                         txtCoord2_lat.setText(String.format("%s",lat));
                         txtCoord2_lng.setText(String.format("%s",lng));
-                        Toast.makeText(Driver_CrRoute.this, "Coord2 : " + lat +',' + lng, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Driver_CrRoute.this, "Confirmed end location", Toast.LENGTH_SHORT).show();
                         /*txtCoord2.setText(String.format("Lat for coordinate2 : %s \n" +
                                 "Lng for coordinate1 : %s ",lat,lng));*/
 
@@ -474,7 +439,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         str_price = edt_Price.getText().toString();
         str_seatsleft = edt_Seatsleft.getText().toString() ;
         str_datentime = tv_DateTime.getText().toString();
-
+        str_duration = tvduration.getText().toString();
         /*spinner.getSelectedItem().toString();*/
         /*Log.i("Str_datentime", str_datentime);*/
         int goornot1 = goornot.getCheckedRadioButtonId();
@@ -484,7 +449,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
         backgroundWorker.execute(type, str_startname, str_endname,str_latstartlocation,str_lngstartlocation,str_latnendlocation,
-                str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status);
+                str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status,str_duration);
     }
 
     /**
@@ -799,6 +764,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
                 /*horigin.setText("StartLocation : " + StartLocation);
                 hdestination.setText("EndLocation : " + EndLocation);*/
                 Toast.makeText(Driver_CrRoute.this,"Distance:"+distance + ", Duration:"+duration ,Toast.LENGTH_SHORT).show();
+                tvduration.setText(duration);
             }
             else {
                 Log.d("onPostExecute","without Polylines drawn");

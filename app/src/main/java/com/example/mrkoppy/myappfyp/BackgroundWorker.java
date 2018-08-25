@@ -46,17 +46,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     protected String doInBackground(String... params) {
         String type = params[0];
         /*Home*/
-        /*String login_url = "http://192.168.0.103/login.php";
+        String login_url = "http://192.168.0.103/login.php";
         String register_url = "http://192.168.0.103/register.php";
         String renew_url = "http://192.168.0.103/update.php";
         String update_url = "http://192.168.0.103/updatevehicle.php";
-        String register_route_url = "http://192.168.0.103/driver_route.php";*/
+        String register_route_url = "http://192.168.0.103/driver_route.php";
         /*Uni*/
-        String login_url = "http://192.168.43.41/login.php";
+        /*String login_url = "http://192.168.43.41/login.php";
         String register_url = "http://192.168.43.41/register.php";
         String renew_url = "http://192.168.43.41/update.php";
         String update_url = "http://192.168.43.41/updatevehicle.php";
-        String register_route_url = "http://192.168.43.41/driver_route.php";
+        String register_route_url = "http://192.168.43.41/driver_route.php";*/
         SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
             if(type.equals("login")){
             try {
@@ -232,6 +232,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     String seats_left = params[8];
                     String datentime = params[9];
                     String status = params[10];
+                    String duration = params[11];
                     /*String username = sharedpre.getString("user_name", "");*/
                     URL url = new URL(register_route_url);
                     HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
@@ -249,7 +250,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                             +URLEncoder.encode("Price","UTF-8")+"="+URLEncoder.encode(price,"UTF-8") +"&"
                             +URLEncoder.encode("Seats_left","UTF-8")+"="+URLEncoder.encode(seats_left,"UTF-8") +"&"
                             +URLEncoder.encode("DateNTime","UTF-8")+"="+URLEncoder.encode(datentime,"UTF-8") +"&"
-                            +URLEncoder.encode("Status","UTF-8")+"="+URLEncoder.encode(status,"UTF-8")  ;
+                            +URLEncoder.encode("Status","UTF-8")+"="+URLEncoder.encode(status,"UTF-8") +"&"
+                            +URLEncoder.encode("Duration","UTF-8")+"="+URLEncoder.encode(duration,"UTF-8") ;
                     bufferedWriter.write(post_data);
                     bufferedWriter.flush();
                     bufferedWriter.close();

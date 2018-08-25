@@ -22,7 +22,7 @@ public class my_available_trip_insidedata extends AppCompatActivity {
     }
 
     public void btn_back(View view){
-        Intent intent = new Intent(this, trip.class);
+        Intent intent = new Intent(this, myrider.class);
         startActivity(intent);
     }
 }
