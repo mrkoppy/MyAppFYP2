@@ -187,7 +187,7 @@
                 android:id="@+id/tv_duration"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:text="Duration"/>
+                android:text="Contact driver for more details"/>
 
         </RelativeLayout>
 

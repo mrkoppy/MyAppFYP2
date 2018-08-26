@@ -149,6 +149,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
             @Override
             public void onClick(View view) {
                 new GetCoordinates1().execute(edtAddress1.getText().toString().replace(" ","+"));
+
             }
 
             class GetCoordinates1 extends AsyncTask<String,Void,String> {
@@ -192,6 +193,20 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                         txtCoord1_lat.setText(String.format("%s",lat));
                         txtCoord1_lng.setText(String.format("%s",lng));
+                        double d1 = Double.parseDouble(lat);
+                        double d2 = Double.parseDouble(lng);
+                        mMap.clear();
+                        mMap.addMarker(new MarkerOptions()
+                                .position(new LatLng(d1,d2))
+                                .title("First Position")
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+                        LatLng position = new LatLng(d1, d2);
+
+                        MarkerPoints.add(position);
+
+
+
+                        Log.i("SSSSSSSSSS", lat + "," + lng);
                         Toast.makeText(Driver_CrRoute.this, "Confirmed start location", Toast.LENGTH_SHORT).show();
 
                         if(dialog.isShowing())
@@ -209,6 +224,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
             @Override
             public void onClick(View view) {
                 new GetCoordinates2().execute(edtAddress2.getText().toString().replace(" ","+"));
+
             }
 
 
@@ -253,6 +269,20 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                         txtCoord2_lat.setText(String.format("%s",lat));
                         txtCoord2_lng.setText(String.format("%s",lng));
+                        double d1 = Double.parseDouble(lat);
+                        double d2 = Double.parseDouble(lng);
+
+                        mMap.addMarker(new MarkerOptions()
+                                .position(new LatLng(d1,d2))
+                                .title("Second Position")
+                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+                        Log.i("SSSSSSSSSS", lat + "," + lng);
+
+                        MarkerOptions options = new MarkerOptions();
+                        LatLng position = new LatLng(d1, d2);
+
+                        MarkerPoints.add(position);
+
                         Toast.makeText(Driver_CrRoute.this, "Confirmed end location", Toast.LENGTH_SHORT).show();
                         /*txtCoord2.setText(String.format("Lat for coordinate2 : %s \n" +
                                 "Lng for coordinate1 : %s ",lat,lng));*/
@@ -417,6 +447,8 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                 ((EditText) findViewById(R.id.etDestinationMyDriver))
                         .setText(String.format("%s,\n%s\n%s", place.getName(), place.getAddress(), place.getPhoneNumber()));
+
+
 
             } else if (resultCode == PlaceAutocomplete.RESULT_ERROR) {
                 Status status = PlaceAutocomplete.getStatus(this, data);
