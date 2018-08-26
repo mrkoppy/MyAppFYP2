@@ -8,6 +8,7 @@
     tools:context=".my_available_trip_insidedata">
 
     <RelativeLayout
+        android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
         android:background="#ffdab3">
@@ -70,23 +71,292 @@
 
     </RelativeLayout>
 
+    <!--Middle outside layer-->
+    <RelativeLayout
+        android:id="@+id/middlelayout"
+        android:layout_width="match_parent"
+        android:layout_height="250dp"
+        android:layout_below="@+id/toplayout">
+
+        <!--Inside middle layer first layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+            <RelativeLayout
+                android:id="@+id/fromlocation"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Origin : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/originOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/fromlocation"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_fromLocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hei"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer first layer-->
+
+        <!--Inside middle layer second layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout1">
+
+            <RelativeLayout
+                android:id="@+id/tolocation"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Destination : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/destinationOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/tolocation"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_tolocation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hei"
+                    android:textSize="12sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer second layer-->
+
+        <!--Inside middle layer third layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout2">
+
+            <RelativeLayout
+                android:id="@+id/drivername"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Driver Name : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/drivername"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_drivername"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hei"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer third layer-->
+
+        <!--Inside middle layer fourth layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout3">
+
+            <RelativeLayout
+                android:id="@+id/genderBD"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/genderBDoutput"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/genderBD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hei"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer fourth layer-->
+
+        <!--Inside middle layer fifth layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout4">
+
+            <RelativeLayout
+                android:id="@+id/estimatetimeBD"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Duration : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/estimatetimeBDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/estimatetimeBD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_estimatetime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hei"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer fifth layer-->
+
+        <!--Inside middle layer sixth layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout5">
+
+            <RelativeLayout
+                android:id="@+id/estimatecostBD"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Estimate Cost : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/estimatecostBDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/estimatecostBD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_estimatecost"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Hei"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer sixth layer-->
+
+
+    </RelativeLayout>
+
+
     <RelativeLayout
         android:id="@+id/RLBottomDirectBD"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/RLBookingDetails">
+        android:layout_height="150dp"
+        android:layout_below="@+id/middlelayout"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true">
 
         <Button
             android:id="@+id/btn_mydrivergoBD"
             android:layout_width="wrap_content"
             android:layout_height="33dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
             android:background="#2196F3"
             android:onClick="btn_book"
             android:text="Book"
             android:textColor="#fff"
-            android:layout_centerHorizontal="true"
-            android:textSize="12sp"
-            android:layout_alignParentBottom="true"/>
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btnRedMMMydriver_cr_routeBD"
@@ -94,12 +364,12 @@
             android:layout_height="26dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
             android:background="#2196F3"
             android:onClick="btn_back"
             android:text="Back"
             android:textColor="#fff"
-            android:textSize="12sp"
-            android:layout_alignParentRight="true" />
+            android:textSize="12sp" />
 
     </RelativeLayout>
 
