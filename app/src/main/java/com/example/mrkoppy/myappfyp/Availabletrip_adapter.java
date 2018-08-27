@@ -1,10 +1,13 @@
 package com.example.mrkoppy.myappfyp;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.ArrayList;
@@ -15,6 +18,12 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
     private Context myContext;
     private ArrayList<Post_availabletrip> myData;
     private my_rider_booking_interface my_rider_booking_interface;
+
+    /*Created variable for arraylist retrieve from db*/
+    /*public ArrayList<Integer> arr_ID = new ArrayList<Integer>();
+    public ArrayList<String>  arr_Color = new ArrayList<String>();*/
+    /*myData*/
+    /*public int i = 0;*/
 
     public Availabletrip_adapter(Context context, ArrayList<Post_availabletrip> data) {
         /*this.myContext = context;*/
@@ -43,7 +52,13 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_availableRideDate = (TextView) view.findViewById(R.id.tv_availableRideDate);
         holder.tv_availableRideEST = (TextView) view.findViewById(R.id.tv_availableRideEST);
         holder.tv_availableRidePrice = (TextView)view.findViewById(R.id.tv_availableRidePrice);
-
+        holder.tv_availableSeats_left = (TextView)view.findViewById(R.id.tv_seatsleft);
+        holder.b1 = (Button)view.findViewById(R.id.ATButton1);
+        holder.b2 = (Button)view.findViewById(R.id.ATButton2);
+        holder.b3 = (Button)view.findViewById(R.id.ATButton3);
+        holder.b4 = (Button)view.findViewById(R.id.ATButton4);
+        holder.b5 = (Button)view.findViewById(R.id.ATButton5);
+        holder.b6 = (Button)view.findViewById(R.id.ATButton6);
         return holder;
     }
 
@@ -56,6 +71,112 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_availableRideDate.setText(post.Date);
         holder.tv_availableRideEST.setText(post.Est);
         holder.tv_availableRidePrice.setText(post.Price);
+        holder.tv_availableSeats_left.setText(post.Seats_left);
+        Log.i("SSSSSSSSSSSSSS",post.Seats_left);
+
+        /*First check if seats left == 6 then in this loop*/
+        if(post.Seats_left.equals("6")){
+            /*Once done check then in this loop*/
+            if(post.Seats_left.equals("6")){
+                holder.b1.setBackgroundColor(Color.GREEN);
+                holder.b2.setBackgroundColor(Color.GREEN);
+                holder.b3.setBackgroundColor(Color.GREEN);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.GREEN);
+                holder.b6.setBackgroundColor(Color.GREEN);
+            }
+            else if(post.Seats_left.equals("5")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.GREEN);
+                holder.b3.setBackgroundColor(Color.GREEN);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.GREEN);
+                holder.b6.setBackgroundColor(Color.GREEN);
+            }
+            else if(post.Seats_left.equals("4")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.GREEN);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.GREEN);
+                holder.b6.setBackgroundColor(Color.GREEN);
+            }
+            else if(post.Seats_left.equals("3")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.RED);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.GREEN);
+                holder.b6.setBackgroundColor(Color.GREEN);
+            }
+            else if(post.Seats_left.equals("2")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.RED);
+                holder.b4.setBackgroundColor(Color.RED);
+                holder.b5.setBackgroundColor(Color.GREEN);
+                holder.b6.setBackgroundColor(Color.GREEN);
+            }
+            else if(post.Seats_left.equals("1")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.RED);
+                holder.b4.setBackgroundColor(Color.RED);
+                holder.b5.setBackgroundColor(Color.RED);
+                holder.b6.setBackgroundColor(Color.GREEN);
+            }
+            else if(post.Seats_left.equals("0")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.RED);
+                holder.b4.setBackgroundColor(Color.RED);
+                holder.b5.setBackgroundColor(Color.RED);
+                holder.b6.setBackgroundColor(Color.RED);
+            }
+            /*if 4 car seats only*/
+        } else if(post.Seats_left.equals("4")){
+            if(post.Seats_left.equals("4")){
+                holder.b1.setBackgroundColor(Color.GREEN);
+                holder.b2.setBackgroundColor(Color.GREEN);
+                holder.b3.setBackgroundColor(Color.GREEN);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.BLACK);
+                holder.b6.setBackgroundColor(Color.BLACK);
+            }
+            else if(post.Seats_left.equals("3")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.GREEN);
+                holder.b3.setBackgroundColor(Color.GREEN);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.BLACK);
+                holder.b6.setBackgroundColor(Color.BLACK);
+            }
+            else if(post.Seats_left.equals("2")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.GREEN);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.BLACK);
+                holder.b6.setBackgroundColor(Color.BLACK);
+            }
+            else if(post.Seats_left.equals("1")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.RED);
+                holder.b4.setBackgroundColor(Color.GREEN);
+                holder.b5.setBackgroundColor(Color.BLACK);
+                holder.b6.setBackgroundColor(Color.BLACK);
+            }
+            else if(post.Seats_left.equals("0")){
+                holder.b1.setBackgroundColor(Color.RED);
+                holder.b2.setBackgroundColor(Color.RED);
+                holder.b3.setBackgroundColor(Color.RED);
+                holder.b4.setBackgroundColor(Color.RED);
+                holder.b5.setBackgroundColor(Color.BLACK);
+                holder.b6.setBackgroundColor(Color.BLACK);
+            }
+
+        }
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -73,7 +194,9 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv_availableRideFrom,tv_availableRideTo,tv_availableRideDate,tv_availableRideEST,tv_availableRidePrice;
+        public TextView tv_availableRideFrom,tv_availableRideTo,tv_availableRideDate,tv_availableRideEST,tv_availableRidePrice
+                ,tv_availableSeats_left;
+        public Button b1,b2,b3,b4,b5,b6;
 
         public ViewHolder(View itemView) {
             super(itemView);

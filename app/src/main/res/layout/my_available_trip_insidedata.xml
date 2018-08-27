@@ -11,53 +11,61 @@
         android:id="@+id/toplayout"
         android:layout_width="match_parent"
         android:layout_height="250dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
         android:background="#ffdab3">
 
         <Button
-            android:id="@+id/button7"
+            android:id="@+id/bs1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignTop="@+id/button8"
-            android:layout_marginStart="72dp"
-            android:text="1" />
-
-        <Button
-            android:id="@+id/button8"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
             android:layout_alignParentTop="true"
-            android:layout_marginEnd="72dp"
-            android:layout_marginTop="57dp"
-            android:text="2" />
+            android:layout_alignStart="@+id/bs3"
+            android:layout_marginTop="83dp"
+            android:text="S1" />
 
         <Button
-            android:id="@+id/button9"
+            android:id="@+id/bs2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/bs1"
+            android:layout_centerHorizontal="true"
+            android:text="S2" />
+
+        <Button
+            android:id="@+id/bs3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
-            android:layout_marginBottom="55dp"
+            android:layout_marginBottom="34dp"
             android:layout_marginStart="19dp"
-            android:text="3" />
+            android:text="S4" />
 
         <Button
-            android:id="@+id/button11"
+            android:id="@+id/bs4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/button9"
+            android:layout_alignTop="@+id/bs3"
             android:layout_centerHorizontal="true"
-            android:text="4" />
+            android:text="S5" />
 
         <Button
-            android:id="@+id/button10"
+            android:id="@+id/bs5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignStart="@+id/bs6"
+            android:layout_alignTop="@+id/bs3"
+            android:text="S6" />
+
+        <Button
+            android:id="@+id/bs6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/button9"
-            android:layout_marginEnd="13dp"
-            android:text="5" />
+            android:layout_alignTop="@+id/bs1"
+            android:layout_marginEnd="27dp"
+            android:text="S3" />
 
         <TextView
             android:id="@+id/textView"
@@ -67,7 +75,9 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="12dp"
             android:text="Booking Details"
-            android:textSize="20sp"/>
+            android:textSize="20sp" />
+
+
 
     </RelativeLayout>
 
@@ -111,7 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hei"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:gravity="center"
                     android:textColor="#000"/>
 
@@ -154,7 +164,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="Hei"
-                    android:textSize="12sp"
+                    android:textSize="11sp"
                     android:gravity="center"
                     android:textColor="#000"/>
 
