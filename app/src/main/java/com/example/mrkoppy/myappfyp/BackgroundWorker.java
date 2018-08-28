@@ -222,6 +222,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             }
         } else if (type.equals("register_route")){
                 try {
+                    String username = sharedpre.getString("user_name", "");
                     String start_name = params[1];
                     String end_name = params[2];
                     String latstartlocation = params[3];
@@ -241,7 +242,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     httpURLConnection.setDoInput(true);
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                    String post_data = URLEncoder.encode("Start_name","UTF-8")+"="+URLEncoder.encode(start_name,"UTF-8")+"&"
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8") +"&"
+                            +URLEncoder.encode("Start_name","UTF-8")+"="+URLEncoder.encode(start_name,"UTF-8")+"&"
                             +URLEncoder.encode("End_name","UTF-8")+"="+URLEncoder.encode(end_name,"UTF-8") +"&"
                             +URLEncoder.encode("Latstart_location","UTF-8")+"="+URLEncoder.encode(latstartlocation,"UTF-8") +"&"
                             +URLEncoder.encode("Lngstart_location","UTF-8")+"="+URLEncoder.encode(lngstartlocation,"UTF-8") +"&"

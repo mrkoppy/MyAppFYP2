@@ -228,6 +228,25 @@
                     android:text="seats_left"
                     android:textColor="@android:color/transparent"
                     android:textSize="0sp" />
+                <TextView
+                    android:id="@+id/tv_gender"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:text="gender"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="0sp" />
+
+                <TextView
+                    android:id="@+id/tv_drivername"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:text="drivername"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="0sp" />
 
                 <Button
                     android:id="@+id/b1green"

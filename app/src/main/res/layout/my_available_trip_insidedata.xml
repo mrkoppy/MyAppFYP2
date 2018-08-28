@@ -19,9 +19,10 @@
             android:id="@+id/bs1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/bs3"
-            android:layout_marginTop="83dp"
+            android:layout_marginStart="28dp"
+            android:layout_marginTop="81dp"
             android:text="S1" />
 
         <Button
@@ -36,36 +37,35 @@
             android:id="@+id/bs3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-            android:layout_marginBottom="34dp"
-            android:layout_marginStart="19dp"
-            android:text="S4" />
+            android:layout_alignParentEnd="true"
+            android:layout_alignTop="@+id/bs1"
+            android:layout_marginEnd="27dp"
+            android:text="S3" />
 
         <Button
             android:id="@+id/bs4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignTop="@+id/bs3"
-            android:layout_centerHorizontal="true"
-            android:text="S5" />
+            android:layout_alignStart="@+id/bs1"
+            android:layout_alignTop="@+id/bs5"
+            android:text="S4" />
 
         <Button
             android:id="@+id/bs5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/bs6"
-            android:layout_alignTop="@+id/bs3"
-            android:text="S6" />
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:text="S5" />
 
         <Button
             android:id="@+id/bs6"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_alignTop="@+id/bs1"
-            android:layout_marginEnd="27dp"
-            android:text="S3" />
+            android:layout_alignStart="@+id/bs3"
+            android:layout_alignTop="@+id/bs4"
+            android:text="S6" />
 
         <TextView
             android:id="@+id/textView"
@@ -77,6 +77,24 @@
             android:text="Booking Details"
             android:textSize="20sp" />
 
+        <Button
+            android:id="@+id/BlackColorButton"
+            android:layout_width="15dp"
+            android:layout_height="15dp"
+            android:layout_alignParentTop="true"
+            android:layout_alignStart="@+id/textView"
+            android:layout_marginTop="55dp"
+            android:background="#000"
+            android:text="Button" />
+
+        <TextView
+            android:id="@+id/tv_notavailable"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignTop="@+id/BlackColorButton"
+            android:layout_centerHorizontal="true"
+            android:text="Not available"
+            android:textColor="#000" />
 
 
     </RelativeLayout>
@@ -120,7 +138,7 @@
                     android:id="@+id/tv_fromLocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hei"
+                    android:text="Error"
                     android:textSize="11sp"
                     android:gravity="center"
                     android:textColor="#000"/>
@@ -163,7 +181,7 @@
                     android:id="@+id/tv_tolocation"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hei"
+                    android:text="Error"
                     android:textSize="11sp"
                     android:gravity="center"
                     android:textColor="#000"/>
@@ -205,7 +223,7 @@
                     android:id="@+id/tv_drivername"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hei"
+                    android:text="Error"
                     android:textSize="15sp"
                     android:gravity="center"
                     android:textColor="#000"/>
@@ -248,7 +266,7 @@
                     android:id="@+id/tv_gender"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hei"
+                    android:text="Error"
                     android:textSize="15sp"
                     android:gravity="center"
                     android:textColor="#000"/>
@@ -291,7 +309,7 @@
                     android:id="@+id/tv_estimatetime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hei"
+                    android:text="Error"
                     android:textSize="15sp"
                     android:gravity="center"
                     android:textColor="#000"/>
@@ -331,10 +349,18 @@
                 android:gravity="center">
 
                 <TextView
+                    android:layout_width="75dp"
+                    android:layout_height="20dp"
+                    android:gravity="end"
+                    android:text="RM"
+                    android:textColor="#000"
+                    android:textSize="15sp" />
+
+                <TextView
                     android:id="@+id/tv_estimatecost"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Hei"
+                    android:text="Error"
                     android:textSize="15sp"
                     android:gravity="center"
                     android:textColor="#000"/>

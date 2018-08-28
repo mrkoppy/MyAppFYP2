@@ -53,6 +53,8 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_availableRideEST = (TextView) view.findViewById(R.id.tv_availableRideEST);
         holder.tv_availableRidePrice = (TextView)view.findViewById(R.id.tv_availableRidePrice);
         holder.tv_availableSeats_left = (TextView)view.findViewById(R.id.tv_seatsleft);
+        holder.tv_gender = (TextView)view.findViewById(R.id.tv_gender);
+        holder.tv_drivername = (TextView)view.findViewById(R.id.tv_drivername);
         holder.b1 = (Button)view.findViewById(R.id.ATButton1);
         holder.b2 = (Button)view.findViewById(R.id.ATButton2);
         holder.b3 = (Button)view.findViewById(R.id.ATButton3);
@@ -72,12 +74,70 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_availableRideEST.setText(post.Est);
         holder.tv_availableRidePrice.setText(post.Price);
         holder.tv_availableSeats_left.setText(post.Seats_left);
+        holder.tv_gender.setText(post.Gender);
+        holder.tv_drivername.setText(post.Name);
+        Log.i("JJJJJJJJ", post.Gender);
         Log.i("SSSSSSSSSSSSSS",post.Seats_left);
 
         /*First check if seats left == 6 then in this loop*/
         if(post.Seats_left.equals("6")){
+            holder.b1.setBackgroundColor(Color.GREEN);
+            holder.b2.setBackgroundColor(Color.GREEN);
+            holder.b3.setBackgroundColor(Color.GREEN);
+            holder.b4.setBackgroundColor(Color.GREEN);
+            holder.b5.setBackgroundColor(Color.GREEN);
+            holder.b6.setBackgroundColor(Color.GREEN);
+        }
+        if(post.Seats_left.equals("5")){
+            holder.b1.setBackgroundColor(Color.GREEN);
+            holder.b2.setBackgroundColor(Color.GREEN);
+            holder.b3.setBackgroundColor(Color.GREEN);
+            holder.b4.setBackgroundColor(Color.GREEN);
+            holder.b5.setBackgroundColor(Color.GREEN);
+            holder.b6.setBackgroundColor(Color.RED);
+        }
+        if(post.Seats_left.equals("4")){
+            holder.b1.setBackgroundColor(Color.GREEN);
+            holder.b2.setBackgroundColor(Color.GREEN);
+            holder.b3.setBackgroundColor(Color.GREEN);
+            holder.b4.setBackgroundColor(Color.GREEN);
+            holder.b5.setBackgroundColor(Color.RED);
+            holder.b6.setBackgroundColor(Color.RED);
+        }
+        if(post.Seats_left.equals("3")){
+            holder.b1.setBackgroundColor(Color.GREEN);
+            holder.b2.setBackgroundColor(Color.GREEN);
+            holder.b3.setBackgroundColor(Color.GREEN);
+            holder.b4.setBackgroundColor(Color.RED);
+            holder.b5.setBackgroundColor(Color.RED);
+            holder.b6.setBackgroundColor(Color.RED);
+        }
+        if(post.Seats_left.equals("2")){
+            holder.b1.setBackgroundColor(Color.GREEN);
+            holder.b2.setBackgroundColor(Color.GREEN);
+            holder.b3.setBackgroundColor(Color.RED);
+            holder.b4.setBackgroundColor(Color.RED);
+            holder.b5.setBackgroundColor(Color.RED);
+            holder.b6.setBackgroundColor(Color.RED);
+        }
+        if(post.Seats_left.equals("1")){
+            holder.b1.setBackgroundColor(Color.GREEN);
+            holder.b2.setBackgroundColor(Color.RED);
+            holder.b3.setBackgroundColor(Color.RED);
+            holder.b4.setBackgroundColor(Color.RED);
+            holder.b5.setBackgroundColor(Color.RED);
+            holder.b6.setBackgroundColor(Color.RED);
+        }
+        if(post.Seats_left.equals("0")){
+            holder.b1.setBackgroundColor(Color.RED);
+            holder.b2.setBackgroundColor(Color.RED);
+            holder.b3.setBackgroundColor(Color.RED);
+            holder.b4.setBackgroundColor(Color.RED);
+            holder.b5.setBackgroundColor(Color.RED);
+            holder.b6.setBackgroundColor(Color.RED);
+        }
             /*Once done check then in this loop*/
-            if(post.Seats_left.equals("6")){
+            /*if(post.Seats_left.equals("6")){
                 holder.b1.setBackgroundColor(Color.GREEN);
                 holder.b2.setBackgroundColor(Color.GREEN);
                 holder.b3.setBackgroundColor(Color.GREEN);
@@ -133,7 +193,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
                 holder.b5.setBackgroundColor(Color.RED);
                 holder.b6.setBackgroundColor(Color.RED);
             }
-            /*if 4 car seats only*/
+            *//*if 4 car seats only*//*
         } else if(post.Seats_left.equals("4")){
             if(post.Seats_left.equals("4")){
                 holder.b1.setBackgroundColor(Color.GREEN);
@@ -175,8 +235,8 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
                 holder.b5.setBackgroundColor(Color.BLACK);
                 holder.b6.setBackgroundColor(Color.BLACK);
             }
-
-        }
+*/
+        /*}*/
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -195,7 +255,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tv_availableRideFrom,tv_availableRideTo,tv_availableRideDate,tv_availableRideEST,tv_availableRidePrice
-                ,tv_availableSeats_left;
+                ,tv_availableSeats_left,tv_gender,tv_drivername;
         public Button b1,b2,b3,b4,b5,b6;
 
         public ViewHolder(View itemView) {

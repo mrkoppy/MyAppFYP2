@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".myrider"
     android:background="@drawable/bg2">
 
-    <SearchView
+    <!--<SearchView
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_alignParentStart="true"
@@ -19,8 +17,7 @@
         android:orientation="vertical"
         android:textColorHint="#FF0000"
         android:queryHint="@string/Myrider_booking"
-        android:layout_alignParentLeft="true" />
-
+        android:layout_alignParentLeft="true" />-->
 
     <TextView
         android:id="@+id/tv_availableRideHere"
@@ -28,12 +25,11 @@
         android:layout_height="33dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginTop="47dp"
+        android:layout_marginTop="15dp"
         android:gravity="center"
         android:text="@string/available_rider_here"
         android:textColor="#000"
-        android:textSize="15sp"
-        android:layout_alignParentLeft="true" />
+        android:textSize="15sp" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/id_availableride"
