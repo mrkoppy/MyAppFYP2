@@ -38,6 +38,8 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
 
     /*hostel*/
     String fetching_json_data = "http://192.168.0.103/get_availableride.php";
+    String fetching_vehicle_data = "http://192.168.0.103/selectvehicle.php";
+    String type = "create_route";
     /*Uni*/
     /*String fetching_json_data = "http://192.168.43.41/get_availableride.php";*/
 
@@ -66,11 +68,13 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
             while(count<jsonArray.length()){
                 JSONObject jsonObject1 = jsonArray.getJSONObject(count);
                 count++;
-                Post_availabletrip post_availabletrip = new Post_availabletrip(jsonObject1.getString("Start_name"),
+                Post_availabletrip post_availabletrip = new Post_availabletrip(jsonObject1.getInt("RouteID"),
+                        jsonObject1.getString("Start_name"),
                         jsonObject1.getString("End_name"),jsonObject1.getString("DateNTime"),
                         jsonObject1.getString("Duration"),jsonObject1.getString("Price"),
                         jsonObject1.getString("Seats_left"),jsonObject1.getString("Gender"),
-                        jsonObject1.getString("Name"));
+                        jsonObject1.getString("Name"),jsonObject1.getString("Carplate"),
+                        jsonObject1.getString("Seat"));
                 publishProgress(post_availabletrip);
             }
 
@@ -85,6 +89,8 @@ public class BgWorker_availableride extends AsyncTask<Void,Post_availabletrip,Vo
         }
         return null;
     }
+
+
 
     @Override
     protected void onPreExecute() {

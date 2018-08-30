@@ -29,7 +29,8 @@
         android:gravity="center"
         android:text="@string/available_rider_here"
         android:textColor="#000"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:layout_alignParentLeft="true" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/id_availableride"

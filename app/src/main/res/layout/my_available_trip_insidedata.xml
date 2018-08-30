@@ -103,7 +103,7 @@
     <RelativeLayout
         android:id="@+id/middlelayout"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="325dp"
         android:layout_below="@+id/toplayout">
 
         <!--Inside middle layer first layer-->
@@ -369,6 +369,93 @@
 
         </RelativeLayout>
         <!--Inside middle layer sixth layer-->
+
+        <!--Inside middle layer seven layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout6">
+
+            <RelativeLayout
+                android:id="@+id/carplate"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Car Plate : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/carplateoutput"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/carplate"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_carplate"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Error"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer seven layer-->
+
+        <!--Inside middle layer eight layer-->
+        <RelativeLayout
+            android:id="@+id/middlelayout8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/middlelayout7">
+
+            <RelativeLayout
+                android:id="@+id/carseat_driver"
+                android:layout_width="150dp"
+                android:layout_height="35dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Owner carseats : "
+                    android:textSize="15sp"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/owner_carseats"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:layout_toRightOf="@+id/carseat_driver"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/owner_carseats_output"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Error"
+                    android:textSize="15sp"
+                    android:gravity="center"
+                    android:textColor="#000"/>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer eight layer-->
+
 
 
     </RelativeLayout>

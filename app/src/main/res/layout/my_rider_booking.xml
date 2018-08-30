@@ -220,6 +220,26 @@
                 android:layout_height="wrap_content">
 
                 <TextView
+                    android:id="@+id/tv_carplate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:text="Car Plate"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="0sp" />
+
+                <TextView
+                    android:id="@+id/tv_carseat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:text="Car Seats"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="0sp" />
+
+                <TextView
                     android:id="@+id/tv_seatsleft"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
