@@ -98,6 +98,7 @@
         android:layout_centerHorizontal="true"
         android:background="#C2B1B1"
         android:text="@string/forget_password"
-        android:textSize="18sp" />
+        android:textSize="18sp"
+        android:onClick="Showresetpopup"/>
 
 </RelativeLayout>

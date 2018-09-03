@@ -25,6 +25,7 @@
     <string name="rider">Rider</string>
     <string name="Open">NavBar</string>
     <string name="Close">NavBar</string>
+    <string name="logout">Logout</string>
 
     <string name="my_profile">My Profile</string>
     <string name="browse_trip_record">Browse trip record</string>
@@ -81,5 +82,6 @@
 
     <!--my rider_booking xml-->
     <string name="date_rider_booking"><![CDATA[Date &]]></string>
+
 
 </resources>

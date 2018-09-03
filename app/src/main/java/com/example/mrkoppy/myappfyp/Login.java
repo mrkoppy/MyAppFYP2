@@ -1,31 +1,39 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.app.Dialog;
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class Login extends AppCompatActivity {
 
     /*Create edittext variable for username and password*/
-    private EditText UsernameEt, PasswordEt;
-    private String username,password,type;
-    private Button mplogin;
+    private EditText UsernameEt, PasswordEt, UsernameReset;
+    private String username,password,type,usernamereset;
+    private Button mplogin,mpreset;
     /*Login counter havent set !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
     private int counter = 5;
     AlertDialog alertDialog1;
+    Dialog resetDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        resetDialog = new Dialog(this);
+
         /*Put edittext information into their own variable*/
         UsernameEt = (EditText) findViewById(R.id.etUserName);
         PasswordEt = (EditText) findViewById(R.id.etPassword);
         mplogin = (Button)findViewById(R.id.btnLogin);
+        mpreset = (Button)findViewById(R.id.btnForget);
+        /*UsernameReset = (EditText)findViewById(R.id.usernameReset);*/
+
 
     }
 
@@ -64,12 +72,44 @@ public class Login extends AppCompatActivity {
              }
         }*/
 
+        public void Showresetpopup(View view){
+
+            TextView txtclose;
+            Button reset;
+            resetDialog.setContentView(R.layout.activity_resetpassword);
+            txtclose = (TextView) resetDialog.findViewById(R.id.Xclose);
+            reset = (Button)resetDialog.findViewById(R.id.Resetpassword);
+            txtclose.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    resetDialog.dismiss();
+                }
+            });
+            resetDialog.show();
+
+            reset.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    UsernameReset = (EditText)resetDialog.findViewById(R.id.usernameReset);
+                    usernamereset = UsernameReset.getText().toString();
+                    type = "reset";
+
+                    BackgroundWorker backgroundWorker = new BackgroundWorker(Login.this);
+                    backgroundWorker.execute(type, usernamereset);
+                }
+            });
+        }
+
         /*From main activity page go to registrationID page*/
         public void openReg(View view){
             Intent intent = new Intent(this, RegistrationID.class);
             startActivity(intent);
         }
 
+        /*public void btnForget(View view){
+            Intent intent = new Intent(this,resetpassword.class);
+            startActivity(intent);
+        }*/
 
 
 

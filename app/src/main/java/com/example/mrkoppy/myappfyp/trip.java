@@ -2,13 +2,13 @@ package com.example.mrkoppy.myappfyp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -97,6 +97,13 @@ public class trip extends AppCompatActivity {
                     Toast.makeText(trip.this,"Alert",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(trip.this, myalert.class);
                     startActivity(intent);
+                }
+
+                else if(id == R.id.logout){
+                    Toast.makeText(trip.this,"User log out", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this,Login.class);
+                    startActivity(intent);
+
                 }
                 return true;
             }
