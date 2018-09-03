@@ -91,6 +91,8 @@ public class trip extends AppCompatActivity {
 
                 else if(id == R.id.chatroom){
                     Toast.makeText(trip.this,"Group Chatroom",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this,Chatroom.class);
+                    startActivity(intent);
                 }
 
                 else if(id == R.id.alert){

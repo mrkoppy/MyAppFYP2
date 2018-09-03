@@ -51,7 +51,8 @@
         <activity android:name=".Driver_CrRoute" />
         <activity android:name=".my_available_trip_insidedata" />
         <activity android:name=".ratings_comment" />
-        <activity android:name=".Chatroom"></activity>
+        <activity android:name=".Chatroom" />
+        <activity android:name=".Insidechatroom" />
     </application>
 
 </manifest>
