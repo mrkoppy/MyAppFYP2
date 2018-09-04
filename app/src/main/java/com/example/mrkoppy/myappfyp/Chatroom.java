@@ -1,10 +1,13 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -84,8 +87,13 @@ public class Chatroom extends AppCompatActivity {
     public void requestname(){
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Enter Your Name");
+
+        SharedPreferences sharedpre = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String value= sharedpre.getString("user_name", "Sorry");
+        Log.d("result", value);
         name = new EditText(this);
         alertDialog.setView(name);
+        name.setText(value, TextView.BufferType.EDITABLE);
         alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

@@ -29,6 +29,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     Context context;
     AlertDialog alertDialog;
     EditText name;
+    SharedPreferences sharedpre;
 
     BackgroundWorker(Context ctx){
         context = ctx;
@@ -60,7 +61,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String update_url = "http://192.168.43.41/updatevehicle.php";
         String register_route_url = "http://192.168.43.41/driver_route.php";
         String booking_url = "http://192.168.43.41/updatebybooktrip.php";*/
-        SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+        sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+
             if(type.equals("login")){
             try {
                 String user_name = params[1];

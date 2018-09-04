@@ -1,5 +1,6 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
@@ -26,6 +27,7 @@ public class Insidechatroom extends AppCompatActivity {
     TextView textView;
     EditText editText;
     String username,roomname,temp_key;
+    Context context;
 
     DatabaseReference reference;
 
