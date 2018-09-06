@@ -35,13 +35,13 @@ public class Chatroom extends AppCompatActivity {
     ListView listView;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
-    String Sname;
+    String Sname,chatroomname,type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chatroom);
-        editText = (EditText)findViewById(R.id.editText);
+        editText = (EditText)findViewById(R.id.createChatroom);
         listView = (ListView)findViewById(R.id.listView) ;
         list = new ArrayList<>();
 
@@ -84,6 +84,8 @@ public class Chatroom extends AppCompatActivity {
 
     }
 
+    /*request name from users*/
+    /*must type in if press cancel then diaglog keep showing*/
     public void requestname(){
         final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
         alertDialog.setTitle("Enter Your Name");
@@ -122,6 +124,13 @@ public class Chatroom extends AppCompatActivity {
 
         list.add(editText.getText().toString());
         adapter.notifyDataSetChanged();
+
+        chatroomname = editText.getText().toString();
+        type = "chatroom";
+
+        BackgroundWorker backgroundWorker = new BackgroundWorker(this);
+        backgroundWorker.execute(type, chatroomname);
+
     }
 
     public void btnreturnmainmenu(View view){

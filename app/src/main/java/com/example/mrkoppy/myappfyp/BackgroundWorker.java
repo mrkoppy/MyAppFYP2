@@ -8,6 +8,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -54,13 +55,16 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String register_route_url = "http://192.168.0.103/driver_route.php";
         String booking_url = "http://192.168.0.103/updatebybooktrip.php";
         String reset = "http://192.168.0.103/Resetpassword.php";
+        String chatroom = "http://192.168.0.103/chatroom.php";
         /*Uni*/
         /*String login_url = "http://192.168.43.41/login.php";
         String register_url = "http://192.168.43.41/register.php";
         String renew_url = "http://192.168.43.41/update.php";
         String update_url = "http://192.168.43.41/updatevehicle.php";
         String register_route_url = "http://192.168.43.41/driver_route.php";
-        String booking_url = "http://192.168.43.41/updatebybooktrip.php";*/
+        String booking_url = "http://192.168.43.41/updatebybooktrip.php";
+        String reset = "http://192.168.43.41/Resetpassword.php";
+        String chatroom = "http://192.168.43.41/chatroom.php";*/
         sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
 
             if(type.equals("login")){
@@ -350,6 +354,40 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } else if (type.equals("chatroom")){
+                try {
+                    String groupname = params[1];
+                    String username = sharedpre.getString("user_name", "");
+                    URL url = new URL(chatroom);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8") +"&"
+                            +URLEncoder.encode("ChatroomName","UTF-8")+"="+URLEncoder.encode(groupname,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
 
@@ -447,6 +485,18 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 public void onClick(DialogInterface dialog, int id) {
                     Intent intent = new Intent(context,Login.class);
                     context.startActivity(intent);
+                }
+            });
+        }
+
+        else if(result.equals("Chatroom created")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    TextView Created;
+                    Created= new TextView(context);
+                    /*String value = */
+                    alertDialog.setView(Created);
                 }
             });
         }
