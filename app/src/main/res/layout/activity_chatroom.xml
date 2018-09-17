@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_alignTop="@+id/createChatroom"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape"
         android:onClick="create_chatroom"
         android:text="Create"
         android:textColor="#fff"
@@ -60,7 +60,7 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_height="480dp"
         android:id="@+id/listView"
         android:layout_below="@+id/button"
         android:layout_alignParentLeft="true"
@@ -72,7 +72,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape"
         android:onClick="btnreturnmainmenu"
         android:text="Back"
         android:textSize="15sp"

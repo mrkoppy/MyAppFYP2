@@ -22,10 +22,11 @@
     <string name="rider_register">Rider</string>
     <string name="pick_your_role">Pick Your Role</string>
     <string name="driver_role">Driver</string>
-    <string name="rider">Rider</string>
+    <string name="rider">Passenger</string>
     <string name="Open">NavBar</string>
     <string name="Close">NavBar</string>
     <string name="logout">Logout</string>
+    <string name="HUURIDE">Huuride</string>
 
     <string name="my_profile">My Profile</string>
     <string name="browse_trip_record">Browse trip record</string>
@@ -75,13 +76,18 @@
     <string name="driver">Driver</string>
 
     <!--myrider_xml-->
-    <string name="available_rider_here">Available Rider Here</string>
+    <string name="available_ride_here">Available Ride</string>
     <string name="from">From :</string>
     <string name="date">Date :</string>
     <string name="est">EST :</string>
 
     <!--my rider_booking xml-->
     <string name="date_rider_booking"><![CDATA[Date &]]></string>
+
+    <!--Triprecord xml-->
+    <string name="current_trip">Current Trip</string>
+    <string name="completed_trip">Completed Trip</string>
+    <string name="back_to_main_menu">Back to main menu</string>
 
 
 </resources>

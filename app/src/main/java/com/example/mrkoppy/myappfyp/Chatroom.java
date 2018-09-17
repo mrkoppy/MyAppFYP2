@@ -30,12 +30,12 @@ import java.util.Set;
 
 public class Chatroom extends AppCompatActivity {
 
+    private String Sname,chatroomname,type;
     DatabaseReference references;
     EditText editText, name;
     ListView listView;
     ArrayList<String> list;
     ArrayAdapter<String> adapter;
-    String Sname,chatroomname,type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

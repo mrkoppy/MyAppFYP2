@@ -15,7 +15,7 @@ public class Login extends AppCompatActivity {
     /*Create edittext variable for username and password*/
     private EditText UsernameEt, PasswordEt, UsernameReset;
     private String username,password,type,usernamereset;
-    private Button mplogin,mpreset;
+    private TextView mplogin,mpreset;
     /*Login counter havent set !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!*/
     private int counter = 5;
     AlertDialog alertDialog1;
@@ -30,8 +30,8 @@ public class Login extends AppCompatActivity {
         /*Put edittext information into their own variable*/
         UsernameEt = (EditText) findViewById(R.id.etUserName);
         PasswordEt = (EditText) findViewById(R.id.etPassword);
-        mplogin = (Button)findViewById(R.id.btnLogin);
-        mpreset = (Button)findViewById(R.id.btnForget);
+        mplogin = (TextView)findViewById(R.id.btnLogin);
+        mpreset = (TextView)findViewById(R.id.btnForget);
         /*UsernameReset = (EditText)findViewById(R.id.usernameReset);*/
 
 
@@ -46,6 +46,7 @@ public class Login extends AppCompatActivity {
             username = UsernameEt.getText().toString();
             password = PasswordEt.getText().toString();
             type = "login";
+
 
             BackgroundWorker backgroundWorker = new BackgroundWorker(this);
             backgroundWorker.execute(type, username, password);

@@ -122,8 +122,8 @@ public class myalert extends Activity{
                     alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 86400000, AlarmManager.INTERVAL_DAY, pendingIntent);
                 }
 
-                Toast.makeText(myalert.this, "Ring scheduled at " + Hour + ":" + Minute + " " + day + "/" + month + "/" + Year, Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(myalert.this, "Ring scheduled at " + Hour + ":" + Minute + " " + day + "/" + month + "/" + Year, Toast.LENGTH_LONG).show();
+                Toast.makeText(myalert.this, "Ring scheduled at one day before", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -161,8 +161,8 @@ public class myalert extends Activity{
                     alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 259200000, AlarmManager.INTERVAL_DAY, pendingIntent);
                 }
 
-                Toast.makeText(myalert.this, "Ring scheduled at " + Hour + ":" + Minute + " " + day + "/" + month + "/" + Year, Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(myalert.this, "Ring scheduled at " + Hour + ":" + Minute + " " + day + "/" + month + "/" + Year, Toast.LENGTH_LONG).show();
+                Toast.makeText(myalert.this, "Ring scheduled at three day before", Toast.LENGTH_LONG).show();
             }
         });
 
@@ -199,8 +199,8 @@ public class myalert extends Activity{
                     alarmMgr.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + 604800000, AlarmManager.INTERVAL_DAY, pendingIntent);
                 }
 
-                Toast.makeText(myalert.this, "Ring scheduled at " + Hour + ":" + Minute + " " + day + "/" + month + "/" + Year, Toast.LENGTH_LONG).show();
-
+//                Toast.makeText(myalert.this, "Ring scheduled at " + Hour + ":" + Minute + " " + day + "/" + month + "/" + Year, Toast.LENGTH_LONG).show();
+                Toast.makeText(myalert.this, "Ring scheduled at one week before", Toast.LENGTH_LONG).show();
             }
         });
 

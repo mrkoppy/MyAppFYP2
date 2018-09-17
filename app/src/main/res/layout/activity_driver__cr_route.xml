@@ -91,18 +91,19 @@
     <LinearLayout
         android:id="@+id/LinearLayoutMap"
         android:layout_width="match_parent"
-        android:layout_height="250dp"
+        android:layout_height="350dp"
         android:background="#fff"
         android:layout_below="@+id/startndes"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:layout_marginTop="5dp">
 
         <fragment xmlns:android="http://schemas.android.com/apk/res/android"
             xmlns:tools="http://schemas.android.com/tools"
             android:id="@+id/map"
             android:name="com.google.android.gms.maps.SupportMapFragment"
             android:layout_width="match_parent"
-            android:layout_height="388dp"
-            android:layout_marginTop="65dp"
+            android:layout_height="390dp"
+            android:layout_marginTop="10dp"
             android:layout_gravity="center"
             tools:context=".mydriver_map" />
 
@@ -297,22 +298,22 @@
         <Button
             android:id="@+id/btn_mydrivergo"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
-            android:background="#2196F3"
+            android:layout_height="35dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/buttonshape"
             android:onClick="btn_registerroute"
             android:text="@string/go"
             android:textColor="#fff"
-            android:layout_centerHorizontal="true"
-            android:textSize="12sp"
-            android:layout_alignParentBottom="true"/>
+            android:textSize="12sp" />
 
         <Button
             android:id="@+id/btnRedMMMydriver_cr_route"
             android:layout_width="48dp"
-            android:layout_height="26dp"
+            android:layout_height="35dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:background="#2196F3"
+            android:background="@drawable/buttonshape"
             android:onClick="btn_redirect_main_menu_driver_cr_route"
             android:text="Back"
             android:textColor="#fff"

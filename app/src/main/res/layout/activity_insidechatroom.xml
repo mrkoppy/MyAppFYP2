@@ -15,7 +15,7 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
         android:onClick="send"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape"
         android:textColor="#fff"/>
 
     <EditText

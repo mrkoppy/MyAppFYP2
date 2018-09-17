@@ -79,13 +79,27 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="51dp"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape"
         android:text="@string/update"
         android:textColor="#FFF"
         android:textSize="15sp"
         android:onClick="OnUpdate2"/>
 
-    <Button
+    <TextView
+        android:id="@+id/btnReturnMainMenu2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="btn_redirectmainmenu2"
+        android:text="@string/return_to_main_menu"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:fontFamily="@font/vidaloka"/>
+
+</RelativeLayout>
+
+<!--    <Button
         android:id="@+id/btnReturnMainMenu2"
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -94,6 +108,4 @@
         android:background="#D4D8DB"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp"
-        android:onClick="btn_redirectmainmenu2"/>
-
-</RelativeLayout>
+        android:onClick="btn_redirectmainmenu2"/>-->

@@ -10,6 +10,10 @@ import android.util.Log;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -31,6 +35,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     AlertDialog alertDialog;
     EditText name;
     SharedPreferences sharedpre;
+    JSONArray jsonArray;
 
     BackgroundWorker(Context ctx){
         context = ctx;
@@ -388,6 +393,40 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } else if (type.equals("getcurrenttrip")){
+                try {
+                    String groupname = params[1];
+                    String username = sharedpre.getString("user_name", "");
+                    URL url = new URL(chatroom);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8") +"&"
+                            +URLEncoder.encode("ChatroomName","UTF-8")+"="+URLEncoder.encode(groupname,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
 
@@ -443,7 +482,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
 
         }
 
-        else if(result.equals("Insert Vehicle Successfully")){
+        else if(result.equals("Vehicle updated Successfully")){
             alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface dialog, int id) {
@@ -501,6 +540,17 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             });
         }
 
+        else{
+            try{
+                JSONObject obj = new JSONObject(result);
+                if (obj.getString("result").equals("Testing 123")) {
+                    jsonArray = obj.getJSONArray("server_response");
+                }
+                else alertDialog.show();
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
 
         alertDialog.show();
 
@@ -510,6 +560,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     @Override
     protected void onProgressUpdate(Void... values) {
         super.onProgressUpdate(values);
+    }
+
+    public JSONArray jsonArray(){
+        return  jsonArray;
     }
 
 }

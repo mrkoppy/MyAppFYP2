@@ -21,7 +21,7 @@ public class trip extends AppCompatActivity {
     private DrawerLayout drawerlayout;
     private ActionBarDrawerToggle abdt;
     private EditText headernameEt, headeremailEt;
-    private TextView headernameTv,headeremailTv,userName,userEmail;
+    private TextView headernameTv,headeremailTv,userName,userEmail,Currentsession;
     private String nameTv,emailTv;
 
     /*drawerlistener for ActionBarDrawerToggle so that can click it
@@ -36,7 +36,7 @@ public class trip extends AppCompatActivity {
         /**/
         SharedPreferences sharedpre = getSharedPreferences("UserData", MODE_PRIVATE);
         nameTv = sharedpre.getString("user_name","");
-        emailTv = sharedpre.getString("user_email","");
+        /*emailTv = sharedpre.getString("user_email","");*/
         /**/
 
         drawerlayout = (DrawerLayout)findViewById(R.id.dl);
@@ -54,11 +54,13 @@ public class trip extends AppCompatActivity {
         View headerView =  nav_view.inflateHeaderView(R.layout.navigation_header);
         nav_view.getHeaderView(0);
         /*headImg = (ImageView)headerView.findViewById(R.id.header_image);*/
+        Currentsession = (TextView) headerView.findViewById(R.id.currentsession);
+        Currentsession.setText(String.format("Welcome to Huuride: "));
         userName = (TextView) headerView.findViewById(R.id.tv_headername);
         userName.setText(nameTv);
-        userEmail = (TextView) headerView.findViewById(R.id.tv_headeremail);
+        /*userEmail = (TextView) headerView.findViewById(R.id.tv_headeremail);
         userEmail.setText(emailTv);
-
+*/
 
         nav_view.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -66,7 +68,7 @@ public class trip extends AppCompatActivity {
                 int id = item.getItemId();
                 Fragment fragment = null;
 
-                if(id == R.id.mydriver){
+         /*       if(id == R.id.mydriver){
                     Toast.makeText(trip.this,"Driver",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(trip.this, mydriver.class);
                     startActivity(intent);
@@ -76,10 +78,10 @@ public class trip extends AppCompatActivity {
                     Toast.makeText(trip.this,"Rider",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(trip.this, myrider.class);
                     startActivity(intent);
-                }
+                }*/
 
 
-                else if(id == R.id.myprofile){
+                if(id == R.id.myprofile){
                     Toast.makeText(trip.this,"My Profile",Toast.LENGTH_SHORT).show();
                     Intent intent = new Intent(trip.this, myprofile.class);
                     startActivity(intent);
@@ -87,6 +89,8 @@ public class trip extends AppCompatActivity {
 
                 else if(id == R.id.triprecord){
                     Toast.makeText(trip.this,"Browse Trip Record",Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(trip.this, browsetriprecord.class);
+                    startActivity(intent);
                 }
 
                 else if(id == R.id.chatroom){

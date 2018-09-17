@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".myalert"
     android:background="@drawable/bg2">
 
@@ -17,7 +18,8 @@
         android:textColor="#000"
         android:textSize="30sp"
         android:textStyle="bold"
-        android:gravity="center"/>
+        android:gravity="center"
+        app:fontFamily="@font/roboto_mono_medium"/>
 
     <Button
         android:id="@+id/ringoneday"
@@ -26,7 +28,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="165dp"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape2"
         android:text="1 Day"
         android:textColor="#fff" />
 
@@ -36,7 +38,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="285dp"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape2"
         android:text="3 Day"
         android:textColor="#fff" />
 
@@ -46,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="405dp"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape2"
         android:text="7 Day"
         android:textColor="#fff" />
 
@@ -59,9 +61,8 @@
         android:text="Back to main menu"
         android:textColor="#000"
         android:textSize="20sp"
-        android:onClick="btn_mm"/>
-
-
+        android:onClick="btn_mm"
+        app:fontFamily="@font/vidaloka"/>
 
 
 </RelativeLayout>

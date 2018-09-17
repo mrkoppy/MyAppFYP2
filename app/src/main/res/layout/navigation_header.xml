@@ -16,19 +16,24 @@
         android:layout_height="65dp"
         android:layout_marginBottom="15dp"
         android:layout_marginTop="15dp"
-        android:background="@drawable/ic_android_black_24dp" />
+        android:background="@drawable/image2" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:paddingTop="8dp"
+        android:id="@+id/currentsession"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingTop="4dp"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:id="@+id/tv_headername"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-
         android:id="@+id/tv_headeremail"/>
 
 

@@ -25,7 +25,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="119dp"
-            android:background="#ccccff"
+            android:background="@drawable/buttonshape"
             android:text="@string/driver"
             android:onClick="btn_mainmenu_Rdriver"/>
 
@@ -36,7 +36,7 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="183dp"
-            android:background="#ccccff"
+            android:background="@drawable/buttonshape2"
             android:text="@string/rider"
             android:onClick="btn_mainmenu_Rrider"/>
 

@@ -19,27 +19,26 @@
         android:text="@string/welcome_to_driver_page"
         android:textSize="20sp" />
 
-    <Button
-        android:id="@+id/btnmydriverback"
-        android:layout_width="180dp"
-        android:layout_height="50dp"
+    <TextView
+        android:id="@+id/btmm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="12dp"
-        android:background="#D4D8DB"
-        android:onClick="mydriverbtmenu"
-        android:text="@string/return_to_main_menu_mydriver"
+        android:text="@string/back_to_main_menu"
         android:textColor="#000"
-        android:textSize="16sp" />
+        android:textSize="20sp"
+        android:onClick="mydriverbtmenu"
+        app:fontFamily="@font/vidaloka"/>
 
-    <Button
+    <!--<Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_marginBottom="118dp"
         android:text="Rating"
-        android:onClick="btn_ratings"/>
+        android:onClick="btn_ratings"/>-->
 
 <!--    <SearchView
         android:layout_width="match_parent"
@@ -56,10 +55,10 @@
 
     <Button
         android:id="@+id/btn_create_route"
-        android:layout_width="wrap_content"
+        android:layout_width="125dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#2196F3"
+        android:background="@drawable/buttonshape"
         android:onClick="createRoute"
         android:text="@string/create_route"
         android:textColor="#FFF"
@@ -67,3 +66,16 @@
 
 
 </RelativeLayout>
+
+<!--   <Button
+        android:id="@+id/btnmydriverback"
+        android:layout_width="180dp"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="12dp"
+        android:background="#D4D8DB"
+        android:onClick="mydriverbtmenu"
+        android:text="@string/return_to_main_menu_mydriver"
+        android:textColor="#000"
+        android:textSize="16sp" />-->

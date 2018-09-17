@@ -83,15 +83,30 @@
         android:id="@+id/btn_renew"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/btnReturnMainMenu"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:background="#2196F3"
+        android:layout_marginBottom="38dp"
+        android:background="@drawable/buttonshape"
         android:onClick="OnRenew"
         android:text="@string/renew"
         android:textColor="#FFF"
         android:textSize="15sp" />
 
-    <Button
+    <TextView
+        android:id="@+id/btnReturnMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:onClick="btn_redirectmainmenu1"
+        android:text="@string/return_to_main_menu"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:fontFamily="@font/vidaloka"/>
+
+</RelativeLayout>
+
+<!--<Button
         android:id="@+id/btnReturnMainMenu"
         android:layout_width="200dp"
         android:layout_height="50dp"
@@ -100,6 +115,4 @@
         android:background="#D4D8DB"
         android:text="@string/return_to_main_menu"
         android:textSize="15sp"
-        android:onClick="btn_redirectmainmenu1"/>
-
-</RelativeLayout>
+        android:onClick="btn_redirectmainmenu1"/>-->

@@ -3,7 +3,6 @@ package com.example.mrkoppy.myappfyp;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import android.media.MediaPlayer;
 import android.media.Ringtone;
 import android.media.RingtoneManager;
 import android.net.Uri;
@@ -14,8 +13,6 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class AlertRing extends BroadcastReceiver {
-
-    private MediaPlayer mediaPlayer;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
