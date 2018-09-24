@@ -47,9 +47,15 @@ public class Login extends AppCompatActivity {
             password = PasswordEt.getText().toString();
             type = "login";
 
+            if(username.equals("admin")||username.equals("Admin")&& password.equals("admin1234")|| password.equals("Admin1234")){
+                Intent intent = new Intent(this, adminpanel.class);
+                startActivity(intent);
+            }
 
+            else{
             BackgroundWorker backgroundWorker = new BackgroundWorker(this);
             backgroundWorker.execute(type, username, password);
+            }
 
             //validation();
 

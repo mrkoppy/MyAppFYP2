@@ -7,19 +7,6 @@
     tools:context=".myrider"
     android:background="@drawable/bg2">
 
-    <!--<SearchView
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true"
-        android:actionBarWidgetTheme="@android:style/Theme.Holo"
-        android:background="#fff"
-        android:gravity="fill_vertical"
-        android:orientation="vertical"
-        android:textColorHint="#FF0000"
-        android:queryHint="@string/Myrider_booking"
-        android:layout_alignParentLeft="true" />-->
-
     <TextView
         android:id="@+id/tv_availableRideHere"
         android:layout_width="match_parent"

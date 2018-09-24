@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".adminpanel"
+    android:background="@drawable/bg2">
+
+    <TextView
+        android:id="@+id/alluser"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:gravity="center"
+        android:text="@string/all_user"
+        android:textColor="#000"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/roboto_mono_medium" />
+
+    <include layout="@layout/adminpanel_middlelayout"
+        android:id="@+id/middlelo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/alluser"/>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/alluserdata"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/middlelo">
+
+    </android.support.v7.widget.RecyclerView>
+
+    <TextView
+        android:id="@+id/btnReturnMainMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/alluser"
+        android:layout_alignParentBottom="true"
+        android:onClick="Logout"
+        android:text="Log Out"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:fontFamily="@font/vidaloka"
+        android:layout_alignRight="@+id/alluser" />
+
+    <TextView
+        android:id="@+id/btndeleteuser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginStart="63dp"
+        android:onClick="deleteuser"
+        android:text="Delete user"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:fontFamily="@font/vidaloka"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="63dp" />
+
+</RelativeLayout>

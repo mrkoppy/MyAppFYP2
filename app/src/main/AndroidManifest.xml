@@ -69,6 +69,7 @@
         </receiver>
 
         <activity android:name=".browsetriprecord" />
+        <activity android:name=".adminpanel" />
     </application>
 
 </manifest>

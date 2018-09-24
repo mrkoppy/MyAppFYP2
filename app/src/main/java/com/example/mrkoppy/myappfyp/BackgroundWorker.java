@@ -61,6 +61,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String booking_url = "http://192.168.0.103/updatebybooktrip.php";
         String reset = "http://192.168.0.103/Resetpassword.php";
         String chatroom = "http://192.168.0.103/chatroom.php";
+        String getcurrenttrip = "http://192.168.0.103/selectcurrenttrip.php";
+        String deleteuser = "http://192.168.0.103/deleteuser.php";
         /*Uni*/
         /*String login_url = "http://192.168.43.41/login.php";
         String register_url = "http://192.168.43.41/register.php";
@@ -69,7 +71,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String register_route_url = "http://192.168.43.41/driver_route.php";
         String booking_url = "http://192.168.43.41/updatebybooktrip.php";
         String reset = "http://192.168.43.41/Resetpassword.php";
-        String chatroom = "http://192.168.43.41/chatroom.php";*/
+        String chatroom = "http://192.168.43.41/chatroom.php";
+        String getcurrenttrip = "http://192.168.43.41/selectcurrenttrip.php";
+        String deleteuser = "http://192.168.43.41/deleteuser.php";*/
         sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
 
             if(type.equals("login")){
@@ -395,17 +399,51 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 }
             } else if (type.equals("getcurrenttrip")){
                 try {
-                    String groupname = params[1];
                     String username = sharedpre.getString("user_name", "");
-                    URL url = new URL(chatroom);
+                    Log.i("HEI IM ANSWER", username);
+                    URL url = new URL(getcurrenttrip);
                     HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
                     httpURLConnection.setRequestMethod("POST");
                     httpURLConnection.setDoOutput(true);
                     httpURLConnection.setDoInput(true);
                     OutputStream outputStream = httpURLConnection.getOutputStream();
                     BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
-                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8") +"&"
-                            +URLEncoder.encode("ChatroomName","UTF-8")+"="+URLEncoder.encode(groupname,"UTF-8");
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (type.equals("deleteuser")){
+                try {
+                    String username = sharedpre.getString("user_name", "");
+                    String userID = sharedpre.getString("UserID","");
+
+                    URL url = new URL(deleteuser);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8");
                     bufferedWriter.write(post_data);
                     bufferedWriter.flush();
                     bufferedWriter.close();
@@ -540,11 +578,53 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             });
         }
 
+        else if(result.equals("Delete User Successfully")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    TextView Delete;
+                    Delete= new TextView(context);
+                    /*String value = */
+                    alertDialog.setView(Delete);
+                }
+            });
+        }
+
         else{
             try{
+                /*jsonArray = jsonObject.getJSONArray("server_response");*/
+//                new JSONObject("result");
+                Log.i("result", result);
                 JSONObject obj = new JSONObject(result);
+                jsonArray = obj.getJSONArray("server_response");
+                Log.i("result", result);
                 if (obj.getString("result").equals("Testing 123")) {
                     jsonArray = obj.getJSONArray("server_response");
+//                    final int totalnumber = jsonArray.length();
+//                    got 5 object but outcome is 3 only
+                    for (int a = 0; a<=jsonArray.length(); a++){
+
+                        JSONObject obj1 = jsonArray.getJSONObject(a);
+                        String origin = obj1.getString("Start_name");
+                        String destination = obj1.getString("End_name");
+                        String date = obj1.getString("DateNTime");
+                        String ans = "Origin: " + "\n" + origin + "\n" + "\n" + "Destinaton: " + "\n" + destination + "\n" + "\n" + "Date: "
+                                     + "\n"+ date + "\n" + "\n" ;
+                        Log.i("Origin", origin);
+                        Log.i("Destination",destination);
+                        Log.i("Date", date);
+                        alertDialog.setMessage(ans);
+                    }
+                    /*JSONObject obj1 = jsonArray.getJSONObject(0);
+                    String origin = obj1.getString("Start_name");
+                    String destination = obj1.getString("End_name");
+                    String date = obj1.getString("DateNTime");
+                    Log.i("HEHEHEH", origin);
+                    Log.i("SSSSSSS",destination);
+                    Log.i("SSSSSAA", date);
+                    alertDialog.setMessage("1");*/
+                    /*obj.getString("End_name");
+                    obj.getString("DateNTime");*/
                 }
                 else alertDialog.show();
             } catch (JSONException e) {
@@ -563,7 +643,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     }
 
     public JSONArray jsonArray(){
-        return  jsonArray;
+        return jsonArray;
     }
 
 }

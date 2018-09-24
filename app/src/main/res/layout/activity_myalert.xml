@@ -29,7 +29,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="165dp"
         android:background="@drawable/buttonshape2"
-        android:text="1 Day"
+        android:text="@string/_1_day"
         android:textColor="#fff" />
 
     <Button
@@ -39,7 +39,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="285dp"
         android:background="@drawable/buttonshape2"
-        android:text="3 Day"
+        android:text="@string/_3_day"
         android:textColor="#fff" />
 
     <Button
@@ -49,7 +49,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="405dp"
         android:background="@drawable/buttonshape2"
-        android:text="7 Day"
+        android:text="@string/_7_day"
         android:textColor="#fff" />
 
     <TextView
@@ -58,7 +58,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:text="Back to main menu"
+        android:text="@string/back_to_main_menu"
         android:textColor="#000"
         android:textSize="20sp"
         android:onClick="btn_mm"

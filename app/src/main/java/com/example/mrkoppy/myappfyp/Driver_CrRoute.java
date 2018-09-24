@@ -105,7 +105,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver__cr_route);
+        setContentView(R.layout.activity_driver_cr_route);
 
         btnShowCoord1 = (Button)findViewById(R.id.buttonStartGetCoordinate);
         btnShowCoord2 = (Button)findViewById(R.id.buttonEndGetCoordinate);

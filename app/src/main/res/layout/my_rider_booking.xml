@@ -4,11 +4,12 @@
     android:layout_width="match_parent"
     android:layout_height="175dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_marginTop="15dp"
-    android:background="#ffdab3"
+    android:layout_marginTop="7dp"
+    android:background="@drawable/buttonshape3"
     android:clickable="true"
     android:focusable="true"
     android:theme="@style/NoActionBar">
+    <!--ffdab3-->
 
     <RelativeLayout
         android:layout_width="190dp"
@@ -109,7 +110,8 @@
                 android:text="Time : "
                 android:textColor="#000"
                 android:textSize="12sp"
-                app:fontFamily="@font/cabin"/>
+                app:fontFamily="@font/cabin"
+                android:layout_alignParentLeft="true" />
 
         </RelativeLayout>
 
@@ -225,7 +227,8 @@
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_alignParentLeft="true">
 
             <RelativeLayout
                 android:id="@+id/left"
@@ -288,7 +291,9 @@
                     android:layout_alignParentStart="true"
                     android:layout_alignParentTop="true"
                     android:layout_marginStart="16dp"
-                    android:background="#02FF02" />
+                    android:background="#02FF02"
+                    android:layout_alignParentLeft="true"
+                    android:layout_marginLeft="16dp" />
 
                 <TextView
                     android:id="@+id/tv_green"
@@ -376,7 +381,8 @@
                     android:layout_alignParentStart="true"
                     android:gravity="center"
                     android:text="S2"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:layout_alignParentLeft="true" />
 
             </RelativeLayout>
             <!--Layout for S2 -->
@@ -397,7 +403,8 @@
                     android:layout_alignParentStart="true"
                     android:gravity="center"
                     android:text="S3"
-                    android:textSize="12sp" />
+                    android:textSize="12sp"
+                    android:layout_alignParentLeft="true" />
 
             </RelativeLayout>
 
