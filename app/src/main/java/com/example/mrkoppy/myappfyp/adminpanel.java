@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -37,11 +38,6 @@ public class adminpanel extends AppCompatActivity implements my_alluser_interfac
         startActivity(intent);
     }
 
-    @Override
-    public void onClick(Post_alluser post) {
-
-    }
-
     public void deleteuser(View view){
 
         TextView txtclose;
@@ -68,6 +64,15 @@ public class adminpanel extends AppCompatActivity implements my_alluser_interfac
                 backgroundWorker.execute(type, Deleteuser);
             }
         });
+    }
+
+    @Override
+    public void onClick(Post_alluser post) {
+        Log.i("Name : ", post.Name);
+        Intent intent = new Intent(this, alluserdatainsidedata.class);
+        intent.putExtra("post", post);
+        startActivity(intent);
+
     }
 
 }

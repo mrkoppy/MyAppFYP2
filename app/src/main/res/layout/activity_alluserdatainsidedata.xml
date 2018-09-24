@@ -1,0 +1,430 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".alluserdatainsidedata"
+    android:background="@drawable/bg2">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <RelativeLayout
+            android:id="@+id/toplayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/buttonshape3"
+            android:layout_alignParentLeft="true">
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:text="User Details"
+                android:textSize="20sp"
+                app:fontFamily="@font/roboto_mono_medium" />
+        </RelativeLayout>
+
+        <!--Inside middle layer first layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/toplayout"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/userNameD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Name : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/userNameDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/userNameD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_nameD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer first layer-->
+
+        <!--Inside middle layer second layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails1"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/genderD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Gender : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/genderDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/genderD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_genderD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer second layer-->
+
+        <!--Inside middle layer third layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails2"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/emailD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Email : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/emailDOutut"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/emailD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_emailD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer third layer-->
+
+        <!--Inside middle layer fouth layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails3"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/mobileD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mobile Number : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/mobileDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/mobileD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_60"
+                    android:layout_width="78dp"
+                    android:layout_height="20dp"
+                    android:gravity="end"
+                    android:text="0"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+                <TextView
+                    android:id="@+id/tv_mobileD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer fouth layer-->
+
+        <!--Inside middle layer fifth layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails4"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/postcodeD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Postcode : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/postcodeDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/postcodeD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_postcodeD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer fifth layer-->
+
+        <!--Inside middle layer sixth layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails5"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/studentIDD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Student ID : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/studentIDDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/studentIDD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_studentIDD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer sixth layer-->
+
+        <!--Inside middle layer seventh layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails6"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/carplateD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Carplate : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/carplateDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/carplateD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_carplateD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer seventh layer-->
+
+        <!--Inside middle layer eightth layer-->
+        <RelativeLayout
+            android:id="@+id/userdetails8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/userdetails7"
+            android:background="@drawable/buttonshape3">
+
+            <RelativeLayout
+                android:id="@+id/carseatsD"
+                android:layout_width="150dp"
+                android:layout_height="55dp"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Car seats : "
+                    android:textSize="15sp"
+                    android:textColor="#000"
+                    app:fontFamily="@font/cabin"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/carseatsDOutput"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_toRightOf="@+id/carseatsD"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/tv_carseatsD"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="#000"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/cabin" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+        <!--Inside middle layer eightth layer-->
+
+        <Button
+            android:id="@+id/btn_backtoalluser"
+            android:layout_width="wrap_content"
+            android:layout_height="33dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/buttonshape"
+            android:onClick="btn_back"
+            android:text="Back"
+            android:textColor="#fff"
+            android:textSize="12sp" />
+
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

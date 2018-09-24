@@ -70,6 +70,7 @@
 
         <activity android:name=".browsetriprecord" />
         <activity android:name=".adminpanel" />
+        <activity android:name=".alluserdatainsidedata" />
     </application>
 
 </manifest>

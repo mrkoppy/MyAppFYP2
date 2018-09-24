@@ -5,6 +5,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
     android:layout_marginTop="5dp">
 
     <RelativeLayout
@@ -50,6 +52,66 @@
             android:layout_alignParentRight="true"
             android:layout_marginRight="69dp"
             app:fontFamily="@font/cabin"/>
+
+        <TextView
+            android:id="@+id/userGender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Gender"
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
+
+        <TextView
+            android:id="@+id/userMobile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Gender"
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
+
+        <TextView
+            android:id="@+id/userPostcode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Gender"
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
+
+        <TextView
+            android:id="@+id/userStuID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Gender"
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
+
+        <TextView
+            android:id="@+id/userCarplate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Gender"
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
+
+        <TextView
+            android:id="@+id/userCarseats"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="0dp"
+            android:text="Gender"
+            android:textColor="@android:color/transparent"
+            android:textSize="0sp" />
     </RelativeLayout>
 
 </LinearLayout>

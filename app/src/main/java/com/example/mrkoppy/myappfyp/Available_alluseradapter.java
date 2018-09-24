@@ -44,6 +44,12 @@ public class Available_alluseradapter extends RecyclerView.Adapter<Available_all
         holder.tv_StudentID = (TextView) view.findViewById(R.id.userStudentID);
 //        holder.tv_mobile = (TextView) view.findViewById(R.id.userMobile);
         holder.tv_Email = (TextView) view.findViewById(R.id.userEmail);
+        holder.tv_gender = (TextView) view.findViewById(R.id.userGender);
+        holder.tv_mobile = (TextView) view.findViewById(R.id.userMobile);
+        holder.tv_postcode = (TextView) view.findViewById(R.id.userPostcode);
+        holder.tv_studentid = (TextView) view.findViewById(R.id.userStuID);
+        holder.tv_Carplate = (TextView) view.findViewById(R.id.userCarplate);
+        holder.tv_Carseats = (TextView) view.findViewById(R.id.userCarseats);
 
         return holder;
     }
@@ -56,19 +62,28 @@ public class Available_alluseradapter extends RecyclerView.Adapter<Available_all
         holder.tv_Name.setText(post.Name);
         holder.tv_Email.setText(post.Email);
         holder.tv_StudentID.setText(post.StudentID);
+        holder.tv_Email.setText(post.Email);
+        holder.tv_gender.setText(post.Gender);
+        holder.tv_mobile.setText(post.Mobile);
+        holder.tv_postcode.setText(post.Postcode);
+        holder.tv_studentid.setText(post.StudentID);
+        holder.tv_Carplate.setText(post.Carplate);
+        holder.tv_Carseats.setText(post.Carseats);
 //        holder.tv_mobile.setText(post.Mobile);
         Log.i("JJJJJJJJ", post.Name);
         Log.i("SSSSSSSSSSSSSS",post.Email);
         Log.i("SSSAAA",post.StudentID);
-
-
+        Log.i("SSSSSSS",post.Email);
+        Log.i("aaa",post.Gender);
+        Log.i("SSSSavvvSSS",post.Mobile);
+        Log.i("aadsf",post.Postcode);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
-                                               @Override
-                                               public void onClick(View view) {
-                                                   my_alluser_interface.onClick(post);
-                                               }
-                                           }
+            @Override
+            public void onClick(View view) {
+                my_alluser_interface.onClick(post);
+                }
+            }
         );
     }
 
@@ -79,7 +94,7 @@ public class Available_alluseradapter extends RecyclerView.Adapter<Available_all
 
     class ViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView tv_Name,tv_Email,tv_StudentID,tv_mobile;
+        public TextView tv_Name,tv_Email,tv_StudentID,tv_mobile,tv_gender,tv_postcode,tv_studentid,tv_Carplate,tv_Carseats;
 
         public ViewHolder(View itemView) {
             super(itemView);
