@@ -15,6 +15,7 @@ public class Post_availabletrip implements Serializable{
     public String Name;
     public String Carplate;
     public String Carseat;
+    public String Status;
 
     /*Constructor for data to be passed from database*/
     public Post_availabletrip(String From, String To, String Date, String Est, String Price, String Seats_left, String Gender, String
@@ -33,7 +34,7 @@ public class Post_availabletrip implements Serializable{
     }
 
     public Post_availabletrip(int id, String From, String To, String Date, String Est, String Price, String Seats_left, String Gender, String
-            Name, String Carplate, String Carseat) {
+            Name, String Carplate, String Carseat, String Status) {
         this.id = id;
         this.From = From;
         this.To = To;
@@ -45,6 +46,7 @@ public class Post_availabletrip implements Serializable{
         this.Name = Name;
         this.Carplate = Carplate;
         this.Carseat = Carseat;
+        this.Status = Status;
 
     }
 

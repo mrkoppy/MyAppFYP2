@@ -51,6 +51,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_drivername = (TextView)view.findViewById(R.id.tv_drivername);
         holder.tv_carplate = (TextView)view.findViewById(R.id.tv_carplate);
         holder.tv_carseat = (TextView)view.findViewById(R.id.tv_carseat);
+        holder.tv_status = (TextView)view.findViewById(R.id.tv_status);
         holder.b1 = (Button)view.findViewById(R.id.ATButton1);
         holder.b2 = (Button)view.findViewById(R.id.ATButton2);
         holder.b3 = (Button)view.findViewById(R.id.ATButton3);
@@ -75,6 +76,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
         holder.tv_drivername.setText(post.Name);
         holder.tv_carplate.setText(post.Carplate);
         holder.tv_carseat.setText(post.Carseat);
+        holder.tv_status.setText(post.Status);
         Log.i("JJJJJJJJ", post.Gender);
         Log.i("SSSSSSSSSSSSSS",post.Seats_left);
         Log.i("SSSAAA",post.Carplate);
@@ -301,7 +303,7 @@ public class Availabletrip_adapter extends RecyclerView.Adapter<Availabletrip_ad
     class ViewHolder extends RecyclerView.ViewHolder {
 
         public TextView tv_availableRideFrom,tv_availableRideTo,tv_availableRideDate,tv_availableRideEST,tv_availableRidePrice
-                ,tv_availableSeats_left,tv_gender,tv_drivername,tv_carplate,tv_carseat;
+                ,tv_availableSeats_left,tv_gender,tv_drivername,tv_carplate,tv_carseat,tv_status;
         public Button b1,b2,b3,b4,b5,b6;
 
         public ViewHolder(View itemView) {

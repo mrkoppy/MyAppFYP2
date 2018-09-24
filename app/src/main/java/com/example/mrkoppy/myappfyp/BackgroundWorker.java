@@ -608,8 +608,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                         String origin = obj1.getString("Start_name");
                         String destination = obj1.getString("End_name");
                         String date = obj1.getString("DateNTime");
+                        String status = obj1.getString("Status");
                         String ans = "Origin: " + "\n" + origin + "\n" + "\n" + "Destinaton: " + "\n" + destination + "\n" + "\n" + "Date: "
-                                     + "\n"+ date + "\n" + "\n" ;
+                                     + "\n"+ date + "\n" + "\n" + "Status: " + "\n" + status;
                         Log.i("Origin", origin);
                         Log.i("Destination",destination);
                         Log.i("Date", date);

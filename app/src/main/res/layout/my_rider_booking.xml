@@ -284,6 +284,16 @@
                     android:textColor="@android:color/transparent"
                     android:textSize="0sp" />
 
+                <TextView
+                    android:id="@+id/tv_status"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:text="Going"
+                    android:textColor="@android:color/transparent"
+                    android:textSize="0sp" />
+
                 <Button
                     android:id="@+id/b1green"
                     android:layout_width="15dp"

@@ -11,7 +11,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 public class my_available_trip_insidedata extends AppCompatActivity {
-    TextView tv_origin,tv_destination,tv_estimatetime,tv_estimatecost,tvDrivername,tvGender,tvcarplate,tvdrivercarseat;
+    TextView tv_origin,tv_destination,tv_estimatetime,tv_estimatecost,tvDrivername,tvGender,tvcarplate,tvdrivercarseat,tvstatus;
     Button button_bs1,button_bs2,button_bs3,button_bs4,button_bs5,button_bs6;
     private String type;
     /*String str_postfrom;*/
@@ -48,6 +48,8 @@ public class my_available_trip_insidedata extends AppCompatActivity {
         tvcarplate.setText(post.Carplate);
         tvdrivercarseat = (TextView)findViewById(R.id.owner_carseats_output);
         tvdrivercarseat.setText(post.Carseat);
+        tvstatus = (TextView)findViewById(R.id.porg);
+        tvstatus.setText(post.Status);
         button_bs1 = (Button)findViewById(R.id.bs1);
         button_bs2 = (Button)findViewById(R.id.bs2);
         button_bs3 = (Button)findViewById(R.id.bs3);

@@ -107,6 +107,16 @@
             android:textColor="#000"
             app:fontFamily="@font/cabin" />
 
+        <TextView
+            android:id="@+id/porg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:text="Pending"
+            android:textStyle="bold"
+            android:textColor="#000"/>
+
 
     </RelativeLayout>
 
