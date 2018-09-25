@@ -63,6 +63,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String chatroom = "http://192.168.0.103/chatroom.php";
         String getcurrenttrip = "http://192.168.0.103/selectcurrenttrip.php";
         String deleteuser = "http://192.168.0.103/deleteuser.php";
+        String Commentnratings = "http://192.168.0.103/ratingsandcomments.php";
         /*Uni*/
         /*String login_url = "http://192.168.43.41/login.php";
         String register_url = "http://192.168.43.41/register.php";
@@ -73,7 +74,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String reset = "http://192.168.43.41/Resetpassword.php";
         String chatroom = "http://192.168.43.41/chatroom.php";
         String getcurrenttrip = "http://192.168.43.41/selectcurrenttrip.php";
-        String deleteuser = "http://192.168.43.41/deleteuser.php";*/
+        String deleteuser = "http://192.168.43.41/deleteuser.php";
+        String Commentnratings = "http://192.168.43.41/ratingsandcomments.php";*/
         sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
 
             if(type.equals("login")){
@@ -465,6 +467,46 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } else if (type.equals("Commentnratings")){
+                try {
+                    String username = sharedpre.getString("user_name", "");
+                    String userID = sharedpre.getString("UserID","");
+                    String routeID = params[1];
+                    String Comment = params[2];
+                    String Overallstar = params[3];
+
+                    URL url = new URL(Commentnratings);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8") +"&"
+                            +URLEncoder.encode("RouteID","UTF-8")+"="+URLEncoder.encode(routeID,"UTF-8")+"&"
+                            +URLEncoder.encode("Comment","UTF-8")+"="+URLEncoder.encode(Comment,"UTF-8")+"&"
+                            +URLEncoder.encode("Overallstar","UTF-8")+"="+URLEncoder.encode(Overallstar,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
 
@@ -590,6 +632,16 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             });
         }
 
+        else if(result.equals("Rated Route Successfully")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context,trip.class);
+                    context.startActivity(intent);
+                }
+            });
+        }
+
         else{
             try{
                 /*jsonArray = jsonObject.getJSONArray("server_response");*/
@@ -603,29 +655,26 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
 //                    final int totalnumber = jsonArray.length();
 //                    got 5 object but outcome is 3 only
                     for (int a = 0; a<=jsonArray.length(); a++){
-
                         JSONObject obj1 = jsonArray.getJSONObject(a);
+                        String route = obj1.getString("RouteID");
                         String origin = obj1.getString("Start_name");
                         String destination = obj1.getString("End_name");
                         String date = obj1.getString("DateNTime");
                         String status = obj1.getString("Status");
-                        String ans = "Origin: " + "\n" + origin + "\n" + "\n" + "Destinaton: " + "\n" + destination + "\n" + "\n" + "Date: "
-                                     + "\n"+ date + "\n" + "\n" + "Status: " + "\n" + status;
+                        String ans = "RouteID:" + "\n" + route + "\n" + "\n" +"Origin: " + "\n" + origin + "\n" + "\n" + "Destinaton: " +
+                                "\n" + destination + "\n" + "\n" + "Date: "
+                                + "\n"+ date + "\n" + "\n" + "Status: " + "\n" + status;
+                        Log.i("route", route);
                         Log.i("Origin", origin);
                         Log.i("Destination",destination);
                         Log.i("Date", date);
                         alertDialog.setMessage(ans);
+
+                        sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpre.edit();
+                        editor.putString("RouteID", route);
+                        editor.apply();
                     }
-                    /*JSONObject obj1 = jsonArray.getJSONObject(0);
-                    String origin = obj1.getString("Start_name");
-                    String destination = obj1.getString("End_name");
-                    String date = obj1.getString("DateNTime");
-                    Log.i("HEHEHEH", origin);
-                    Log.i("SSSSSSS",destination);
-                    Log.i("SSSSSAA", date);
-                    alertDialog.setMessage("1");*/
-                    /*obj.getString("End_name");
-                    obj.getString("DateNTime");*/
                 }
                 else alertDialog.show();
             } catch (JSONException e) {

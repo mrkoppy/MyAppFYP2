@@ -9,6 +9,7 @@
     android:background="@drawable/bg2">
 
     <RatingBar
+        android:id="@+id/ratingBar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:numStars="5"
@@ -17,17 +18,56 @@
         android:layout_centerHorizontal="true"/>
 
     <Button
+        android:id="@+id/btnSubmit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Submit" />
-
-    <EditText
-        android:layout_width="256dp"
-        android:layout_height="136dp"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginBottom="56dp"
+        android:layout_marginBottom="40dp"
+        android:background="@drawable/buttonshape"
+        android:text="Submit"
+        android:onClick="btnSubmit"/>
+
+    <EditText
+        android:id="@+id/commentsection"
+        android:layout_width="256dp"
+        android:layout_height="136dp"
+        android:layout_centerInParent="true"
         android:hint="Your Comment" />
+
+    <TextView
+        android:id="@+id/yourratings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignTop="@+id/point"
+        android:layout_marginStart="108dp"
+        android:text="Your rating : "
+        android:textStyle="bold"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="108dp" />
+
+    <TextView
+        android:id="@+id/point"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="63dp"
+        android:layout_toEndOf="@+id/btnSubmit"
+        android:text="Pending"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/btnSubmit" />
+
+    <TextView
+        android:id="@+id/btmm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/back_to_main_menu"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:onClick="btnmmm"/>
+
 
 </RelativeLayout>
