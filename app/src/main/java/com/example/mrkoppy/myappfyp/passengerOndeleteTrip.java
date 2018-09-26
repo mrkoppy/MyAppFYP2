@@ -42,7 +42,7 @@ public class passengerOndeleteTrip extends AppCompatActivity {
         alertDialog.setTitle("Your route ID");
 
         SharedPreferences sharedpre = getSharedPreferences("UserData", Context.MODE_PRIVATE);
-        String value= sharedpre.getString("RouteID", "Sorry");
+        String value= sharedpre.getString("RouteID", "");
         Log.d("result", value);
         tripid = new EditText(this);
         alertDialog.setView(tripid);

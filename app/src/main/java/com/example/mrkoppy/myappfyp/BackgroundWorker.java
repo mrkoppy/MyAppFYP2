@@ -249,6 +249,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         } else if (type.equals("register_route")){
                 try {
                     String username = sharedpre.getString("user_name", "");
+                    String value= sharedpre.getString("RouteID", "");
                     String start_name = params[1];
                     String end_name = params[2];
 //                    String latstartlocation = params[3];
@@ -693,6 +694,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 public void onClick(DialogInterface dialog, int id) {
                     Intent intent = new Intent(context,trip.class);
                     context.startActivity(intent);
+                    SharedPreferences sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpre.edit();
+                    editor.putString("RouteID", "");
+                    editor.apply();
                 }
             });
         }
@@ -803,10 +808,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     Log.i("Date", date);
                     alertDialog.setMessage(ans1);
 
-                    /*sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+                    sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedpre.edit();
                     editor.putString("RouteID", route);
-                    editor.apply();*/
+                    editor.apply();
                 }
 
                 if (obj.getString("result").equals("Testing 123")) {
@@ -881,8 +886,8 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         super.onProgressUpdate(values);
     }
 
-    public JSONArray jsonArray(){
-        return jsonArray;
-    }
+//    public JSONArray jsonArray(){
+//        return jsonArray;
+//    }
 
 }
