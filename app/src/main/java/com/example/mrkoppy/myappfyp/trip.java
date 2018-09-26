@@ -1,5 +1,7 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -8,7 +10,9 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
@@ -130,6 +134,32 @@ public class trip extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return abdt.onOptionsItemSelected(item) || super.onOptionsItemSelected(item);
+    }
+
+    public void btn_fb(View view){
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Have any feedback? Chat with admin in admin room");
+
+        SharedPreferences sharedpre = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String value= sharedpre.getString("user_name", "Sorry");
+        Log.d("result", value);
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                Intent intent = new Intent(trip.this,Chatroom.class);
+                startActivity(intent);
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+
+            }
+        });
+
+        alertDialog.show();
     }
 
 }

@@ -40,6 +40,19 @@
             android:text="@string/rider"
             android:onClick="btn_mainmenu_Rrider"/>
 
+        <Button
+            android:id="@+id/btn_feedback"
+            android:layout_width="70dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:background="@drawable/buttonshape"
+            android:onClick="btn_fb"
+            android:text="Feedback"
+            android:textColor="#ff0000"
+            android:textSize="12sp" />
+
     </RelativeLayout>
     <android.support.design.widget.NavigationView
         android:layout_width="match_parent"
