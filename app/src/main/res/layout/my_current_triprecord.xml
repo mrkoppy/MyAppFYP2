@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    android:background="@drawable/bg2"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="#ffdab3">
+
+        <RelativeLayout
+            android:id="@+id/left_RL"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:background="@color/wallet_hint_foreground_holo_dark">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Your Trip Details"
+                android:textColor="#fff"
+                android:textSize="20sp" />
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/right_RL"
+            android:layout_width="190dp"
+            android:layout_height="match_parent"
+            android:layout_toEndOf="@+id/left_RL"
+            android:layout_toRightOf="@+id/left_RL">
+
+            <!--First row origin-->
+            <RelativeLayout
+                android:id="@+id/tvFrom1"
+                android:layout_width="45dp"
+                android:layout_height="45dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Origin : "
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/from1"
+                android:layout_width="155dp"
+                android:layout_height="45dp"
+                android:layout_alignParentTop="true"
+                android:layout_toEndOf="@+id/tvFrom1"
+                android:layout_toRightOf="@+id/tvFrom1">
+
+                <TextView
+                    android:id="@+id/tv_avRideFrom"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginTop="0dp"
+                    android:text="MMU Cyberjaya"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tvTo1"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/tvFrom1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="To : "
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/to1"
+                android:layout_width="155dp"
+                android:layout_height="45dp"
+                android:layout_below="@+id/from1"
+                android:layout_toEndOf="@+id/tvTo1"
+                android:layout_toRightOf="@+id/tvTo1">
+
+                <TextView
+                    android:id="@+id/tv_avRideTo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:text="Sungai Long,Kedah : "
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/tvDate1"
+                android:layout_width="45dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/tvTo1">
+
+                <TextView
+                    android:id="@+id/textdate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/date_rider_booking"
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_alignParentStart="true"
+                    android:text="Time : "
+                    android:textColor="#000"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/date1"
+                android:layout_width="155dp"
+                android:layout_height="30dp"
+                android:layout_below="@+id/to1"
+                android:layout_toRightOf="@id/tvDate1">
+
+                <TextView
+                    android:id="@+id/tv_avRideDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2018-08-30 15:10:00"
+                    android:textColor="#000"
+                    android:textSize="13sp" />
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</LinearLayout>

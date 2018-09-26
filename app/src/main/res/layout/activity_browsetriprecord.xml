@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".browsetriprecord"
+    android:background="@drawable/bg2">
+
+    <!--Top bar-->
+  <!--  <RelativeLayout
+        android:id="@+id/triprecord_topbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">-->
+    <TextView
+        android:id="@+id/makesure"
+        android:layout_width="250dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:text="Check your current trip before comment"
+        android:textColor="#000"
+        android:textSize="15sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:fontFamily="@font/roboto_mono_medium"/>
+
+
+    <Button
+        android:id="@+id/btn_currenttrip"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="120dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="onCurrenttrip"
+        android:text="@string/current_trip"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_deletetrip"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="225dp"
+        android:background="@drawable/buttonshape2"
+        android:onClick="onDeleteTrip"
+        android:text="Delete Trip"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_comment"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="330dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="gcomment"
+        android:text="@string/comment"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
+    <!--<Button
+        android:id="@+id/btn_completedtrip"
+        android:layout_width="150sp"
+        android:layout_height="50sp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginEnd="19dp"
+        android:layout_marginTop="22dp"
+        android:background="#2196F3"
+        android:text="@string/completed_trip"
+        android:textColor="#FFF"
+        android:textSize="15sp"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="19dp"
+        android:onClick=""/>-->
+
+        <!--<Button
+            android:id="@+id/button2"
+            android:layout_width="59dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/btn_completedtrip" />-->
+
+    <!--</RelativeLayout>-->
+
+    <!--<android.support.v7.widget.RecyclerView
+        android:id="@+id/fetch_triprecord_CT"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/triprecord_topbar"
+        android:layout_above="@+id/btmm_btn">
+
+    </android.support.v7.widget.RecyclerView>-->
+
+    <TextView
+        android:id="@+id/btmm_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/back_to_main_menu"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:onClick="btnmmm"/>
+
+</RelativeLayout>
