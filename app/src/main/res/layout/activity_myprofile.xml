@@ -47,6 +47,29 @@
         android:layout_marginTop="123dp"
         app:srcCompat="@drawable/ic_action_ppl" />
 
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="246dp"
+        android:text="Current username: "
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/roboto_mono_medium" />
+
+    <TextView
+        android:id="@+id/currentusernameoutput"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:text="HELLO"
+        android:textColor="#000"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        app:fontFamily="@font/roboto_mono_medium" />
+
     <EditText
         android:id="@+id/et_updateusername"
         android:layout_width="350dp"

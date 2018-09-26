@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 public class mydriver extends AppCompatActivity { ;
+    private String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,19 +21,26 @@ public class mydriver extends AppCompatActivity { ;
     }
 
     public void createRoute(View view){
-        /*String type = "create_route";
-        Bgworker_vehicle bgworker_vehicle = new Bgworker_vehicle(mydriver.this);
-        bgworker_vehicle.execute();*/
 
-        /*if () ;*/
         Intent intent = new Intent(this, Driver_CrRoute.class);
         startActivity(intent);
+
     }
 
-    public void btn_ratings(View view){
-        Intent intent = new Intent(this, ratings_comment.class);
+    public void driverdeleteRoute(View view){
+        Intent intent = new Intent(this,ensuredeleteroute.class);
         startActivity(intent);
+
     }
+
+    public void drivercurrentroute(View view){
+        type = "drivergetroutedetails";
+
+        BackgroundWorker backgroundWorker = new BackgroundWorker(mydriver.this);
+        backgroundWorker.execute(type);
+    }
+
+
 
 
 }

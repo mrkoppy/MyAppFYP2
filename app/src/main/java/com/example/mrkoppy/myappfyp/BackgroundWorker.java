@@ -35,7 +35,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
     AlertDialog alertDialog;
     EditText name;
     SharedPreferences sharedpre;
-    JSONArray jsonArray;
+    JSONArray jsonArray,jsonArray1;
 
     BackgroundWorker(Context ctx){
         context = ctx;
@@ -64,6 +64,9 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String getcurrenttrip = "http://192.168.0.103/selectcurrenttrip.php";
         String deleteuser = "http://192.168.0.103/deleteuser.php";
         String Commentnratings = "http://192.168.0.103/ratingsandcomments.php";
+        String drivergetroutedetails = "http://192.168.0.103/drivergetroutedetails.php";
+        String driverdeleteroute = "http://192.168.0.103/driverdeleteroute.php";
+        String passengerdeletetrip = "http://192.168.0.103/passengerdeletetrip.php";
         /*Uni*/
         /*String login_url = "http://192.168.43.41/login.php";
         String register_url = "http://192.168.43.41/register.php";
@@ -507,6 +510,114 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
+            } else if (type.equals("drivergetroutedetails")){
+                try {
+                    String username = sharedpre.getString("user_name", "");
+                    Log.i("HEI IM ANSWER", username);
+                    URL url = new URL(drivergetroutedetails);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (type.equals("driverdeleteroute")){
+                try {
+                    String username = sharedpre.getString("user_name", "");
+                    String routeID = params[1];
+//                    String routeID = sharedpre.getString("RouteID","");
+                    Log.i("HEI IM ANSWER", username);
+                    URL url = new URL(driverdeleteroute);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8")+"&"
+                            +URLEncoder.encode("RouteID","UTF-8")+"="+URLEncoder.encode(routeID,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            } else if (type.equals("passengerdeletetrip")){
+                try {
+                    String username = sharedpre.getString("user_name", "");
+                    String routeID = params[1];
+//                    String routeID = sharedpre.getString("RouteID","");
+                    Log.i("HEI IM ANSWER", username);
+                    URL url = new URL(passengerdeletetrip);
+                    HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
+                    httpURLConnection.setRequestMethod("POST");
+                    httpURLConnection.setDoOutput(true);
+                    httpURLConnection.setDoInput(true);
+                    OutputStream outputStream = httpURLConnection.getOutputStream();
+                    BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8"));
+                    String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8")+"&"
+                            +URLEncoder.encode("RouteID","UTF-8")+"="+URLEncoder.encode(routeID,"UTF-8");
+                    bufferedWriter.write(post_data);
+                    bufferedWriter.flush();
+                    bufferedWriter.close();
+                    outputStream.close();
+                    InputStream inputStream = httpURLConnection.getInputStream();
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream,"iso-8859-1"));
+                    String result="";
+                    String line="";
+                    while((line = bufferedReader.readLine())!= null){
+                        result += line;
+                    }
+                    bufferedReader.close();
+                    inputStream.close();
+                    httpURLConnection.disconnect();
+                    return result;
+
+
+                } catch (MalformedURLException e) {
+                    e.printStackTrace();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
             }
 
 
@@ -642,6 +753,26 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
             });
         }
 
+        else if(result.equals("Deleted Route Successfully")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context,trip.class);
+                    context.startActivity(intent);
+                }
+            });
+        }
+
+        else if(result.equals("Deleted Trip Successfully")){
+            alertDialog.setButton("ok", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int id) {
+                    Intent intent = new Intent(context,trip.class);
+                    context.startActivity(intent);
+                }
+            });
+        }
+
         else{
             try{
                 /*jsonArray = jsonObject.getJSONArray("server_response");*/
@@ -649,7 +780,32 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                 Log.i("result", result);
                 JSONObject obj = new JSONObject(result);
                 jsonArray = obj.getJSONArray("server_response");
+
                 Log.i("result", result);
+
+                for (int a = 0; a<=jsonArray.length(); a++) {
+                    JSONObject obj2 = jsonArray.getJSONObject(a);
+                    String route = obj2.getString("RouteID");
+                    String origin = obj2.getString("Start_name");
+                    String destination = obj2.getString("End_name");
+                    String date = obj2.getString("DateNTime");
+                    String status = obj2.getString("Status");
+                    String ans1 = "RouteID:" + "\n" + route + "\n" + "\n" + "Origin: " + "\n" + origin + "\n" + "\n" + "Destination: " +
+                            "\n" + destination + "\n" + "\n" + "Date: "
+                            + "\n" + date + "\n" + "\n" + "Status: " + "\n" + status;
+                    Log.i("ANS", ans1);
+                    Log.i("route", route);
+                    Log.i("Origin", origin);
+                    Log.i("Destination", destination);
+                    Log.i("Date", date);
+                    alertDialog.setMessage(ans1);
+
+                    sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sharedpre.edit();
+                    editor.putString("RouteID", route);
+                    editor.apply();
+                }
+
                 if (obj.getString("result").equals("Testing 123")) {
                     jsonArray = obj.getJSONArray("server_response");
 //                    final int totalnumber = jsonArray.length();
@@ -661,7 +817,7 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                         String destination = obj1.getString("End_name");
                         String date = obj1.getString("DateNTime");
                         String status = obj1.getString("Status");
-                        String ans = "RouteID:" + "\n" + route + "\n" + "\n" +"Origin: " + "\n" + origin + "\n" + "\n" + "Destinaton: " +
+                        String ans = "RouteID:" + "\n" + route + "\n" + "\n" +"Origin: " + "\n" + origin + "\n" + "\n" + "Destination: " +
                                 "\n" + destination + "\n" + "\n" + "Date: "
                                 + "\n"+ date + "\n" + "\n" + "Status: " + "\n" + status;
                         Log.i("route", route);
@@ -676,7 +832,37 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                         editor.apply();
                     }
                 }
-                else alertDialog.show();
+
+                else if (obj.getString("driver").equals("Testing 234")){
+                    jsonArray = obj.getJSONArray("server_response");
+
+                    for (int a = 0; a<=jsonArray.length(); a++){
+                        JSONObject obj2 = jsonArray.getJSONObject(a);
+                        String route = obj2.getString("RouteID");
+                        String origin = obj2.getString("Start_name");
+                        String destination = obj2.getString("End_name");
+                        String date = obj2.getString("DateNTime");
+                        String status = obj2.getString("Status");
+                        String ans1 = "RouteID:" + "\n" + route + "\n" + "\n" +"Origin: " + "\n" + origin + "\n" + "\n" + "Destination: " +
+                                "\n" + destination + "\n" + "\n" + "Date: "
+                                + "\n"+ date + "\n" + "\n" + "Status: " + "\n" + status;
+                        Log.i("ANS" , ans1);
+                        Log.i("route", route);
+                        Log.i("Origin", origin);
+                        Log.i("Destination",destination);
+                        Log.i("Date", date);
+                        alertDialog.setMessage(ans1);
+
+                        sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+                        SharedPreferences.Editor editor = sharedpre.edit();
+                        editor.putString("RouteID", route);
+                        editor.apply();
+                    }
+                }
+
+                else {
+                    alertDialog.show();
+                }
             } catch (JSONException e) {
                 e.printStackTrace();
             }

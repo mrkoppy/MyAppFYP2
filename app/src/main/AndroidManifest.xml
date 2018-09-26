@@ -71,6 +71,8 @@
         <activity android:name=".browsetriprecord" />
         <activity android:name=".adminpanel" />
         <activity android:name=".alluserdatainsidedata" />
+        <activity android:name=".ensuredeleteroute" />
+        <activity android:name=".passengerOndeleteTrip"></activity>
     </application>
 
 </manifest>

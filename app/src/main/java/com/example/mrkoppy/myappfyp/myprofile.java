@@ -1,16 +1,19 @@
 package com.example.mrkoppy.myappfyp;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class myprofile extends AppCompatActivity {
     private EditText updateusername,updatepassword;
-    private String usernameupdate,passwordupdate,type;
+    private String usernameupdate,passwordupdate,type,yourname;
     private Button udupdate;
+    private TextView youtusername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,6 +22,11 @@ public class myprofile extends AppCompatActivity {
         updateusername = (EditText) findViewById(R.id.et_updateusername);
         updatepassword = (EditText) findViewById(R.id.et_updatepassword);
         udupdate = (Button)findViewById(R.id.btn_renew);
+        youtusername = (TextView)findViewById(R.id.currentusernameoutput);
+
+        SharedPreferences sharedpre = getSharedPreferences("UserData", MODE_PRIVATE);
+        yourname = sharedpre.getString("user_name","");
+        youtusername.setText(yourname);
 
     }
 

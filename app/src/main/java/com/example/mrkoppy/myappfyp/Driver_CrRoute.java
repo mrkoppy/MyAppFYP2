@@ -938,7 +938,7 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     }
 
     public void btn_redirect_main_menu_driver_cr_route(View view){
-        Intent intent = new Intent(this, trip.class);
+        Intent intent = new Intent(this,mydriver.class);
         startActivity(intent);
     }
 

@@ -15,10 +15,22 @@
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="13dp"
+        android:layout_marginTop="14dp"
         android:text="@string/welcome_to_driver_page"
         android:textSize="20sp"
-        app:fontFamily="@font/roboto_mono_medium"/>
+        app:fontFamily="@font/roboto_mono_medium" />
+
+    <TextView
+        android:id="@+id/mydrivercontent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="54dp"
+        android:text="Delete current route before create new route"
+        android:textSize="15sp"
+        app:fontFamily="@font/roboto_mono_medium"
+        android:textColor="#000"/>
 
     <TextView
         android:id="@+id/btmm_btn"
@@ -58,10 +70,37 @@
         android:id="@+id/btn_create_route"
         android:layout_width="125dp"
         android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="140dp"
         android:background="@drawable/buttonshape"
         android:onClick="createRoute"
         android:text="@string/create_route"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_drivercurrentroute"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="245dp"
+        android:background="@drawable/buttonshape2"
+        android:onClick="drivercurrentroute"
+        android:text="Current Route"
+        android:textColor="#FFF"
+        android:textSize="15sp" />
+
+    <Button
+        android:id="@+id/btn_driverdeleteroute"
+        android:layout_width="125dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="350dp"
+        android:background="@drawable/buttonshape"
+        android:onClick="driverdeleteRoute"
+        android:text="@string/delete_route"
         android:textColor="#FFF"
         android:textSize="15sp" />
 

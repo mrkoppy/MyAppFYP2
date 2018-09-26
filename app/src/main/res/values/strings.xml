@@ -29,7 +29,7 @@
     <string name="HUURIDE">Huuride</string>
 
     <string name="my_profile">My Profile</string>
-    <string name="browse_trip_record">Browse trip record</string>
+    <string name="browse_trip_record">Browse route record</string>
     <string name="group_chatroom">Group Chatroom</string>
     <string name="alert">Alert</string>
 
@@ -71,6 +71,7 @@
     <string name="create_your_route_here">Create Your Route Here</string>
     <string name="confirm_location1">Y</string>
     <string name="confirm_location2">Y</string>
+    <string name="delete_route">Delete Route</string>
 
     <!--activity_trip.xml-->
     <string name="driver">Driver</string>
@@ -93,8 +94,10 @@
     <string name="_3_day">3 Day</string>
     <string name="_7_day">7 Day</string>
     <string name="back_to_main_menu">Back to main menu</string>
+
     <string name="all_user">All user</string>
     <string name="comment">Comment</string>
+
 
     <!--admin panel-->
 
