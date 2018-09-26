@@ -33,11 +33,13 @@
         android:id="@+id/alluserdata"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/middlelo">
+        android:layout_below="@+id/middlelo"
+        android:layout_above="@+id/b11b1">
 
     </android.support.v7.widget.RecyclerView>
 
     <TextView
+        android:id="@+id/b11b1"
         android:layout_width="180dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
