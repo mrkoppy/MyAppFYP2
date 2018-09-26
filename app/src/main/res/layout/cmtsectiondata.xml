@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/buttonshape3"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!--First outer-->
+    <RelativeLayout
+        android:id="@+id/a1"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:gravity="center">
+
+        <RelativeLayout
+            android:id="@+id/first"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/cmtsectiondataUserID"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="UserID"
+                android:textColor="#000"
+                app:fontFamily="@font/cabin"
+                android:gravity="center"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <!--First outer-->
+
+    <!--Second outer-->
+    <RelativeLayout
+        android:id="@+id/a2"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/a1">
+
+
+        <RelativeLayout
+            android:id="@+id/second"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/cmtsectiondataRouteID"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="RouteID"
+                android:textColor="#000"
+                app:fontFamily="@font/cabin" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <!--Second outer-->
+
+    <!--Third outer-->
+    <RelativeLayout
+        android:id="@+id/a3"
+        android:layout_width="55dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/a2">
+
+
+        <RelativeLayout
+            android:id="@+id/third"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/cmtsectiondataOverallstar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="Overallstar"
+                android:textColor="#000"
+                app:fontFamily="@font/cabin" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <!--Third outer-->
+
+    <!--fouth outer-->
+    <RelativeLayout
+        android:id="@+id/a4"
+        android:layout_width="230dp"
+        android:layout_height="60dp"
+        android:gravity="center"
+        android:layout_toRightOf="@+id/a3">
+
+
+        <RelativeLayout
+            android:id="@+id/fouth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/cmtsectiondataComment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:gravity="center"
+                android:text="Comment"
+                android:textColor="#000"
+                app:fontFamily="@font/cabin" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+    <!--Fouth outer-->
+
+</LinearLayout>

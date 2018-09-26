@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <TextView
+            android:id="@+id/amuserid"
+            android:layout_width="55sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/buttonshape"
+            android:gravity="center"
+            android:text="UserID"
+            android:textColor="#fff"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/amrouteid"
+            android:layout_width="55sp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/buttonshape"
+            android:gravity="center"
+            android:text="RouteID"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/amuserid"/>
+
+
+        <TextView
+            android:id="@+id/amOverallstar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/buttonshape"
+            android:gravity="center"
+            android:text="OverallStar"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/amrouteid"/>
+
+        <TextView
+            android:layout_marginStart="50sp"
+            android:id="@+id/amComment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:background="@drawable/buttonshape"
+            android:gravity="center"
+            android:text="Comment"
+            android:textColor="#fff"
+            android:textStyle="bold"
+            android:layout_toRightOf="@+id/amOverallstar"
+            android:layout_marginLeft="50sp" />
+
+    </RelativeLayout>
+
+</LinearLayout>

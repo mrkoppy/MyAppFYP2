@@ -75,4 +75,9 @@ public class adminpanel extends AppCompatActivity implements my_alluser_interfac
 
     }
 
+    public void btncheckcomment(View view){
+        Intent intent = new Intent(this,commentfromusers.class);
+        startActivity(intent);
+    }
+
 }

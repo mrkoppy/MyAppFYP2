@@ -72,7 +72,9 @@
         <activity android:name=".adminpanel" />
         <activity android:name=".alluserdatainsidedata" />
         <activity android:name=".ensuredeleteroute" />
-        <activity android:name=".passengerOndeleteTrip"></activity>
+        <activity android:name=".passengerOndeleteTrip" />
+        <activity android:name=".commentfromusers" />
+        <activity android:name=".allusercommentsinsidedata"></activity>
     </application>
 
 </manifest>
