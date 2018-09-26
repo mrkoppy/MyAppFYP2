@@ -1,20 +1,25 @@
 package com.example.mrkoppy.myappfyp;
 
+import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 public class my_available_trip_insidedata extends AppCompatActivity {
     TextView tv_origin,tv_destination,tv_estimatetime,tv_estimatecost,tvDrivername,tvGender,tvcarplate,tvdrivercarseat,tvstatus;
     Button button_bs1,button_bs2,button_bs3,button_bs4,button_bs5,button_bs6;
-    private String type;
+    private String type,Sname;
     /*String str_postfrom;*/
+    private EditText name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -273,5 +278,41 @@ public class my_available_trip_insidedata extends AppCompatActivity {
     public void btn_back(View view){
         Intent intent = new Intent(this, myrider.class);
         startActivity(intent);
+    }
+
+    public void btn_chatroomt(View view){
+
+
+        final AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setTitle("Want to tell something to driver?");
+
+        SharedPreferences sharedpre = getSharedPreferences("UserData", Context.MODE_PRIVATE);
+        String value= sharedpre.getString("user_name", "Sorry");
+        Log.d("result", value);
+//        name = new EditText(this);
+//        alertDialog.setView(name);
+//        name.setText(value, TextView.BufferType.EDITABLE);
+        alertDialog.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+//                Sname = name.getText().toString();
+                Intent intent = new Intent(my_available_trip_insidedata.this,Chatroom.class);
+                startActivity(intent);
+            }
+        });
+
+        alertDialog.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.cancel();
+
+            }
+        });
+
+        alertDialog.show();
+
+
+//        Intent intent = new Intent(this,Chatroom.class);
+//        startActivity(intent);
     }
 }

@@ -511,19 +511,20 @@
         <Button
             android:id="@+id/btn_mydrivergoBD"
             android:layout_width="wrap_content"
-            android:layout_height="33dp"
+            android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@drawable/buttonshape"
             android:onClick="btn_book"
             android:text="Book"
             android:textColor="#fff"
-            android:textSize="12sp" />
+            android:textSize="12sp"
+            android:gravity="center"/>
 
         <Button
             android:id="@+id/btnRedMMMydriver_cr_routeBD"
             android:layout_width="48dp"
-            android:layout_height="26dp"
+            android:layout_height="30dp"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
@@ -532,6 +533,20 @@
             android:text="Back"
             android:textColor="#fff"
             android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/btn_chatroom"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentStart="true"
+            android:background="@drawable/buttonshape"
+            android:onClick="btn_chatroomt"
+            android:text="Chatroom"
+            android:textColor="#fff"
+            android:textSize="12sp"
+            android:layout_alignParentLeft="true" />
+
 
     </RelativeLayout>
 
