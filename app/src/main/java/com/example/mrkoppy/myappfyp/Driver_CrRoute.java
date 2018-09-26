@@ -193,16 +193,17 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                         txtCoord1_lat.setText(String.format("%s",lat));
                         txtCoord1_lng.setText(String.format("%s",lng));
-                        double d1 = Double.parseDouble(lat);
-                        double d2 = Double.parseDouble(lng);
-                        mMap.clear();
-                        mMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(d1,d2))
-                                .title("First Position")
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
-                        LatLng position = new LatLng(d1, d2);
+//                        double d1 = Double.parseDouble(lat);
+//                        double d2 = Double.parseDouble(lng);
 
-                        MarkerPoints.add(position);
+//                        mMap.clear();
+//                        mMap.addMarker(new MarkerOptions()
+//                                .position(new LatLng(d1,d2))
+//                                .title("First Position")
+//                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN)));
+//                        LatLng position = new LatLng(d1, d2);
+//
+//                        MarkerPoints.add(position);
 
 
 
@@ -269,19 +270,19 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
 
                         txtCoord2_lat.setText(String.format("%s",lat));
                         txtCoord2_lng.setText(String.format("%s",lng));
-                        double d1 = Double.parseDouble(lat);
-                        double d2 = Double.parseDouble(lng);
+//                        double d1 = Double.parseDouble(lat);
+//                        double d2 = Double.parseDouble(lng);
 
-                        mMap.addMarker(new MarkerOptions()
-                                .position(new LatLng(d1,d2))
-                                .title("Second Position")
-                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
-                        Log.i("SSSSSSSSSS", lat + "," + lng);
-
-                        MarkerOptions options = new MarkerOptions();
-                        LatLng position = new LatLng(d1, d2);
-
-                        MarkerPoints.add(position);
+//                        mMap.addMarker(new MarkerOptions()
+//                                .position(new LatLng(d1,d2))
+//                                .title("Second Position")
+//                                .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED)));
+//                        Log.i("SSSSSSSSSS", lat + "," + lng);
+//
+//                        MarkerOptions options = new MarkerOptions();
+//                        LatLng position = new LatLng(d1, d2);
+//
+//                        MarkerPoints.add(position);
 
                         Toast.makeText(Driver_CrRoute.this, "Confirmed end location", Toast.LENGTH_SHORT).show();
                         /*txtCoord2.setText(String.format("Lat for coordinate2 : %s \n" +
@@ -464,10 +465,10 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
     public void btn_registerroute(View view){
         str_startname = edtAddress1.getText().toString();
         str_endname = edtAddress2.getText().toString();
-        str_latstartlocation = txtCoord1_lat.getText().toString() ;
-        str_lngstartlocation = txtCoord1_lng.getText().toString() ;
-        str_latnendlocation = txtCoord2_lat.getText().toString();
-        str_lngendlocation = txtCoord2_lng.getText().toString();
+//        str_latstartlocation = txtCoord1_lat.getText().toString() ;
+//        str_lngstartlocation = txtCoord1_lng.getText().toString() ;
+//        str_latnendlocation = txtCoord2_lat.getText().toString();
+//        str_lngendlocation = txtCoord2_lng.getText().toString();
         str_price = edt_Price.getText().toString();
         str_seatsleft = edt_Seatsleft.getText().toString() ;
         str_datentime = tv_DateTime.getText().toString();
@@ -479,9 +480,10 @@ public class Driver_CrRoute extends FragmentActivity implements OnMapReadyCallba
         str_status = goono.getText().toString();
         type = "register_route";
 
+        /*str_latstartlocation,str_lngstartlocation,str_latnendlocation,
+                str_lngendlocation*/
         BackgroundWorker backgroundWorker = new BackgroundWorker(this);
-        backgroundWorker.execute(type, str_startname, str_endname,str_latstartlocation,str_lngstartlocation,str_latnendlocation,
-                str_lngendlocation,str_price,str_seatsleft,str_datentime,str_status,str_duration);
+        backgroundWorker.execute(type, str_startname, str_endname,str_price,str_seatsleft,str_datentime,str_status,str_duration);
     }
 
     /**

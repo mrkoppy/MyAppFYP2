@@ -22,5 +22,5 @@
     -->
 
     <!--To prevent overload of quota , if overload need to change the key-->
-    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB_UuDsncbicyrZbPhoErwHQnUQVU9P2RQ</string>
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyDtbofClyqP_hoIM0SKu_ll92c868n0X6Y</string>
 </resources>

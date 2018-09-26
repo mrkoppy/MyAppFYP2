@@ -78,7 +78,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
         String chatroom = "http://192.168.43.41/chatroom.php";
         String getcurrenttrip = "http://192.168.43.41/selectcurrenttrip.php";
         String deleteuser = "http://192.168.43.41/deleteuser.php";
-        String Commentnratings = "http://192.168.43.41/ratingsandcomments.php";*/
+        String Commentnratings = "http://192.168.43.41/ratingsandcomments.php";
+        String drivergetroutedetails = "http://192.168.43.41/drivergetroutedetails.php";
+        String driverdeleteroute = "http://192.168.43.41/driverdeleteroute.php";
+        String passengerdeletetrip = "http://192.168.43.41/passengerdeletetrip.php";*/
         sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
 
             if(type.equals("login")){
@@ -248,15 +251,15 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     String username = sharedpre.getString("user_name", "");
                     String start_name = params[1];
                     String end_name = params[2];
-                    String latstartlocation = params[3];
-                    String lngstartlocation = params[4];
-                    String latnendlocation = params[5];
-                    String lngendlocation = params[6];
-                    String price = params[7];
-                    String seats_left = params[8];
-                    String datentime = params[9];
-                    String status = params[10];
-                    String duration = params[11];
+//                    String latstartlocation = params[3];
+//                    String lngstartlocation = params[4];
+//                    String latnendlocation = params[5];
+//                    String lngendlocation = params[6];
+                    String price = params[3];
+                    String seats_left = params[4];
+                    String datentime = params[5];
+                    String status = params[6];
+                    String duration = params[7];
                     /*String username = sharedpre.getString("user_name", "");*/
                     URL url = new URL(register_route_url);
                     HttpURLConnection httpURLConnection = (HttpURLConnection)url.openConnection();
@@ -268,10 +271,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     String post_data = URLEncoder.encode("user_name","UTF-8")+"="+URLEncoder.encode(username,"UTF-8") +"&"
                             +URLEncoder.encode("Start_name","UTF-8")+"="+URLEncoder.encode(start_name,"UTF-8")+"&"
                             +URLEncoder.encode("End_name","UTF-8")+"="+URLEncoder.encode(end_name,"UTF-8") +"&"
-                            +URLEncoder.encode("Latstart_location","UTF-8")+"="+URLEncoder.encode(latstartlocation,"UTF-8") +"&"
-                            +URLEncoder.encode("Lngstart_location","UTF-8")+"="+URLEncoder.encode(lngstartlocation,"UTF-8") +"&"
-                            +URLEncoder.encode("Latend_location","UTF-8")+"="+URLEncoder.encode(latnendlocation,"UTF-8") +"&"
-                            +URLEncoder.encode("Lngend_location","UTF-8")+"="+URLEncoder.encode(lngendlocation,"UTF-8") + '&'
+//                            +URLEncoder.encode("Latstart_location","UTF-8")+"="+URLEncoder.encode(latstartlocation,"UTF-8") +"&"
+//                            +URLEncoder.encode("Lngstart_location","UTF-8")+"="+URLEncoder.encode(lngstartlocation,"UTF-8") +"&"
+//                            +URLEncoder.encode("Latend_location","UTF-8")+"="+URLEncoder.encode(latnendlocation,"UTF-8") +"&"
+//                            +URLEncoder.encode("Lngend_location","UTF-8")+"="+URLEncoder.encode(lngendlocation,"UTF-8") + '&'
                             +URLEncoder.encode("Price","UTF-8")+"="+URLEncoder.encode(price,"UTF-8") +"&"
                             +URLEncoder.encode("Seats_left","UTF-8")+"="+URLEncoder.encode(seats_left,"UTF-8") +"&"
                             +URLEncoder.encode("DateNTime","UTF-8")+"="+URLEncoder.encode(datentime,"UTF-8") +"&"
@@ -800,10 +803,10 @@ public class BackgroundWorker extends AsyncTask<String,Void,String>{
                     Log.i("Date", date);
                     alertDialog.setMessage(ans1);
 
-                    sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
+                    /*sharedpre = context.getSharedPreferences("UserData", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sharedpre.edit();
                     editor.putString("RouteID", route);
-                    editor.apply();
+                    editor.apply();*/
                 }
 
                 if (obj.getString("result").equals("Testing 123")) {
