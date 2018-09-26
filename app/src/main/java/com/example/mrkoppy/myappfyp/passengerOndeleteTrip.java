@@ -2,6 +2,7 @@ package com.example.mrkoppy.myappfyp;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
@@ -63,5 +64,10 @@ public class passengerOndeleteTrip extends AppCompatActivity {
         });
 
         alertDialog.show();
+    }
+
+    public void btn_mm(View view){
+        Intent intent = new Intent(this, browsetriprecord.class);
+        startActivity(intent);
     }
 }

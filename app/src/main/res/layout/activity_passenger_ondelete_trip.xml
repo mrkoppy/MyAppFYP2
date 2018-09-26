@@ -53,5 +53,17 @@
         android:background="@drawable/buttonshape2"
         android:onClick="PassengerEnsuredelete"/>
 
+    <TextView
+        android:id="@+id/mmrmdbefore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:text="@string/back_to_main_menu"
+        android:textColor="#000"
+        android:textSize="20sp"
+        android:onClick="btn_mm"
+        app:fontFamily="@font/vidaloka"/>
+
 
 </RelativeLayout>
