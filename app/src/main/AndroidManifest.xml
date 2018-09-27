@@ -23,7 +23,9 @@
         android:allowBackup="true"
         android:label="@string/HUURIDE"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme">
+        android:theme="@style/AppTheme"
+        android:icon="@mipmap/ic_launcher_vehicle"
+        android:roundIcon="@mipmap/ic_launcher_vehicle_round">
         <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
